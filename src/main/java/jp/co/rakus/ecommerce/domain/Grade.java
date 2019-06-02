@@ -5,6 +5,15 @@ public class Grade {
 	private int id;
 	private String name;
 	private int price;
+
+	public Grade() {}
+
+	public Grade(int id, String name, int price) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
+	}
+
 	public int getId() {
 		return id;
 	}
