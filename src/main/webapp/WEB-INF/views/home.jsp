@@ -8,7 +8,7 @@
 <title>TOP画面</title>
 </head>
 <body>
-	<h1>楽々レンタカー</h1>
+	<h1>楽楽レンタカー</h1>
 	<c:forEach var="shop" items="${shopList}">
 		<c:out value="${shop.id }" />
 		<br>
