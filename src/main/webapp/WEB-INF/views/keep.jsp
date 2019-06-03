@@ -32,35 +32,31 @@
 				予約/削除
 			</th>
 		</tr>
+	<c:forEach var="reservationCarList" items="${reservationCarList }">
 		<tr>
 			<td>
-				<img src="src/main/webapp/img/1.jpg"><br>
-				<c:out value="車種名"/><br>
+				<c:out value="${reservationCarList.carId }"/><br>
 			</td>
 			<td>
-				<c:out value="グレード名"/><br>
-				<c:out value="グレード価格"/><br>
-			</td>
-			<td>
-				<c:out value="レンタル開始日時"/><br>
+				<c:out value="${reservationCarList.startDate }"/><br>
 				〜<br>
-				<c:out value="レンタル終了日時"/><br>
+				<c:out value="${reservationCarList.endDate }"/><br>
 			</td>
 			<td>
-				<c:out value="オプション"/><br>
-				<c:out value="オプション価格"/>
+				<c:out value="${reservationCarList.option }"/><br>
 			</td>
 			<td>
 				<form action="${pageContext.request.contextPath }/reservation">
-					<input type="hidden" name="reservationId" value="${reservationCar.id }"/>
+					<input type="hidden" name="reservationId" value="${reservationCarList.id }"/>
 					<input type="submit" value="予約"/>
 				</form>
 				<form action="${pageContext.request.contextPath }/deleteKeep">
-					<input type="hidden" name="reservationId" value="${reservationCar.id }"/>
+					<input type="hidden" name="reservationId" value="${reservationCarList.id }"/>
 					<input type="submit" value="削除"/>
 				</form>
 			</td>
 		</tr>
+	</c:forEach>
 	</table>
 
 </body>

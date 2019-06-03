@@ -35,10 +35,12 @@ public class ReservationCarController {
 	//キープを表示
 	@RequestMapping(value="/show")
 	public String showCars(ReservationCarForm reservationCarForm) {
-		List<ReservationCar> reservationCarList = reservationCarService.findAll();
+		List<ReservationCar> reservationCarList = reservationCarService.findAll(1);
 		session.setAttribute("reservationCarList", reservationCarList);
+
 		return "keep";
 	}
+
 
 	//キープを予約
 	@RequestMapping(value="/reservation")
