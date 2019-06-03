@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.rakus.ecommerce.domain.Car;
 import jp.co.rakus.ecommerce.domain.Grade;
+import jp.co.rakus.ecommerce.domain.Option;
 import jp.co.rakus.ecommerce.domain.Shop;
 import jp.co.rakus.ecommerce.service.CarService;
 
@@ -21,7 +22,7 @@ public class CarController {
 
 	@Autowired
 	private CarService service;
-	
+
 	@RequestMapping(value="/")
 	public String index(Model model) {
 		List<Grade> gradeList = new ArrayList<Grade>();
@@ -32,7 +33,7 @@ public class CarController {
 		model.addAttribute("shopList", shopList);
 		return "home";
 	}
-	
+
 	@RequestMapping(value="/toCarList/{id}")
 	public String toCarList(Model model, @PathVariable Integer id) {
 		List<Car> carList = new ArrayList<Car>();
@@ -40,7 +41,7 @@ public class CarController {
 		model.addAttribute("carList", carList);
 		return "carList";
 	}
-	
+
 	@RequestMapping(value="/toCarList1/{id}")
 	public String toCarList1(Model model, @PathVariable Integer id) {
 		List<Car> carList = new ArrayList<Car>();
@@ -48,13 +49,14 @@ public class CarController {
 		model.addAttribute("carList", carList);
 		return "carList";
 	}
-		
-	
+
+
 	@RequestMapping("/detail/{id}")
 	public String showDetail(Model model, @PathVariable Integer id, @ModelAttribute ReservationCarForm form) {
 		Car car = service.findOne(id);
 		model.addAttribute("car", car);
-		service.addRadioButton(model);
+		List<Option> optionList = service.findAllOption();
+		model.addAttribute("optionList", optionList);
 		return "carDetail";
 	}
 }

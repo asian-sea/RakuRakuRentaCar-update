@@ -26,6 +26,9 @@
 		<input type="hidden" value="${car.id}"/><br>
 		開始時間<form:input path="startDate" id="flatpickr"/><br>
 		返却時間<form:input path="endDate" id="flatpickr"/><br>
+		<form:select>
+			<form:options></form:options>
+		</form:select>
 		タバコ<form:radiobuttons path="option.smoking" items="${smokeMap}"/><br>
 		ETC<form:radiobuttons path="option.etc" items="${etcMap}"/><br>
 		チャイルドシート<form:radiobuttons path="option.childSeat" items="${childSeatMap}"/><br>

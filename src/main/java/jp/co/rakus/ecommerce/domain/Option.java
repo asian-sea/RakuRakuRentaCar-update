@@ -2,26 +2,25 @@ package jp.co.rakus.ecommerce.domain;
 
 public class Option {
 
-	private int smoking;
-	private int etc;
-	private int childSeat;
-
-	public int getSmoking() {
-		return smoking;
+	private int id;
+	private String name;
+	private int price;
+	public int getId() {
+		return id;
 	}
-	public void setSmoking(int smoking) {
-		this.smoking = smoking;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public int getEtc() {
-		return etc;
+	public String getName() {
+		return name;
 	}
-	public void setEtc(int etc) {
-		this.etc = etc;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public int getChildSeat() {
-		return childSeat;
+	public int getPrice() {
+		return price;
 	}
-	public void setChildSeat(int childSeat) {
-		this.childSeat = childSeat;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 }
