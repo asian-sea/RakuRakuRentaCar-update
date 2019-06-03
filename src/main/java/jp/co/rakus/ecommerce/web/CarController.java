@@ -21,6 +21,6 @@ public class CarController {
 		Car car = service.findOne(1);
 		model.addAttribute("car", car);
 		service.addRadioButton(model);
-		return "detail";
+		return "carDetail";
 	}
 }
