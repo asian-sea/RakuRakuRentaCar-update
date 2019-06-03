@@ -1,3 +1,6 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,5 +13,9 @@
 	<h1>予約内容確認</h1>
 
 	<h2>お支払い方法</h2>
+	<form:form modelAttribute="reservationForm" action="${pageContext.request.contextPath}/reservation/fix">
+		決済方法<form:radiobuttons path="settlement" items="${settlementMap}"/><br>
+		<input type="submit" value="予約">
+	</form:form>
 </body>
 </html>
