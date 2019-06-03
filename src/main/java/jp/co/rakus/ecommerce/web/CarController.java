@@ -17,7 +17,7 @@ public class CarController {
 	private CarService service;
 
 	@RequestMapping("/detail")
-	public String detail(Model model, @ModelAttribute ReservationCarForm form) {
+	public String showDetail(Model model, @ModelAttribute ReservationCarForm form) {
 		Car car = service.findOne(1);
 		model.addAttribute("car", car);
 		service.addRadioButton(model);
