@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.rakus.ecommerce.domain.Car;
+import jp.co.rakus.ecommerce.domain.Grade;
+import jp.co.rakus.ecommerce.domain.Shop;
 import jp.co.rakus.ecommerce.service.CarService;
 
 @Controller
@@ -21,14 +23,15 @@ public class CarController {
 
 	@RequestMapping(value="/")
 	public String index(Model model) {
-		List<Car> carList = new ArrayList<Car>();
-		carList = service.findAllCar();
-		model.addAttribute("carList", carList);
-		List<Car> shopList = new ArrayList<Car>();
-		shopList = service.findAllCar();
+		List<Grade> gradeList = new ArrayList<Grade>();
+		gradeList = service.findAllGrade();
+		model.addAttribute("gradeList", gradeList);
+		List<Shop> shopList = new ArrayList<Shop>();
+		shopList = service.findAllShop();
 		model.addAttribute("shopList", shopList);
 		return "home";
 	}
+	
 		
 	
 	@RequestMapping("/detail")

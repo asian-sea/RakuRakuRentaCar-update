@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import jp.co.rakus.ecommerce.domain.Car;
+import jp.co.rakus.ecommerce.domain.Grade;
+import jp.co.rakus.ecommerce.domain.Shop;
 import jp.co.rakus.ecommerce.repository.CarRepository;
 
 @Service
@@ -17,13 +19,13 @@ public class CarService {
 	@Autowired
 	private CarRepository repository;
 	
-	public List<Car> findAllCar() {
-		List<Car> carList = repository.findAllCar();
-		return carList;
+	public List<Grade> findAllGrade() {
+		List<Grade> gradeList = repository.findAllGrade();
+		return gradeList;
 	}
 	
-	public List<Car> findAllShop(){
-		List<Car> shopList = repository.findAllShop();
+	public List<Shop> findAllShop(){
+		List<Shop> shopList = repository.findAllShop();
 		return shopList;
 	}
 
