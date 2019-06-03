@@ -1,6 +1,7 @@
 package jp.co.rakus.ecommerce.web;
 
 import java.util.Date;
+import java.util.List;
 
 import jp.co.rakus.ecommerce.domain.Option;
 
@@ -10,7 +11,7 @@ public class ReservationCarForm {
 	private int carId;
 	private Date startDate;
 	private Date endDate;
-	private Option option;
+	private List<Option> optionList;
 
 	public int getId() {
 		return id;
@@ -36,10 +37,10 @@ public class ReservationCarForm {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	public Option getOption() {
-		return option;
+	public List<Option> getOptionList() {
+		return optionList;
 	}
-	public void setOption(Option option) {
-		this.option = option;
+	public void setOptionList(List<Option> optionList) {
+		this.optionList = optionList;
 	}
 }

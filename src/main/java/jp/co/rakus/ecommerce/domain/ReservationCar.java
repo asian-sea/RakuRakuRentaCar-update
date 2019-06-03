@@ -1,6 +1,7 @@
 package jp.co.rakus.ecommerce.domain;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class ReservationCar {
 	private int id;	//OrderCarId
@@ -8,7 +9,7 @@ public class ReservationCar {
 	private int reservationId; //予約ID
 	private LocalDateTime startDate;
 	private LocalDateTime endDate;
-	private String option;
+	private List<Option> optionList;
 //	private Car car;
 //	private List reservationOptionList;
 
@@ -42,12 +43,13 @@ public class ReservationCar {
 	public void setEndDate(LocalDateTime endDate) {
 		this.endDate = endDate;
 	}
-	public String getOption() {
-		return option;
+	public List<Option> getOptionList() {
+		return optionList;
 	}
-	public void setOption(String option) {
-		this.option = option;
+	public void setOptionList(List<Option> optionList) {
+		this.optionList = optionList;
 	}
+
 
 //	public Car getCar() {
 //		return car;

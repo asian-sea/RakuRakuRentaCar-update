@@ -17,7 +17,7 @@ public class ReservationRepository {
 		car.setReservationId(rs.getInt("reservation_id"));
 		car.setStartDate(rs.getTimestamp("start_date").toLocalDateTime());
 		car.setEndDate(rs.getTimestamp("end_date").toLocalDateTime());
-		car.setOption(rs.getString("option"));
+//		car.setOption(rs.getString("option"));
 		return car;
 	};
 

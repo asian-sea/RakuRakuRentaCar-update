@@ -26,14 +26,8 @@
 		<input type="hidden" value="${car.id}"/><br>
 		開始時間<form:input path="startDate" id="flatpickr"/><br>
 		返却時間<form:input path="endDate" id="flatpickr"/><br>
-		<form:select>
-			<form:options></form:options>
-		</form:select>
-		タバコ<form:radiobuttons path="option.smoking" items="${smokeMap}"/><br>
-		ETC<form:radiobuttons path="option.etc" items="${etcMap}"/><br>
-		チャイルドシート<form:radiobuttons path="option.childSeat" items="${childSeatMap}"/><br>
+		<form:checkboxes path="optionList" items="${optionList}" itemLabel="name" delimiter="<br>"/><br>
 		<input type="submit" value="キープする"><br>
-		<input type="submit" value="予約確認画面へ"><br>
 	</form:form>
 	<script>
 		flatpickr("#flatpickr", {
