@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TOP画面</title>
 </head>
 <body>
 	<h1>楽々レンタカー</h1>
 	<c:forEach var="shop" items="${shopList}">
 		<c:out value="${shop.id }" />
 		<br>
-		<a href="<c:url value='${pageContext.request.contextPath}/carList/${shop.id }' />">
+		<a href="<c:url value='${pageContext.request.contextPath}/car/toCarList/${shop.id }' />">
 		<c:out value="${shop.name }" /></a>
 		<br>
 		<c:out value="${shop.address }" />
@@ -23,7 +23,7 @@
 	<c:forEach var="grade" items="${gradeList}">
 		<c:out value="${grade.id }" />
 		<br>
-	<a href="<c:url value='${pageContext.request.contextPath}/carList/${grade.id }' />">
+	<a href="<c:url value='${pageContext.request.contextPath}/toCarList1/${grade.id }' />">
 		<c:out value="${grade.name }" /></a>
 		<br>
 		<c:out value="${grade.price }" />

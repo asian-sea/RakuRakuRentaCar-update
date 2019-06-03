@@ -47,7 +47,6 @@ public class CarRepository {
 		shop.setAddress(rs.getString("address"));
 		
 		return shop;
-
 	};
 		
 	@Autowired
@@ -63,6 +62,14 @@ public class CarRepository {
 		String sql = "SELECT id, name, address from shops";
 		List<Shop> shopList = jdbc.query(sql, shopRowMapper);
 		return shopList;
+	}
+	
+	public List<Car> findByShopId(int id){
+		String sql = "SELECT id, name, imagePath from cars WHERE shop_id = :shopId";
+		SqlParameterSource param = new MapSqlParameterSource()
+				.addValue("shopId", id);
+		List<Car> carList = jdbc.query(sql, param,rowMapper);
+		return carList;
 	}
 
 	public Car findOne(int id) {

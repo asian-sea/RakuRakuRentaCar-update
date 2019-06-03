@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.rakus.ecommerce.domain.Car;
@@ -20,7 +21,7 @@ public class CarController {
 
 	@Autowired
 	private CarService service;
-
+	
 	@RequestMapping(value="/")
 	public String index(Model model) {
 		List<Grade> gradeList = new ArrayList<Grade>();
@@ -32,6 +33,18 @@ public class CarController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/toCarList/{id}")
+	public String toCarList(Model model, @PathVariable Integer id) {
+		List<Car> carList = new ArrayList<Car>();
+		carList = service.findByShopId(id);
+		model.addAttribute("carList", carList);
+		return "carList";
+	}
+	
+//	@RequestMapping(value="/toCarList1/{id}")
+//	public String toCarList1(Model model, @PathVariable Integer id) {
+//		List<Car> carList = new ArrayList<Car>();
+//	}
 		
 	
 	@RequestMapping("/detail")
