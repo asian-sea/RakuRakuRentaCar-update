@@ -33,6 +33,11 @@ public class CarService {
 		List<Car> carList = repository.findByShopId(id);
 		return carList;
 	}
+	
+	public List<Car> findByGradeId(int id){
+		List<Car> carList = repository.findByGradeId(id);
+		return carList;
+	}
 
 	public Car findOne(int id) {
 		Car car = repository.findOne(id);

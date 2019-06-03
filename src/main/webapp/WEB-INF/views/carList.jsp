@@ -12,10 +12,10 @@
 <c:forEach var="car" items="${carList}">
 		<c:out value="${car.id }" />
 		<br>
-		<a href="<c:url value='${pageContext.request.contextPath}/detail/${car.id }' />">
+		<a href="<c:url value='${pageContext.request.contextPath}/car/detail/${car.id }' />">
 		<c:out value="${car.name }" /></a>
 		<br>
-		<c:out value="${car.imagePath }" />
+		<img src="/img/<c:out value='${car.imagePath }' />">
 		<br>
 	</c:forEach>
 </body>

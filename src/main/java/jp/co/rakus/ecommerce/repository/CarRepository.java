@@ -48,6 +48,16 @@ public class CarRepository {
 		
 		return shop;
 	};
+	
+	private static final RowMapper<Car> carRowMapper = (rs, i) -> {
+		Car car = new Car();
+		car.setId(rs.getInt("id"));
+		car.setName(rs.getString("name"));
+		car.setImagePath(rs.getString("imagePath"));
+		
+		return car;
+	};
+		
 		
 	@Autowired
 	private NamedParameterJdbcTemplate jdbc;
@@ -68,7 +78,15 @@ public class CarRepository {
 		String sql = "SELECT id, name, imagePath from cars WHERE shop_id = :shopId";
 		SqlParameterSource param = new MapSqlParameterSource()
 				.addValue("shopId", id);
-		List<Car> carList = jdbc.query(sql, param,rowMapper);
+		List<Car> carList = jdbc.query(sql, param, carRowMapper);
+		return carList;
+	}
+	
+	public List<Car> findByGradeId(int id){
+		String sql = "SELECT id, name, imagePath from cars WHERE grade_id = :gradeId";
+		SqlParameterSource param = new MapSqlParameterSource()
+				.addValue("gradeId", id);
+		List<Car> carList = jdbc.query(sql, param, carRowMapper);
 		return carList;
 	}
 

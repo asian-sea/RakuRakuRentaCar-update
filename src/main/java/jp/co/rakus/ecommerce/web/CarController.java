@@ -41,15 +41,18 @@ public class CarController {
 		return "carList";
 	}
 	
-//	@RequestMapping(value="/toCarList1/{id}")
-//	public String toCarList1(Model model, @PathVariable Integer id) {
-//		List<Car> carList = new ArrayList<Car>();
-//	}
+	@RequestMapping(value="/toCarList1/{id}")
+	public String toCarList1(Model model, @PathVariable Integer id) {
+		List<Car> carList = new ArrayList<Car>();
+		carList = service.findByGradeId(id);
+		model.addAttribute("carList", carList);
+		return "carList";
+	}
 		
 	
-	@RequestMapping("/detail")
-	public String showDetail(Model model, @ModelAttribute ReservationCarForm form) {
-		Car car = service.findOne(1);
+	@RequestMapping("/detail/{id}")
+	public String showDetail(Model model, @PathVariable Integer id, @ModelAttribute ReservationCarForm form) {
+		Car car = service.findOne(id);
 		model.addAttribute("car", car);
 		service.addRadioButton(model);
 		return "carDetail";
