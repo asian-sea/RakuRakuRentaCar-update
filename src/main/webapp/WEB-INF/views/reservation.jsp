@@ -11,12 +11,12 @@
 </head>
 <body>
 	<h1>予約内容確認</h1>
-	<c:out value="${reservationCar.id}"/>
-	<c:out value="${reservationCar.carId}"/>
-	<c:out value="${reservationCar.reservationId}"/>
-	<c:out value="${reservationCar.startDate}"/>
-	<c:out value="${reservationCar.endDate}"/>
-	<c:out value="${reservationCar.option}"/>
+	予約ID:<c:out value="${reservationCar.id}"/><br>
+	車両ID:<c:out value="${reservationCar.carId}"/><br>
+	予約ID:<c:out value="${reservationCar.reservationId}"/><br>
+	利用開始日時:<c:out value="${reservationCar.startDate}"/><br>
+	返却日時:<c:out value="${reservationCar.endDate}"/><br>
+	オプション:<c:out value="${reservationCar.option}"/><br>
 
 	<h2>お支払い方法</h2>
 	<form:form modelAttribute="reservationForm" action="${pageContext.request.contextPath}/reservation/fix">
