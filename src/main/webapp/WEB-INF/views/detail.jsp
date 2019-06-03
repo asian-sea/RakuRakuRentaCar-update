@@ -24,8 +24,8 @@
 	<img src="/img/<c:out value="${car.imagePath}"/>" style="width:200px"><br>
 	<form:form modelAttribute="reservationCarForm" action="">
 		<input type="hidden" value="${car.id}"/><br>
-		開始時間<input type="text" id="flatpickr"><br>
-		返却時間<input type="text" id="flatpickr"><br>
+		開始時間<form:input path="startDate" id="flatpickr"/><br>
+		返却時間<form:input path="endDate" id="flatpickr"/><br>
 		タバコ<form:radiobuttons path="option.smoking" items="${smokeMap}"/><br>
 		ETC<form:radiobuttons path="option.etc" items="${etcMap}"/><br>
 		チャイルドシート<form:radiobuttons path="option.childSeat" items="${childSeatMap}"/><br>
