@@ -1,5 +1,7 @@
 package jp.co.rakus.ecommerce.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -30,6 +32,18 @@ public class CarRepository {
 
 	@Autowired
 	private NamedParameterJdbcTemplate jdbc;
+	
+	public List<Car> findAllCar(){
+		String sql = "SELECT * from cars";
+		List<Car> carList = jdbc.query(sql, rowMapper);
+		return carList;
+	}
+	
+	public List<Car> findAllShop(){
+		String sql = "SELECT * from shops";
+		List<Car> shopList = jdbc.query(sql, rowMapper);
+		return shopList;
+	}
 
 	public Car findOne(int id) {
 		String sql = "SELECT cars.id AS id, cars.name AS name, imagepath, grades.id AS g_id, grades.name AS g_name, price, shops.id AS s_id, shops.name AS s_name, address"
