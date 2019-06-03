@@ -27,8 +27,8 @@ public class ReservationCarRepository {
 		reservationCar.setId(rs.getInt("id"));
 		reservationCar.setCarId(rs.getInt("car_id"));
 		reservationCar.setReservationId(rs.getInt("reservation_id"));
-		reservationCar.setStartDate(rs.getDate("start_date"));
-		reservationCar.setEndDate(rs.getDate("end_date"));
+		reservationCar.setStartDate(rs.getTimestamp("start_date").toLocalDateTime());
+		reservationCar.setEndDate(rs.getTimestamp("end_date").toLocalDateTime());
 		reservationCar.setOption(rs.getString("option"));
 		return reservationCar;
 	};
@@ -44,7 +44,7 @@ public class ReservationCarRepository {
 	}
 
 	//キープを表示
-	public List<ReservationCar> findAll(){
+	public List<ReservationCar> findAll(int id){
 		String sql = "SELECT id, car_id, reservation_id, start_date, end_date, option FROM reservation_cars ORDER BY id DESC";
 		List<ReservationCar> reservationCarList = template.query(sql, reservationCarRowMapper);
 		return reservationCarList;

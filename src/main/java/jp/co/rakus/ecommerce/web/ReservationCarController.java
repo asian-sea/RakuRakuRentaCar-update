@@ -13,7 +13,7 @@ import jp.co.rakus.ecommerce.domain.ReservationCar;
 import jp.co.rakus.ecommerce.service.ReservationCarService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("keep")
 
 public class ReservationCarController {
 	@Autowired
@@ -23,23 +23,33 @@ public class ReservationCarController {
 	HttpSession session;
 
 	//キープに追加.keep.jspを呼出
+	@RequestMapping(value="/add")
 	public String addCar(ReservationCarForm reservationCarForm) {
 		ReservationCar reservationCar = new ReservationCar();
 		reservationCar.setId(reservationCarForm.getId());
 		reservationCar.setCarId(reservationCarForm.getCarId());
 		reservationCarService.addCar(reservationCar);
-		return "keep";
+		return "redirect:/show";
 	}
 
 	//キープを表示
-	@RequestMapping(value="/keep")
+	@RequestMapping(value="/show")
 	public String showCars(ReservationCarForm reservationCarForm) {
-		List<ReservationCar> reservationCarList = reservationCarService.findAll();
+		List<ReservationCar> reservationCarList = reservationCarService.findAll(1);
 		session.setAttribute("reservationCarList", reservationCarList);
+
 		return "keep";
 	}
 
+
+	//キープを予約
+	@RequestMapping(value="/reservation")
+	public void save() {
+
+	}
+
 	//キープを削除
+	@RequestMapping(value="/delete")
 	public void delete(@RequestParam String deleteId) {
 		int id = Integer.parseInt(deleteId);
 		reservationCarService.delete(id);

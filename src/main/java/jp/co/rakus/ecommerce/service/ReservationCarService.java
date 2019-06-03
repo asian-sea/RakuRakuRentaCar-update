@@ -20,8 +20,8 @@ public class ReservationCarService {
 	}
 
 	//キープを表示
-	public List<ReservationCar> findAll(){
-		return reservationCarRepository.findAll();
+	public List<ReservationCar> findAll(int id){
+		return reservationCarRepository.findAll(id);
 	}
 
 	//キープを削除
