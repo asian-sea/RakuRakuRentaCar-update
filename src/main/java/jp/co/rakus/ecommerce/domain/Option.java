@@ -5,6 +5,7 @@ public class Option {
 	private int smoking;
 	private int etc;
 	private int childSeat;
+
 	public int getSmoking() {
 		return smoking;
 	}

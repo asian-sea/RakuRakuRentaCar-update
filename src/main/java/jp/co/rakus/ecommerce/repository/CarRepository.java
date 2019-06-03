@@ -29,19 +29,39 @@ public class CarRepository {
 
 		return car;
 	};
+	
+	private static final RowMapper<Grade> gradeRowMapper = (rs, i) -> {
+		Grade grade = new Grade();
+		grade.setId(rs.getInt("id"));
+		grade.setName(rs.getString("name"));
+		grade.setPrice(rs.getInt("price"));
+		
+		return grade;
 
+	};
+	
+	private static final RowMapper<Shop> shopRowMapper = (rs, i) -> {
+		Shop shop = new Shop();
+		shop.setId(rs.getInt("id"));
+		shop.setName(rs.getString("name"));
+		shop.setAddress(rs.getString("address"));
+		
+		return shop;
+
+	};
+		
 	@Autowired
 	private NamedParameterJdbcTemplate jdbc;
 	
-	public List<Car> findAllCar(){
-		String sql = "SELECT * from cars";
-		List<Car> carList = jdbc.query(sql, rowMapper);
-		return carList;
+	public List<Grade> findAllGrade(){
+		String sql = "SELECT id, name, price from grades";
+		List<Grade> gradeList = jdbc.query(sql, gradeRowMapper);
+		return gradeList;
 	}
 	
-	public List<Car> findAllShop(){
-		String sql = "SELECT * from shops";
-		List<Car> shopList = jdbc.query(sql, rowMapper);
+	public List<Shop> findAllShop(){
+		String sql = "SELECT id, name, address from shops";
+		List<Shop> shopList = jdbc.query(sql, shopRowMapper);
 		return shopList;
 	}
 
