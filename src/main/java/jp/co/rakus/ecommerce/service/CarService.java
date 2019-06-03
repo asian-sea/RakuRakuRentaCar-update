@@ -1,6 +1,7 @@
 package jp.co.rakus.ecommerce.service;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,16 @@ public class CarService {
 
 	@Autowired
 	private CarRepository repository;
+	
+	public List<Car> findAllCar() {
+		List<Car> carList = repository.findAllCar();
+		return carList;
+	}
+	
+	public List<Car> findAllShop(){
+		List<Car> shopList = repository.findAllShop();
+		return shopList;
+	}
 
 	public Car findOne(int id) {
 		Car car = repository.findOne(id);
