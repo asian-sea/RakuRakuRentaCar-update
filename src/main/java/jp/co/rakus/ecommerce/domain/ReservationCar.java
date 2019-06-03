@@ -1,13 +1,13 @@
 package jp.co.rakus.ecommerce.domain;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class ReservationCar {
 	private int id;	//OrderCarId
 	private int carId;	//商品（車）ID
 	private int reservationId; //予約ID
-	private Date startDate;
-	private Date endDate;
+	private LocalDateTime startDate;
+	private LocalDateTime endDate;
 	private String option;
 //	private Car car;
 //	private List reservationOptionList;
@@ -30,16 +30,16 @@ public class ReservationCar {
 	public void setReservationId(int reservationId) {
 		this.reservationId = reservationId;
 	}
-	public Date getStartDate() {
+	public LocalDateTime getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDateTime startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEndDate() {
+	public LocalDateTime getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(LocalDateTime endDate) {
 		this.endDate = endDate;
 	}
 	public String getOption() {
