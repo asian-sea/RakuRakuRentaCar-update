@@ -17,9 +17,6 @@
 				車種
 			</th>
 			<th>
-				グレード｜価格
-			</th>
-			<th>
 				レンタル期間｜価格
 			</th>
 			<th>
@@ -50,8 +47,8 @@
 					<input type="hidden" name="reservationId" value="${reservationCarList.id }"/>
 					<input type="submit" value="予約"/>
 				</form>
-				<form action="${pageContext.request.contextPath }/deleteKeep">
-					<input type="hidden" name="reservationId" value="${reservationCarList.id }"/>
+				<form action="${pageContext.request.contextPath }/keep/delete">
+					<input type="hidden" name="deleteId" value="${reservationCarList.id }"/>
 					<input type="submit" value="削除"/>
 				</form>
 			</td>
