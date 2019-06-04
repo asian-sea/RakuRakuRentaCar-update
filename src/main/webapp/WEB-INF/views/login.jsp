@@ -12,7 +12,7 @@
 
 							
 <form:form modelAttribute="loginForm" action="${pageContext.request.contextPath}/login/loginform">
-<form:errors path="loginForm.*" cssStyle="color:red"/>
+
 
 <label for="inputEmail">メールアドレス:</label>
 <form:input path="email" placeholder="Email"/>
@@ -21,6 +21,7 @@
 <label for="inputPassword">パスワード:</label>
 <form:password path="password" placeholder="Password"/>
 <br><form:errors path="password" cssStyle="color:red"/>
+<br><form:errors cssStyle="color:red"/>
 
 <br><input class="btn btn-primary" type="submit" value="ログイン">
 </form:form>
