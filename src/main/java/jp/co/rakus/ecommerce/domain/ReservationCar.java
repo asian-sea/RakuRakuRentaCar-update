@@ -1,14 +1,14 @@
 package jp.co.rakus.ecommerce.domain;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class ReservationCar {
 	private int id;	//OrderCarId
 	private int carId;	//商品（車）ID
 	private int reservationId; //予約ID
-	private LocalDateTime startDate;
-	private LocalDateTime endDate;
+	private Timestamp startDate;
+	private Timestamp endDate;
 	private List<Option> optionList;
 //	private Car car;
 //	private List reservationOptionList;
@@ -31,16 +31,17 @@ public class ReservationCar {
 	public void setReservationId(int reservationId) {
 		this.reservationId = reservationId;
 	}
-	public LocalDateTime getStartDate() {
+
+	public Timestamp getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(LocalDateTime startDate) {
+	public void setStartDate(Timestamp startDate) {
 		this.startDate = startDate;
 	}
-	public LocalDateTime getEndDate() {
+	public Timestamp getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(LocalDateTime endDate) {
+	public void setEndDate(Timestamp endDate) {
 		this.endDate = endDate;
 	}
 	public List<Option> getOptionList() {
