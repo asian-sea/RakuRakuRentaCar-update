@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<form:errors path="accoutnForm.*"/><br><!-- メールアドレス2重登録、パスワードの不一致のエラー文でない -->
+
 <form:form modelAttribute="accountForm" action="${pageContext.request.contextPath}/account/accountCreate">
  		<label for="inputName">名前:</label>
 		<form:input path="name" placeholder="名前"/>
@@ -40,6 +40,8 @@
 		<form:password path="checkpassword" placeholder="確認用パスワード"/>
 		<br><form:errors path="checkpassword" cssStyle="color:red"/>								
 	
+		<form:errors cssStyle="color:red"/><br>
+		
 		<br>
 		<input class="btn btn-primary" type="submit" value="新規登録">
 		<a href="/login/loginpage">ログイン画面に戻る</a>

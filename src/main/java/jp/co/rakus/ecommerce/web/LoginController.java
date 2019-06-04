@@ -42,6 +42,7 @@ public class LoginController {
 				if(user == null) {
 					ObjectError error=new ObjectError("loginerror","メールアドレスもしくはパスワードが違います");
 					result.addError(error);
+					System.out.println("loginController.error:"+result);
 					return index();
 				}
 				session.setAttribute("user", user);
