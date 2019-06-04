@@ -10,6 +10,7 @@ public class ReservationCarForm {
 	private String startDate;
 	private String endDate;
 	private List<Integer> optionList;
+	private int userId;
 
 	public int getId() {
 		return id;
@@ -46,5 +47,11 @@ public class ReservationCarForm {
 	}
 	public void setOptionList(List<Integer> optionList) {
 		this.optionList = optionList;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 }

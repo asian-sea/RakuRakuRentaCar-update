@@ -9,7 +9,8 @@ public class ReservationCar {
 	private int reservationId;
 	private LocalDateTime startDate;
 	private LocalDateTime endDate;
-	private List<Option> optionList;
+	private List<Integer> optionList;
+	private int userId;
 
 	public int getId() {
 		return id;
@@ -42,11 +43,17 @@ public class ReservationCar {
 	public void setEndDate(LocalDateTime endDate) {
 		this.endDate = endDate;
 	}
-	public List<Option> getOptionList() {
+	public List<Integer> getOptionList() {
 		return optionList;
 	}
-	public void setOptionList(List<Option> optionList) {
+	public void setOptionList(List<Integer> optionList) {
 		this.optionList = optionList;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 }
