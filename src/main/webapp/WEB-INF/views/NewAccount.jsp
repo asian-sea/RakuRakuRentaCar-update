@@ -5,41 +5,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript" src="https://ajaxzip3.github.io/ajaxzip3.js" charset="utf-8"></script>
 <title>新規登録</title>
 
 </head>
 <body>
 
 <form:form modelAttribute="accountForm" action="${pageContext.request.contextPath}/account/accountCreate">
- 		<label for="inputName">名前:</label>
-		<form:input path="name" placeholder="名前"/>
+ 		
+ 		名前:<form:input path="name" placeholder="名前"/>
 		<br><form:errors path="name" cssStyle="color:red"/>
 		
 		<br>
-		<label for="inputAddress">住所:</label>
-		<form:input path="address" placeholder="住所"/>
-		<br><form:errors path="address" cssStyle="color:red"/>								
+		郵便番号(ハイフンはあってもなくても大丈夫です):<br>
+		<input type="text" name="zip" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');">
+		<br>
 		
 		<br>
-		<label for="inputTelephone">電話番号:</label>
-		<form:input path="telephone" placeholder="電話番号"/>
+		住所(途中まで自動入力されます):<br>
+		<form:input path="address" placeholder="住所"/>
+		<br><form:errors path="address" cssStyle="color:red"/>						
+		
+		<br>
+		電話番号:<form:input path="telephone" placeholder="電話番号"/>
 		<br><form:errors path="telephone" cssStyle="color:red"/>
 		
 		<br>					
-		<label for="inputEmail">メールアドレス:</label>
-		<form:input path="email" placeholder="メールアドレス"/>
+		メールアドレス:<form:input path="email" placeholder="メールアドレス"/>
 		<br><form:errors path="email" cssStyle="color:red"/>								
 		
 		<br>
-		<label for="inputPassword">パスワード:</label>
-		<form:password path="password" placeholder="パスワード"/>
+		パスワード:<form:password path="password" placeholder="パスワード"/>
 		<br><form:errors path="password" cssStyle="color:red"/>	
 		
 		<br>
-		<label for="inputCheckPassword">確認用パスワード:</label>
-		<form:password path="checkpassword" placeholder="確認用パスワード"/>
+		確認用パスワード:<form:password path="checkpassword" placeholder="確認用パスワード"/>
 		<br><form:errors path="checkpassword" cssStyle="color:red"/>								
 	
+	    <!-- オブジェクトエラー処理  -->
 		<form:errors cssStyle="color:red"/><br>
 		
 		<br>
