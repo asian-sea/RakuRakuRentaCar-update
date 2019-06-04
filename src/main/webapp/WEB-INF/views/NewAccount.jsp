@@ -9,7 +9,7 @@
 
 </head>
 <body>
-
+<form:errors path="accoutnForm.*"/><br><!-- メールアドレス2重登録、パスワードの不一致のエラー文でない -->
 <form:form modelAttribute="accountForm" action="${pageContext.request.contextPath}/account/accountCreate">
  		<label for="inputName">名前:</label>
 		<form:input path="name" placeholder="名前"/>
