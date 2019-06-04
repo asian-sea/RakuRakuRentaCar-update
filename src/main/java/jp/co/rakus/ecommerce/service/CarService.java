@@ -48,12 +48,14 @@ public class CarService {
 	
 	public void addRadioButton(Model model) {
 		Map<Integer, String> settlementMap = new LinkedHashMap<>();
+		settlementMap.put(0, "選択してください");
 		settlementMap.put(1, "新宿店");
 		settlementMap.put(2, "調布店");
 		settlementMap.put(3, "静岡店");
 		model.addAttribute("settlementMap", settlementMap);
 		
 		Map<Integer, String> settlementMap1 = new LinkedHashMap<>();
+		settlementMap1.put(0, "選択してください");
 		settlementMap1.put(1, "コンパクトカー");
 		settlementMap1.put(2, "セダン");
 		settlementMap1.put(3, "スポーツカー");
