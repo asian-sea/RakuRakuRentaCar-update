@@ -33,19 +33,16 @@ public class LoginController {
 	@RequestMapping("/loginform")
 	public String login(@Validated LoginForm form,
 			BindingResult result,HttpSession session){
-			System.out.println("loginform:"+form.getPassword());
 				
 				String email=form.getEmail();
 				String password=form.getPassword();
 				User user=userservice.findOneByEmailAndPassword(email,password);
-				System.out.println(user);
 				if(result.hasErrors()) {
 					return index();
 				}
 				
 				if(user == null) {
-					System.out.println("loginform.if.null:"+password);
-					ObjectError error=new ObjectError("login error","メールアドレスもしくはパスワードが違います");
+					ObjectError error=new ObjectError("loginerror","メールアドレスもしくはパスワードが違います");
 					result.addError(error);
 					return index();
 				}

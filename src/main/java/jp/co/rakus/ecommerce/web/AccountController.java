@@ -44,7 +44,7 @@ public class AccountController {
 			Account account=new Account();
 			
 			if(!form.getPassword().equals(form.getCheckpassword())) {
-				ObjectError error = new ObjectError("passworderror","入力パスワードが一致しません");
+				ObjectError error = new ObjectError("password","入力パスワードが一致しません");
 				result.addError(error);
 				return index();
 			}
@@ -54,7 +54,7 @@ public class AccountController {
 		return "redirect:/car/";
 		
 	}catch(DuplicateKeyException e){
-		ObjectError error = new ObjectError("mailAddresserror", "メールアドレスは既に登録されています。");
+		ObjectError error = new ObjectError("email", "メールアドレスは既に登録されています。");
 		result.addError(error);
 		return index();
 	}

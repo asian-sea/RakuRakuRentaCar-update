@@ -47,6 +47,7 @@
 							</legend>
 							
 							<form:form modelAttribute="loginForm" action="${pageContext.request.contextPath}/login/loginform">
+							<form:errors path="loginForm.*" cssStyle="color:red"/>
 							<div class="form-group">
  								<label for="inputEmail">メールアドレス:</label>
 								<form:input path="email" placeholder="Email"/>
