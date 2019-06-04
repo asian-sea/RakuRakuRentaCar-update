@@ -25,13 +25,14 @@ public class CarController {
 
 	//home画面に営業所とグレードを出力
 	@RequestMapping(value="/")
-	public String index(Model model) {
+	public String index(Model model, @ModelAttribute CarForm form) {
 		List<Grade> gradeList = new ArrayList<Grade>();
 		gradeList = service.findAllGrade();
 		model.addAttribute("gradeList", gradeList);
 		List<Shop> shopList = new ArrayList<Shop>();
 		shopList = service.findAllShop();
 		model.addAttribute("shopList", shopList);
+		service.addRadioButton(model);
 		return "home";//home画面を呼び出し
 	}
 
@@ -49,6 +50,16 @@ public class CarController {
 	public String toCarList1(Model model, @PathVariable Integer id) {
 		List<Car> carList = new ArrayList<Car>();
 		carList = service.findByGradeId(id);
+		model.addAttribute("carList", carList);
+		return "carList";//車種一覧画面を呼び出し
+	}
+	
+	@RequestMapping(value="/toCarList2")
+	public String toCarList2(Model model,CarForm form) {
+		List<Car> carList = new ArrayList<Car>();
+		int shopId = form.getSettlement();
+		int gradeId = form.getSettlement1();
+		carList = service.findByShopIdAndGradeId(shopId,gradeId);
 		model.addAttribute("carList", carList);
 		return "carList";//車種一覧画面を呼び出し
 	}

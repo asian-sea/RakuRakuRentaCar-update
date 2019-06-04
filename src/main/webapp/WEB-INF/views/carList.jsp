@@ -15,7 +15,7 @@
 		<a href="<c:url value='${pageContext.request.contextPath}/car/detail/${car.id }' />">
 		<c:out value="${car.name }" /></a>
 		<br>
-		<img src="/img/<c:out value='${car.imagePath }' />">
+		<img src="/img/<c:out value='${car.imagePath }' />" style="width:200px">
 		<br>
 	</c:forEach>
 </body>
