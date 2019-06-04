@@ -36,8 +36,8 @@ create table options (
 
 create table reservation_cars (
     id serial primary key
+    , status integer not null
     , car_id integer not null
-    , reservation_id integer not null
     , start_date timestamp not null
     , end_date timestamp not null
     , user_id integer not null
