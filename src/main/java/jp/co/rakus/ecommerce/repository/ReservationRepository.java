@@ -32,4 +32,11 @@ public class ReservationRepository {
 		ReservationCar reservationCar = jdbc.queryForObject(sql, param, rowMapper);
 		return reservationCar;
 	}
+	
+	public void save(int id) {
+		String sql = "UPDATE reservation_cars SET status = 2 WHERE id=:id";
+		SqlParameterSource param = new MapSqlParameterSource()
+				.addValue("id", id);
+		jdbc.update(sql, param);
+	}
 }
