@@ -35,18 +35,21 @@ public class ReservationCarRepository {
 
 
 	//キープを追加
-	public void save(ReservationCar reservationCar) {
+	public int save(ReservationCar reservationCar) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(reservationCar);
 
 		String insertSql = "INSERT INTO reservation_cars(car_id, reservation_id, start_date, end_date, user_id)"
-				+ "VALUES(:carId, :reservationId, :startDate, :endDate, :userId)";
+				+ "VALUES(:carId, :reservationId, :startDate, :endDate, :userId)"
+				+ "RETURNING id";
 
-		template.update(insertSql, param);
+		return template.queryForObject(insertSql, param, Integer.class);
 	}
 
 	//オプション内容
-	public void saveOption(ReservationCar reservationCar) {
-		SqlParameterSource param = new BeanPropertySqlParameterSource(reservationCar);
+	public void saveOption(int optionId, int reservationCarId) {
+		SqlParameterSource param = new MapSqlParameterSource()
+				.addValue("optionId", optionId)
+				.addValue("reservationCarId", reservationCarId);
 
 		String optionSql = "INSERT INTO reservation_options (option_id, reservation_car_id)"
 				+ "VALUES(:optionId, :reservationCarId)";

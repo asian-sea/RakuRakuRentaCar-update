@@ -15,13 +15,13 @@ public class ReservationCarService {
 	private ReservationCarRepository reservationCarRepository;
 
 	//キープに追加
-	public void addCar(ReservationCar reservationCar) {
-		reservationCarRepository.save(reservationCar);
+	public int addCar(ReservationCar reservationCar) {
+		return reservationCarRepository.save(reservationCar);
 	}
 
 	//オプション内容
-	public void addOption(ReservationCar reservationCar) {
-		reservationCarRepository.saveOption(reservationCar);
+	public void addOption(int optionId, int reservationCarId) {
+		reservationCarRepository.saveOption(optionId, reservationCarId);
 	}
 
 	//キープを表示

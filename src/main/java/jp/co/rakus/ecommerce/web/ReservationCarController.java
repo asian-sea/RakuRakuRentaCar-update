@@ -1,9 +1,12 @@
 package jp.co.rakus.ecommerce.web;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,16 +32,17 @@ public class ReservationCarController {
 	//キープに追加.keep.jspを呼出
 	@RequestMapping(value="/add")
 	public String addCar(ReservationCarForm reservationCarForm) {
+
 		ReservationCar reservationCar = new ReservationCar();
+		BeanUtils.copyProperties(reservationCarForm, reservationCar);
 
-		reservationCar.setId(reservationCarForm.getId());
-		reservationCar.setCarId(reservationCarForm.getCarId());
-//		reservationCar.setStartDate(reservationCarForm.getStartDate());
-//		reservationCar.setEndDate(reservationCarForm.getEndDate());
-		reservationCarService.addCar(reservationCar);
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		reservationCar.setStartDate(LocalDateTime.parse(reservationCarForm.getStartDate(), dtf));
+		reservationCar.setEndDate(LocalDateTime.parse(reservationCarForm.getEndDate(), dtf));
+		int reservationCarId = reservationCarService.addCar(reservationCar);
 
-		for(int i= 1; i<=3; i++) {
-			reservationCarService.addOption(reservationCar);
+		for(int i = 0; i < reservationCar.getOptionList().size(); i++) {
+			reservationCarService.addOption(reservationCar.getOptionList().get(i), reservationCarId);
 		}
 
 		return "redirect:/show";
