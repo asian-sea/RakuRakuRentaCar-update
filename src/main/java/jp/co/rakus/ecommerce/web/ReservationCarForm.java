@@ -1,18 +1,15 @@
 package jp.co.rakus.ecommerce.web;
 
-import java.time.LocalDateTime;
 import java.util.List;
-
-import jp.co.rakus.ecommerce.domain.Option;
 
 public class ReservationCarForm {
 
 	private int id;
 	private int carId;
 	private int reservationId;
-	private LocalDateTime startDate;
-	private LocalDateTime endDate;
-	private List<Option> optionList;
+	private String startDate;
+	private String endDate;
+	private List<Integer> optionList;
 
 	public int getId() {
 		return id;
@@ -32,22 +29,22 @@ public class ReservationCarForm {
 	public void setReservationId(int reservationId) {
 		this.reservationId = reservationId;
 	}
-	public LocalDateTime getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(LocalDateTime startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	public LocalDateTime getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(LocalDateTime endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-	public List<Option> getOptionList() {
+	public List<Integer> getOptionList() {
 		return optionList;
 	}
-	public void setOptionList(List<Option> optionList) {
+	public void setOptionList(List<Integer> optionList) {
 		this.optionList = optionList;
 	}
 }
