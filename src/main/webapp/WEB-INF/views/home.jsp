@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>TOP画面</title>
+<title>HOME画面</title>
 </head>
 <body>
 	<h1>楽楽レンタカー</h1>
