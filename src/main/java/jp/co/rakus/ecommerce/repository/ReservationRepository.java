@@ -25,7 +25,7 @@ public class ReservationRepository {
 	private NamedParameterJdbcTemplate jdbc;
 
 	public ReservationCar findOne(int id) {
-		String sql = "SELECT id, car_id start_date, end_date"
+		String sql = "SELECT id, car_id, start_date, end_date"
 				+ " FROM reservation_cars WHERE id = :id";
 		SqlParameterSource param = new MapSqlParameterSource()
 				.addValue("id", id);
