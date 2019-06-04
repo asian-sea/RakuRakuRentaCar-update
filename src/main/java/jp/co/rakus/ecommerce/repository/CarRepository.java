@@ -99,6 +99,15 @@ public class CarRepository {
 		List<Car> carList = jdbc.query(sql, param, carRowMapper);
 		return carList;
 	}
+	
+	public List<Car> findByShopIdAndGradeId(int shopId, int gradeId){
+		String sql = "SELECT id, name, imagePath from cars WHERE shop_id = :shopId AND grade_id = :gradeId";
+		SqlParameterSource param = new MapSqlParameterSource()
+				.addValue("shopId", shopId)
+				.addValue("gradeId", gradeId);
+		List<Car> carList = jdbc.query(sql, param, carRowMapper);
+		return carList;
+	}
 
 	public Car findOne(int id) {
 		String sql = "SELECT cars.id AS id, cars.name AS name, imagepath, grades.id AS g_id, grades.name AS g_name, price, shops.id AS s_id, shops.name AS s_name, address"

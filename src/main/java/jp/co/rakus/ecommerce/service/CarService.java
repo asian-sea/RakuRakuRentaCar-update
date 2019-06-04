@@ -1,9 +1,12 @@
 package jp.co.rakus.ecommerce.service;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import jp.co.rakus.ecommerce.domain.Car;
 import jp.co.rakus.ecommerce.domain.Grade;
@@ -26,6 +29,7 @@ public class CarService {
 		List<Shop> shopList = repository.findAllShop();
 		return shopList;
 	}
+	
 
 	public List<Car> findByShopId(int id){
 		List<Car> carList = repository.findByShopId(id);
@@ -35,6 +39,25 @@ public class CarService {
 	public List<Car> findByGradeId(int id){
 		List<Car> carList = repository.findByGradeId(id);
 		return carList;
+	}
+	
+	public List<Car> findByShopIdAndGradeId(int shopId, int gradeId){
+		List<Car> carList = repository.findByShopIdAndGradeId(shopId, gradeId);
+		return carList;
+	}
+	
+	public void addRadioButton(Model model) {
+		Map<Integer, String> settlementMap = new LinkedHashMap<>();
+		settlementMap.put(1, "新宿店");
+		settlementMap.put(2, "調布店");
+		settlementMap.put(3, "静岡店");
+		model.addAttribute("settlementMap", settlementMap);
+		
+		Map<Integer, String> settlementMap1 = new LinkedHashMap<>();
+		settlementMap1.put(1, "コンパクトカー");
+		settlementMap1.put(2, "セダン");
+		settlementMap1.put(3, "スポーツカー");
+		model.addAttribute("settlementMap1", settlementMap1);
 	}
 
 	public Car findOne(int id) {
