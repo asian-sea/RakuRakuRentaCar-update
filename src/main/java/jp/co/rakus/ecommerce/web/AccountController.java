@@ -1,9 +1,11 @@
 package jp.co.rakus.ecommerce.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,8 +41,18 @@ public class AccountController {
 			
 			AccountForm account=new AccountForm();
 			
+			if(!form.getPassword().equals(form.getCheckpassword())) {
+				ObjectError error = new ObjectError("passworderror","入力パスワードが一致しません");
+				result.addError(error);
+				return index();
+			}
 			
-		
+		return null;
+	}catch(DuplicateKeyException e){
+		ObjectError error = new ObjectError("mailAddresserror", "メールアドレスは既に登録されています。");
+		result.addError(error);
+		return index();
 	}
 	
+	}
 }
