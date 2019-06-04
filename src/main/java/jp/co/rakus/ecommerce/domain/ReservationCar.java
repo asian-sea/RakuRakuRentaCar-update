@@ -4,14 +4,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class ReservationCar {
-	private int id;	//OrderCarId
-	private int carId;	//商品（車）ID
-	private int reservationId; //予約ID
+	private int id;
+	private int carId;
+	private int reservationId;
 	private LocalDateTime startDate;
 	private LocalDateTime endDate;
 	private List<Option> optionList;
-//	private Car car;
-//	private List reservationOptionList;
 
 	public int getId() {
 		return id;
@@ -49,19 +47,5 @@ public class ReservationCar {
 	public void setOptionList(List<Option> optionList) {
 		this.optionList = optionList;
 	}
-
-
-//	public Car getCar() {
-//		return car;
-//	}
-//	public void setCar(Car car) {
-//		this.car = car;
-//	}
-//	public List getReservationOptionList() {
-//		return reservationOptionList;
-//	}
-//	public void setReservationOptionList(List reservationOptionList) {
-//		this.reservationOptionList = reservationOptionList;
-//	}
 
 }
