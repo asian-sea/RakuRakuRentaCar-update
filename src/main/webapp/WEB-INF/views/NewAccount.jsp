@@ -10,33 +10,39 @@
 </head>
 <body>
 
-<form:form modelAttribute="accountForm" action="${pageContext.request.contextPath}/account/addaccount">
+<form:form modelAttribute="accountForm" action="${pageContext.request.contextPath}/account/accountCreate">
  		<label for="inputName">名前:</label>
 		<form:input path="name" placeholder="名前"/>
 		<br><form:errors path="name" cssStyle="color:red"/>
 		
-		<label for="inputAddress">住所：</label>
-		<form:password path="address" placeholder="住所"/>
+		<br>
+		<label for="inputAddress">住所:</label>
+		<form:input path="address" placeholder="住所"/>
 		<br><form:errors path="address" cssStyle="color:red"/>								
 		
+		<br>
 		<label for="inputTelephone">電話番号:</label>
-		<form:password path="telephone" placeholder="電話番号"/>
+		<form:input path="telephone" placeholder="電話番号"/>
 		<br><form:errors path="telephone" cssStyle="color:red"/>
-							
+		
+		<br>					
 		<label for="inputEmail">メールアドレス:</label>
-		<form:password path="email" placeholder="メールアドレス"/>
+		<form:input path="email" placeholder="メールアドレス"/>
 		<br><form:errors path="email" cssStyle="color:red"/>								
 		
+		<br>
 		<label for="inputPassword">パスワード:</label>
 		<form:password path="password" placeholder="パスワード"/>
 		<br><form:errors path="password" cssStyle="color:red"/>	
 		
+		<br>
 		<label for="inputCheckPassword">確認用パスワード:</label>
 		<form:password path="checkpassword" placeholder="確認用パスワード"/>
 		<br><form:errors path="checkpassword" cssStyle="color:red"/>								
 	
-		
+		<br>
 		<input class="btn btn-primary" type="submit" value="新規登録">
+		<a href="/login/loginpage">ログイン画面に戻る</a>
 
 </form:form>
 </body>
