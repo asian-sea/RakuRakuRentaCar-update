@@ -16,6 +16,6 @@ public class LogoutController {
 	@RequestMapping("/logoutAccount")
 	public String logout(Account account,SessionStatus sessionStatus) {
 		sessionStatus.setComplete();
-		return "redirect:/car/";
+		return "redirect:/login/loginpage";
 	}
 }
