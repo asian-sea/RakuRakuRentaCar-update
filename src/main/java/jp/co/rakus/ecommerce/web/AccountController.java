@@ -1,5 +1,6 @@
 package jp.co.rakus.ecommerce.web;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jp.co.rakus.ecommerce.domain.Account;
 import jp.co.rakus.ecommerce.service.AccountService;
 
 @Controller
@@ -17,7 +19,7 @@ import jp.co.rakus.ecommerce.service.AccountService;
 public class AccountController {
 
 	@Autowired
-	private AccountService accountservice;
+	private AccountService accountService;
 	
 	@ModelAttribute
 	public AccountForm setUpForm() {
@@ -39,15 +41,18 @@ public class AccountController {
 				return index();
 			}
 			
-			AccountForm account=new AccountForm();
+			Account account=new Account();
 			
 			if(!form.getPassword().equals(form.getCheckpassword())) {
 				ObjectError error = new ObjectError("passworderror","入力パスワードが一致しません");
 				result.addError(error);
 				return index();
 			}
+			BeanUtils.copyProperties(form, account);
+			accountService.save(account);
 			
-		return null;
+		return "redirect:/car/";
+		
 	}catch(DuplicateKeyException e){
 		ObjectError error = new ObjectError("mailAddresserror", "メールアドレスは既に登録されています。");
 		result.addError(error);

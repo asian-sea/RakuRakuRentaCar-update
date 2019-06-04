@@ -23,6 +23,7 @@ public class CarController {
 	@Autowired
 	private CarService service;
 
+	//home画面に営業所とグレードを出力
 	@RequestMapping(value="/")
 	public String index(Model model) {
 		List<Grade> gradeList = new ArrayList<Grade>();
@@ -31,23 +32,25 @@ public class CarController {
 		List<Shop> shopList = new ArrayList<Shop>();
 		shopList = service.findAllShop();
 		model.addAttribute("shopList", shopList);
-		return "home";
+		return "home";//home画面を呼び出し
 	}
 
+	//home画面で選択された営業店のidの値を取得し、serviceクラスのfindByShopIdに引数として渡す
 	@RequestMapping(value="/toCarList/{id}")
 	public String toCarList(Model model, @PathVariable Integer id) {
 		List<Car> carList = new ArrayList<Car>();
 		carList = service.findByShopId(id);
 		model.addAttribute("carList", carList);
-		return "carList";
+		return "carList";//車種一覧画面を呼び出し
 	}
 
+	//home画面で選択されたグレードのidの値を取得、serviceクラスのfindByGradeIdに引数として渡す
 	@RequestMapping(value="/toCarList1/{id}")
 	public String toCarList1(Model model, @PathVariable Integer id) {
 		List<Car> carList = new ArrayList<Car>();
 		carList = service.findByGradeId(id);
 		model.addAttribute("carList", carList);
-		return "carList";
+		return "carList";//車種一覧画面を呼び出し
 	}
 
 
