@@ -12,6 +12,7 @@ public class User {
 	private String password;
 	
 	private String telephone;
+	
 
 	public User() {}
 	public User(Integer id, String name, String email, String address, String password, String telephone) {

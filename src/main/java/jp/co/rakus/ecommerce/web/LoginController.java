@@ -9,8 +9,6 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import jp.co.rakus.ecommerce.domain.User;
 import jp.co.rakus.ecommerce.service.UserService;
 
