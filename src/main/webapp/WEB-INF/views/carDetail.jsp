@@ -22,11 +22,11 @@
 	<c:out value="${car.shop.name}"/><br>
 	<c:out value="${car.shop.address}"/><br>
 	<img src="/img/<c:out value="${car.imagePath}"/>" style="width:200px"><br>
-	<form:form modelAttribute="reservationCarForm" action="">
-		<input type="hidden" value="${car.id}"/><br>
+	<form:form modelAttribute="reservationCarForm" action="${pageContext.request.contextPath}/keep/add">
+		<input type="hidden" name="carId" value="${car.id}"/><br>
 		開始時間<form:input path="startDate" id="flatpickr"/><br>
 		返却時間<form:input path="endDate" id="flatpickr"/><br>
-		<form:checkboxes path="optionList" items="${optionList}" itemLabel="name" delimiter="<br>"/><br>
+		<form:checkboxes path="optionList" items="${optionList}" itemLabel="name" itemValue="id" delimiter="<br>"/><br>
 		<input type="submit" value="キープする"><br>
 	</form:form>
 	<script>
