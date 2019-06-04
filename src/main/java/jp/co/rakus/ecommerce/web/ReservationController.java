@@ -33,7 +33,8 @@ public class ReservationController {
 	}
 
 	@RequestMapping("/fix")
-	public String fix() {
+	public String fix(@RequestParam("reservationId") int id) {
+		service.save(id);
 		return "redirect:/reservation/completion";
 	}
 
