@@ -3,9 +3,8 @@ package jp.co.rakus.ecommerce.repository;
 
 
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -14,34 +13,48 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import jp.co.rakus.ecommerce.domain.User;
 
 @Repository
 @Transactional
 public class UserRepository {
-	@Autowired
-	NamedParameterJdbcTemplate template;
 	
-	private static final RowMapper<User>userRowMapper=(rs,i) ->{
-		User user=new User();
-		user.setId(rs.getInt("id"));
-		user.setName(rs.getString("name"));
-		user.setEmail(rs.getString("email"));
-		user.setPassword(rs.getString("password"));
-		user.setAddress(rs.getString("address"));
-		user.setTelephone(rs.getString("telephone"));
-		return user;
+	private static final RowMapper<User> userRowMapper=(rs,i) ->{
+		Integer id=rs.getInt("id");
+		String name=rs.getString("name");
+		String email=rs.getString("email");
+		String password=rs.getString("password");
+		String address=rs.getString("address");
+		String telephone=rs.getString("telephone");
+		return new User(id,name,email,password,address,telephone);
 	};
 	
-	public List<User>findAll(){
+	@Autowired
+	private NamedParameterJdbcTemplate jdbctemplate;
+	
+	
+//	メールアドレス、パスワードからメンバー取得
+	public User findByEmailAndPassword(String email,String password) {
+		SqlParameterSource param=new MapSqlParameterSource()
+				.addValue("email",email)
+				.addValue("password",password);
+		User user=null;
 		
-		String sql="SELECT id,name,email,password,addless,telephone FROM users ORDER BY id";
-		
-		List<User>userList = template.query(sql,userRowMapper);
-		
-		return userList;
+		try {
+			user=jdbctemplate.queryForObject(
+					"SELECT id,name,email,address,password,telephone FROM users WHERE email=:email AND password=:password",
+					param,userRowMapper);
+			
+			return user;
+		} catch(DataAccessException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
+	
+//	ユーザの新規登録
 	public User save(User user) {
 		SqlParameterSource param=new BeanPropertySqlParameterSource(user);
 		
@@ -49,11 +62,11 @@ public class UserRepository {
 			String insertSql="INSERT INTO user(name,email,password,address,telephone)"
 								+"VALUES(:name,:email,:password,:address,:telephone)";
 			
-			template.update(insertSql,param);
+			jdbctemplate.update(insertSql,param);
 		}else{
 			String updateSql="UPDATE user SET name=:name,email=:email,password=:password,"
 								+ "address=:address,:telephone=:telephone";
-		template.update(updateSql, param);
+		jdbctemplate.update(updateSql, param);
 		}
 		
 		return user;
@@ -64,7 +77,7 @@ public class UserRepository {
 		
 		SqlParameterSource param=new MapSqlParameterSource().addValue("id",id);
 		
-		template.update(deleteSql,param);
+		jdbctemplate.update(deleteSql,param);
 	}
 
 }

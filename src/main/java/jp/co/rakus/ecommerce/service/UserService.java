@@ -8,13 +8,15 @@ import org.springframework.stereotype.Service;
 import jp.co.rakus.ecommerce.domain.User;
 import jp.co.rakus.ecommerce.repository.UserRepository;
 
+
 @Service
 public class UserService {
 	@Autowired
 	private UserRepository userrepository;
 	
-	public List<User> findAll(){
-		return userrepository.findAll();
+	
+	public User findOneByEmailAndPassword(String email, String password){
+		return userrepository.findByEmailAndPassword(email, password);
 	}
 	
 	public User save(User user) {

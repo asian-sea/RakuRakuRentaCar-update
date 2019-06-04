@@ -1,14 +1,17 @@
 package jp.co.rakus.ecommerce.web;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class LoginForm {
 
 	@Email(message="Eメールの形式で入力してください")
+	@NotBlank(message="Eメールの入力は必須です")
 	private String email;
 	
 	@Size(min=4,max=12,message="パスワードは4文字以上12文字以内で入力してください")
+	@NotBlank(message="パスワードの入力は必須です")
 	private String password;
 
 	public String getEmail() {

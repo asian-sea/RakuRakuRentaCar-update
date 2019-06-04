@@ -14,14 +14,22 @@ public class AccountForm {
 		@NotBlank(message="住所の入力は必須です")
 		private String address;
 		
+		@NotBlank(message="電話番号の入力は必須です")
+		private String telephone;
+		
 		@Email(message="Eメールの形式で入力してください")
+		@NotBlank(message="Eメールの入力は必須です")
 		private String email;
 		
+		@NotBlank(message="パスワードの入力は必須です")
 		@Size(min=4,max=12,message="パスワードは4文字以上12文字以内で入力してください")
 		private String password;
 		
-		@NotBlank(message="電話番号の入力は必須です")
-		private String telephone;
+		@NotBlank(message="確認用パスワードの入力は必須です")
+		@Size(min=4,max=12,message="確認用パスワードは4文字以上12文字以内で入力してください")
+		private String checkpassword;
+		
+		
 
 		
 		public String getTelephone() {
@@ -59,6 +67,12 @@ public class AccountForm {
 		}
 		public void setPassword(String password) {
 			this.password = password;
+		}
+		public String getCheckpassword() {
+			return checkpassword;
+		}
+		public void setCheckpassword(String checkpassword) {
+			this.checkpassword = checkpassword;
 		}
 		
 		

@@ -5,14 +5,24 @@ public class User {
 	
 	private String name;
 	
-	private String address;
-	
 	private String email;
+	
+	private String address;
 	
 	private String password;
 	
 	private String telephone;
 
+	public User() {}
+	public User(Integer id, String name, String email, String address, String password, String telephone) {
+		super();
+		this.id=id;
+		this.name=name;
+		this.email=email;
+		this.address=address;
+		this.password=password;
+		this.telephone=telephone;
+	}
 	
 	public String getTelephone() {
 		return telephone;
