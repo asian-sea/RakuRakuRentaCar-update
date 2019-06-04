@@ -2,6 +2,10 @@ package jp.co.rakus.ecommerce.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.rakus.ecommerce.service.AccountService;
@@ -13,5 +17,30 @@ public class AccountController {
 	@Autowired
 	private AccountService accountservice;
 	
+	@ModelAttribute
+	public AccountForm setUpForm() {
+		return new AccountForm();
+	}
+	
+//	ユーザの新規登録画面表示
+	@RequestMapping("/newAccount")
+	 public String index() {
+		return "NewAccount";
+	}
+	
+//	ユーザの情報の新規登録
+	@RequestMapping("/accountCreate")
+	public String create(@Validated AccountForm form,
+			BindingResult result,Model model) {
+		try {
+			if(result.hasErrors()) {
+				return index();
+			}
+			
+			AccountForm account=new AccountForm();
+			
+			
+		
+	}
 	
 }
