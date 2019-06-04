@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>車種一覧</title>
+<jsp:include page="header.jsp" flush="true" />
 </head>
 <body>
 <c:out value="${user.name }"/>さんようこそ

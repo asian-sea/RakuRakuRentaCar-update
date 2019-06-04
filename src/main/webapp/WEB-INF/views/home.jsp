@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>HOME画面</title>
+<jsp:include page="header.jsp" flush="true" />
 </head>
 <body>
 	<h1>楽楽レンタカー</h1>
@@ -18,7 +19,7 @@
 		<form:select path="settlement1" items="${settlementMap1}"/><br>
 		<input type="submit" value="検索">
 	</form:form>
-	
+
 	<br>
 	<br>
 	<h2>営業所から選ぶ</h2>

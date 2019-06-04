@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<jsp:include page="header.jsp" flush="true" />
 </head>
 <body>
 	<h1>日付・オプション選択画面</h1>
