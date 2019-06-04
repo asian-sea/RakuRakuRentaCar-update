@@ -49,7 +49,7 @@
 				<c:out value=" "/><br>
 			</td>
 			<td>
-				<form action="${pageContext.request.contextPath }/reservation">
+				<form action="${pageContext.request.contextPath }/reservation/">
 					<input type="hidden" name="reservationId" value="${reservationCarList.id }"/>
 					<input type="submit" value="予約"/>
 				</form>

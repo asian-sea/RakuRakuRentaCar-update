@@ -22,10 +22,10 @@ public class ReservationController {
 	@Autowired
 	private CarService carService;
 
-	@RequestMapping("")
+	@RequestMapping("/")
 	public String reservation(Model model, @ModelAttribute ReservationForm form, @RequestParam("reservationId") int id) {
 		ReservationCar reservationCar = service.findOne(id);
-		Car car = carService.findOne(1);
+		Car car = carService.findOne(reservationCar.getCarId());
 		model.addAttribute("car", car);
 		model.addAttribute("reservationCar", reservationCar);
 		service.addRadioButton(model);
