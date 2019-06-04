@@ -14,8 +14,8 @@
 	<br>
 	<h2>検索</h2>
 	<form:form modelAttribute="carForm" action="${pageContext.request.contextPath}/car/toCarList2">
-		<form:radiobuttons path="settlement" items="${settlementMap}"/><br>
-		<form:radiobuttons path="settlement1" items="${settlementMap1}"/><br>
+		<form:select path="settlement" items="${settlementMap}"/><br>
+		<form:select path="settlement1" items="${settlementMap1}"/><br>
 		<input type="submit" value="検索">
 	</form:form>
 	
