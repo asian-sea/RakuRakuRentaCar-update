@@ -19,6 +19,11 @@ public class ReservationCarService {
 		reservationCarRepository.save(reservationCar);
 	}
 
+	//オプション内容
+	public void addOption(ReservationCar reservationCar) {
+		reservationCarRepository.saveOption(reservationCar);
+	}
+
 	//キープを表示
 	public List<ReservationCar> findAll(int id){
 		return reservationCarRepository.findAll(id);

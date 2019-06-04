@@ -29,18 +29,29 @@ public class ReservationCarRepository {
 		reservationCar.setReservationId(rs.getInt("reservation_id"));
 		reservationCar.setStartDate(rs.getTimestamp("start_date").toLocalDateTime());
 		reservationCar.setEndDate(rs.getTimestamp("end_date").toLocalDateTime());
-//		reservationCar.setOption(rs.getString("option"));
 		return reservationCar;
 	};
+
 
 
 	//キープを追加
 	public void save(ReservationCar reservationCar) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(reservationCar);
 
-		String insertSql = "INSERT INTO reservation_cars(car_id, reservation_id, start_date, end_date, option)"
-				+ "VALUES(:carId, :reservationId, :startDate, :endDate, :option)";
+		String insertSql = "INSERT INTO reservation_cars(car_id, reservation_id, start_date, end_date, user_id)"
+				+ "VALUES(:carId, :reservationId, :startDate, :endDate, :userId)";
+
 		template.update(insertSql, param);
+	}
+
+	//オプション内容
+	public void saveOption(ReservationCar reservationCar) {
+		SqlParameterSource param = new BeanPropertySqlParameterSource(reservationCar);
+
+		String optionSql = "INSERT INTO reservation_options (option_id, reservation_car_id)"
+				+ "VALUES(:optionId, :reservationCarId)";
+
+		template.update(optionSql, param);
 	}
 
 	//キープを表示

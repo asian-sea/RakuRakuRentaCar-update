@@ -30,9 +30,17 @@ public class ReservationCarController {
 	@RequestMapping(value="/add")
 	public String addCar(ReservationCarForm reservationCarForm) {
 		ReservationCar reservationCar = new ReservationCar();
+
 		reservationCar.setId(reservationCarForm.getId());
 		reservationCar.setCarId(reservationCarForm.getCarId());
+//		reservationCar.setStartDate(reservationCarForm.getStartDate());
+//		reservationCar.setEndDate(reservationCarForm.getEndDate());
 		reservationCarService.addCar(reservationCar);
+
+		for(int i= 1; i<=3; i++) {
+			reservationCarService.addOption(reservationCar);
+		}
+
 		return "redirect:/show";
 	}
 

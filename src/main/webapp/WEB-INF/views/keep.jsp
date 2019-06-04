@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<jsp:include page="header.jsp" flush="true" />
 <meta charset="UTF-8">
 <title>キープ内容</title>
 </head>
