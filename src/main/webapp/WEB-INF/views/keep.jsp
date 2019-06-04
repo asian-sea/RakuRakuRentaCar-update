@@ -40,8 +40,13 @@
 				〜<br>
 				<c:out value="${reservationCarList.endDate }"/><br>
 			</td>
+			<!-- オプション -->
 			<td>
-				<c:out value="${reservationCarList.option }"/><br>
+				<c:out value=" "/><br>
+			</td>
+			<!-- 合計価格 -->
+			<td>
+				<c:out value=" "/><br>
 			</td>
 			<td>
 				<form action="${pageContext.request.contextPath }/reservation">
