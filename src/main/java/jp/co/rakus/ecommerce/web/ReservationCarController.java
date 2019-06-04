@@ -45,7 +45,7 @@ public class ReservationCarController {
 			reservationCarService.addOption(reservationCar.getOptionList().get(i), reservationCarId);
 		}
 
-		return "redirect:/show";
+		return "redirect:/keep/show";
 	}
 
 	//キープを表示

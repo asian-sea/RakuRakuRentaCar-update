@@ -1,3 +1,6 @@
+insert into users (name, email, password, address, telephone)
+values ('山田太郎', 'test@test.co.jp', 'password', '東京都新宿区新宿4町目', '0120-123-123');
+
 insert into cars values(1, 'デミオ', '1', '1', '1.jpg');
 insert into cars values(2, 'ヴィッツ', '1', '2', '2.jpg');
 insert into cars values(3, 'マーチ', '1', '3', '3.jpg');

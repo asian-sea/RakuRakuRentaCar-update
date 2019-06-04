@@ -1,3 +1,12 @@
+create table users (
+  id serial primary key
+  , name text not null
+  , email text not null unique
+  , password text not null
+  , address text not null
+  , telephone text not null
+) ;
+
 create table cars (
   id integer primary key
   , name text not null
@@ -13,7 +22,7 @@ create table grades (
   , price integer
 ) ;
 
-create table shops ( 
+create table shops (
   id integer primary key
   , name text not null
   , address text
