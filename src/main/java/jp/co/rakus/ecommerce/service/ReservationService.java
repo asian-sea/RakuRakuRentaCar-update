@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import jp.co.rakus.ecommerce.domain.ReservationCar;
-import jp.co.rakus.ecommerce.domain.ReservationRepository;
+import jp.co.rakus.ecommerce.repository.ReservationRepository;
 
 @Service
 public class ReservationService {

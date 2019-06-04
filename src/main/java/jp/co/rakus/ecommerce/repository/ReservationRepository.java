@@ -1,4 +1,4 @@
-package jp.co.rakus.ecommerce.domain;
+package jp.co.rakus.ecommerce.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
@@ -6,6 +6,8 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
+
+import jp.co.rakus.ecommerce.domain.ReservationCar;
 
 @Repository
 public class ReservationRepository {
