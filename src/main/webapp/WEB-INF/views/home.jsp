@@ -15,8 +15,8 @@
 	<br>
 	<h2>検索</h2>
 	<form:form modelAttribute="carForm" action="${pageContext.request.contextPath}/car/toCarList2">
-		<form:select path="shop" items="${shopMap}"/><br>
-		<form:select path="grade" items="${gradeMap}"/><br>
+		<form:select path="shopId" items="${shopMap}"/><br>
+		<form:select path="gradeId" items="${gradeMap}"/><br>
 		<input type="submit" value="検索">
 	</form:form>
 
