@@ -29,8 +29,8 @@
 	<form:form modelAttribute="reservationCarForm" action="${pageContext.request.contextPath}/keep/add">
 		<input type="hidden" name="carId" value="${car.id}"/><br>
 
-		開始時間<form:input path="startDate" id="flatpickr"/><br>
-		返却時間<form:input path="endDate" id="flatpickr"/><br>
+		開始時間<form:input path="startDate" class="flatpickr"/><br>
+		返却時間<form:input path="endDate" class="flatpickr"/><br>
 		<c:forEach var="option" items="${optionList}" varStatus="status">
 			<form:checkbox path="optionList" value="${option.id}"/>
 			<c:out value="${option.name} "/>
@@ -43,7 +43,7 @@
 	<div id="totalPrice"></div>
 	<script>
 		// カレンダー
-		flatpickr("#flatpickr", {
+		flatpickr(".flatpickr", {
 			enableTime: true,
 		});
 
@@ -53,10 +53,14 @@
 		calc_price();
 
 		// チェックボックスにイベントリスナー追加
-		$('input:checkbox').on('change',function() {
+		$('input:checkbox').on('change', function() {
 			calc_price();
 		});
 
+		// カレンダーにイベントリスナー追加
+		$('.flatpickr').on('change', function() {
+			calc_price();
+		});
 
 		// 値段の計算をして変更する関数
 		function calc_price() {
@@ -76,11 +80,22 @@
 			checkedListPrice.forEach(i => {
 				optionPrice += i;
 			});
-			console.log(optionPrice);
+
+			// 時間倍率計算
+			var startDateStr = $('input[name="startDate"]').val().replace(/-/g, '/');
+			var endDateStr = $('input[name="endDate"]').val().replace(/-/g, '/');
+			var startDate = new Date(startDateStr);
+			var endDate = new Date(endDateStr);
+			var diffTime = endDate.getTime() - startDate.getTime();
+			var diffHour = Math.ceil(diffTime / (1000 * 60 * 60))
+			console.log(diffHour);
 
 			// 合計金額
-			var totalPrice = gradePrice + optionPrice;
+			var totalPrice = gradePrice * diffHour + optionPrice;
 			$('#totalPrice').text('金額: ' + totalPrice + '円');
+			if (totalPrice > 0 == false) {
+				$('#totalPrice').text('金額: --- 円 ');
+			}
 		}
 	</script>
 </body>
