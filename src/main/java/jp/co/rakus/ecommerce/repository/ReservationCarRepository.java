@@ -59,7 +59,7 @@ public class ReservationCarRepository {
 
 	//キープを表示
 	public List<ReservationCar> findAll(int id){
-		String sql = "SELECT id, status, car_id, start_date, end_date FROM reservation_cars ORDER BY id DESC";
+		String sql = "SELECT id, status, car_id, start_date, end_date FROM reservation_cars WHERE status = 1 ORDER BY id DESC";
 		List<ReservationCar> reservationCarList = template.query(sql, reservationCarRowMapper);
 		return reservationCarList;
 	}
