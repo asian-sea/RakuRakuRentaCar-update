@@ -26,8 +26,9 @@ public class ReservationHistoryController {
 
 	//予約履歴を表示
 	@RequestMapping(value="/")
-	public String showHistory(ReservationCarForm reservationCarForm, User user) {
-		List<ReservationCar> reservationHistoryList = reservationHistoryService.findHistory(0);
+	public String showHistory(ReservationCarForm reservationCarForm) {
+		User user = (User)session.getAttribute("user");
+		List<ReservationCar> reservationHistoryList = reservationHistoryService.findHistory(user.getId());
 		session.setAttribute("reservationHistoryList", reservationHistoryList);
 		return "history";
 	}
