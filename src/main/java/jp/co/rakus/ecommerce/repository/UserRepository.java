@@ -54,6 +54,10 @@ public class UserRepository {
 	}
 	
 	
+//	メール送信時に名前とメールアドレスを受け取る
+	
+	
+	
 //	ユーザの新規登録
 	public User save(User user) {
 		SqlParameterSource param=new BeanPropertySqlParameterSource(user);
