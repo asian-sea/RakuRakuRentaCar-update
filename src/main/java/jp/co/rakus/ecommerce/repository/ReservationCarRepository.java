@@ -25,8 +25,8 @@ public class ReservationCarRepository {
 	private static final RowMapper<ReservationCar> reservationCarRowMapper = (rs,i) -> {
 		ReservationCar reservationCar = new ReservationCar();
 		reservationCar.setId(rs.getInt("id"));
+		reservationCar.setStatus(rs.getInt("status"));
 		reservationCar.setCarId(rs.getInt("car_id"));
-		reservationCar.setReservationId(rs.getInt("reservation_id"));
 		reservationCar.setStartDate(rs.getTimestamp("start_date").toLocalDateTime());
 		reservationCar.setEndDate(rs.getTimestamp("end_date").toLocalDateTime());
 		return reservationCar;
@@ -38,8 +38,8 @@ public class ReservationCarRepository {
 	public int save(ReservationCar reservationCar) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(reservationCar);
 
-		String insertSql = "INSERT INTO reservation_cars(car_id, reservation_id, start_date, end_date, user_id)"
-				+ "VALUES(:carId, :reservationId, :startDate, :endDate, :userId)"
+		String insertSql = "INSERT INTO reservation_cars(status, car_id, start_date, end_date, user_id)"
+				+ "VALUES(1, :carId, :startDate, :endDate, :userId)"
 				+ "RETURNING id";
 
 		return template.queryForObject(insertSql, param, Integer.class);
@@ -59,7 +59,7 @@ public class ReservationCarRepository {
 
 	//キープを表示
 	public List<ReservationCar> findAll(int id){
-		String sql = "SELECT id, car_id, reservation_id, start_date, end_date FROM reservation_cars ORDER BY id DESC";
+		String sql = "SELECT id, status, car_id, start_date, end_date FROM reservation_cars ORDER BY id DESC";
 		List<ReservationCar> reservationCarList = template.query(sql, reservationCarRowMapper);
 		return reservationCarList;
 	}

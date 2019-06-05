@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<jsp:include page="header.jsp" flush="true" />
 </head>
 <body>
 	<h1>日付・オプション選択画面</h1>

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,12 +55,19 @@ public class CarController {
 		return "carList";//車種一覧画面を呼び出し
 	}
 	
+	//home画面で選択された営業所とグレードのidの値を取得
 	@RequestMapping(value="/toCarList2")
-	public String toCarList2(Model model,CarForm form) {
+	public String toCarList2(@Validated CarForm form, Model model) {
 		List<Car> carList = new ArrayList<Car>();
 		int shopId = form.getSettlement();
 		int gradeId = form.getSettlement1();
-		carList = service.findByShopIdAndGradeId(shopId,gradeId);
+		if (shopId == 0) {//選択された項目によって検索条件が変化
+			carList = service.findByGradeId(gradeId);
+		} else if (gradeId == 0) {
+			carList = service.findByShopId(shopId);
+		} else {
+			carList = service.findByShopIdAndGradeId(shopId,gradeId);			
+		}
 		model.addAttribute("carList", carList);
 		return "carList";//車種一覧画面を呼び出し
 	}

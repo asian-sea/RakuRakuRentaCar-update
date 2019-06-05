@@ -5,8 +5,8 @@ import java.util.List;
 
 public class ReservationCar {
 	private int id;
+	private int status;
 	private int carId;
-	private int reservationId;
 	private LocalDateTime startDate;
 	private LocalDateTime endDate;
 	private List<Integer> optionList;
@@ -23,12 +23,6 @@ public class ReservationCar {
 	}
 	public void setCarId(int carId) {
 		this.carId = carId;
-	}
-	public int getReservationId() {
-		return reservationId;
-	}
-	public void setReservationId(int reservationId) {
-		this.reservationId = reservationId;
 	}
 
 	public LocalDateTime getStartDate() {
@@ -54,6 +48,12 @@ public class ReservationCar {
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 }

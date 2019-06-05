@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="header.jsp" flush="true" />
 </head>
 <body>
 	<h1>決済が完了しました！</h1>

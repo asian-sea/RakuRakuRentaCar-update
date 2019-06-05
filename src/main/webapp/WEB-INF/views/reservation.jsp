@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="header.jsp" flush="true" />
 </head>
 <body>
 	<h1>予約内容確認</h1>
