@@ -7,6 +7,7 @@
 <head>
 	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" href="sample.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -15,14 +16,18 @@
 	margin:0; padding:0;
 }
 header{
+	width:100%;
+	top: 0;
+	left: 0;
 	background-color:orange;
 	height:50px;
 	color:white;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 .logo{
 	position:absolute;
 	line-height:50px;
-	size:30px;
+	font-size:30px;
 	padding-left:20px;
 }
 .logo a{
@@ -53,7 +58,8 @@ li a{
 	</div>
 
 	<ul class="menu">
-		<li><a href="../keep/show">Keep</a></li>
+		<li><a href="../keep/show">キープ</a></li>
+		<li><a href="../history/">注文履歴</a></li>
 		<li><a href="../login/loginpage">ログアウト</a></li>
 	</ul>
 </header>
