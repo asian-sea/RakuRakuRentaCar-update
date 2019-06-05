@@ -2,6 +2,7 @@ package jp.co.rakus.ecommerce.web;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class AccountForm {
@@ -15,6 +16,7 @@ public class AccountForm {
 		private String address;
 		
 		@NotBlank(message="電話番号の入力は必須です")
+		@Pattern(regexp = "^[0-9]*$",message="半角数字で入力してください")
 		private String telephone;
 		
 		@Email(message="Eメールの形式で入力してください")
@@ -23,10 +25,12 @@ public class AccountForm {
 		
 		@NotBlank(message="パスワードの入力は必須です")
 		@Size(min=4,max=12,message="パスワードは4文字以上12文字以内で入力してください")
+		@Pattern(regexp = "^[a-zA-Z0-9]*$",message="パスワードは半角英数字で入力してください")
 		private String password;
 		
 		@NotBlank(message="確認用パスワードの入力は必須です")
 		@Size(min=4,max=12,message="確認用パスワードは4文字以上12文字以内で入力してください")
+		@Pattern(regexp = "^[a-zA-Z0-9]*$",message="パスワードは半角英数字で入力してください")
 		private String checkpassword;
 		
 		
