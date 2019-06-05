@@ -25,17 +25,16 @@ public class ReservationRepository {
 	private NamedParameterJdbcTemplate jdbc;
 
 	public ReservationCar findOne(int id) {
-		String sql = "SELECT id, car_id, start_date, end_date"
-				+ " FROM reservation_cars WHERE id = :id";
-		SqlParameterSource param = new MapSqlParameterSource()
-				.addValue("id", id);
+		String sql = "SELECT id, car_id, start_date, end_date" + " FROM reservation_cars WHERE id = :id";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		ReservationCar reservationCar = jdbc.queryForObject(sql, param, rowMapper);
 		return reservationCar;
 	}
-	
-	public void save(int id) {
-		String sql = "UPDATE reservation_cars SET status = 2 WHERE id=:id";
+
+	public void save(int id, int settlementId) {
+		String sql = "UPDATE reservation_cars SET status = 2, settlement_id = :settlementId WHERE id=:id";
 		SqlParameterSource param = new MapSqlParameterSource()
+				.addValue("settlementId", settlementId)
 				.addValue("id", id);
 		jdbc.update(sql, param);
 	}

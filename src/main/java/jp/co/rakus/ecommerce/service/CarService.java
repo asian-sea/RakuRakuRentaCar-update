@@ -47,19 +47,19 @@ public class CarService {
 	}
 	
 	public void addRadioButton(Model model) {
-		Map<Integer, String> settlementMap = new LinkedHashMap<>();
-		settlementMap.put(0, "選択してください");
-		settlementMap.put(1, "新宿店");
-		settlementMap.put(2, "調布店");
-		settlementMap.put(3, "静岡店");
-		model.addAttribute("settlementMap", settlementMap);
+		Map<Integer, String> shopMap = new LinkedHashMap<>();
+		shopMap.put(0, "選択してください");
+		shopMap.put(1, "新宿店");
+		shopMap.put(2, "調布店");
+		shopMap.put(3, "静岡店");
+		model.addAttribute("shopMap", shopMap);
 		
-		Map<Integer, String> settlementMap1 = new LinkedHashMap<>();
-		settlementMap1.put(0, "選択してください");
-		settlementMap1.put(1, "コンパクトカー");
-		settlementMap1.put(2, "セダン");
-		settlementMap1.put(3, "スポーツカー");
-		model.addAttribute("settlementMap1", settlementMap1);
+		Map<Integer, String> gradeMap = new LinkedHashMap<>();
+		gradeMap.put(0, "選択してください");
+		gradeMap.put(1, "コンパクトカー");
+		gradeMap.put(2, "セダン");
+		gradeMap.put(3, "スポーツカー");
+		model.addAttribute("gradeMap", gradeMap);
 	}
 
 	public Car findOne(int id) {

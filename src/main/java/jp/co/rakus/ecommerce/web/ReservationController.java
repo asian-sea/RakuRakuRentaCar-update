@@ -23,7 +23,7 @@ public class ReservationController {
 	private CarService carService;
 
 	@RequestMapping("/")
-	public String reservation(Model model, @ModelAttribute ReservationForm form, @RequestParam("reservationId") int id) {
+	public String reservation(Model model, @ModelAttribute ReservationForm form, @RequestParam("status") int id) {
 		ReservationCar reservationCar = service.findOne(id);
 		Car car = carService.findOne(reservationCar.getCarId());
 		model.addAttribute("car", car);
@@ -33,8 +33,9 @@ public class ReservationController {
 	}
 
 	@RequestMapping("/fix")
-	public String fix(@RequestParam("reservationId") int id) {
-		service.save(id);
+	public String fix(@RequestParam("id") int id, ReservationForm form) {
+		int settlementId = form.getSettlement();
+		service.save(id, settlementId);
 		return "redirect:/reservation/completion";
 	}
 

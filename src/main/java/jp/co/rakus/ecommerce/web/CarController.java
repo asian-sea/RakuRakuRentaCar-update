@@ -59,8 +59,8 @@ public class CarController {
 	@RequestMapping(value="/toCarList2")
 	public String toCarList2(@Validated CarForm form, Model model) {
 		List<Car> carList = new ArrayList<Car>();
-		int shopId = form.getSettlement();
-		int gradeId = form.getSettlement1();
+		int shopId = form.getShopId();
+		int gradeId = form.getGradeId();
 		if (shopId == 0) {//選択された項目によって検索条件が変化
 			carList = service.findByGradeId(gradeId);
 		} else if (gradeId == 0) {

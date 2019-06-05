@@ -41,4 +41,5 @@ create table reservation_cars (
     , start_date timestamp not null
     , end_date timestamp not null
     , user_id integer not null
+    , settlement_id integer not null
 );

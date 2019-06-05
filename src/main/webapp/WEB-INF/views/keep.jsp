@@ -50,7 +50,7 @@
 			</td>
 			<td>
 				<form action="${pageContext.request.contextPath }/reservation/">
-					<input type="hidden" name="reservationId" value="${reservationCarList.id }"/>
+					<input type="hidden" name="status" value="${reservationCarList.id }"/>
 					<input type="submit" value="予約"/>
 				</form>
 				<form action="${pageContext.request.contextPath }/keep/delete">
