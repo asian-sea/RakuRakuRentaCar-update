@@ -43,3 +43,9 @@ create table reservation_cars (
     , user_id integer not null
     , settlement_id integer not null
 );
+
+create table reservation_options (
+	id serial primary key
+	, option_id integer not null
+	, reservation_car_id integer not null
+);
