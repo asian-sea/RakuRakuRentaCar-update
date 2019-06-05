@@ -11,6 +11,7 @@ public class ReservationCar {
 	private LocalDateTime endDate;
 	private List<Integer> optionList;
 	private int userId;
+	private int settlementId;
 
 	public int getId() {
 		return id;
@@ -55,5 +56,12 @@ public class ReservationCar {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+	public int getSettlementId() {
+		return settlementId;
+	}
+	public void setSettlementId(int settlementId) {
+		this.settlementId = settlementId;
+	}
+	
 
 }

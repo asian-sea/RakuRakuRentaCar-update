@@ -27,7 +27,7 @@ public class ReservationService {
 		model.addAttribute("settlementMap", settlementMap);
 	}
 	
-	public void save(int id) {
-		repository.save(id);
+	public void save(int id, int settlementId) {
+		repository.save(id,settlementId);
 	}
 }

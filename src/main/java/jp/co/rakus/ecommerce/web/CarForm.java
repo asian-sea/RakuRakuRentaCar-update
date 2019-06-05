@@ -10,8 +10,8 @@ public class CarForm {
 	private Grade grade;
 	private Shop shop;
 	private String imagePath;
-	private int settlement;
-	private int settlement1;
+	private int shopId;
+	private int gradeId;
 	public int getId() {
 		return id;
 	}
@@ -42,17 +42,17 @@ public class CarForm {
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
-	public int getSettlement() {
-		return settlement;
+	public int getShopId() {
+		return shopId;
 	}
-	public void setSettlement(int settlement) {
-		this.settlement = settlement;
+	public void setShopId(int shopId) {
+		this.shopId = shopId;
 	}
-	public int getSettlement1() {
-		return settlement1;
+	public int getGradeId() {
+		return gradeId;
 	}
-	public void setSettlement1(int settlement1) {
-		this.settlement1 = settlement1;
+	public void setGradeId(int gradeId) {
+		this.gradeId = gradeId;
 	}
 	
 	
