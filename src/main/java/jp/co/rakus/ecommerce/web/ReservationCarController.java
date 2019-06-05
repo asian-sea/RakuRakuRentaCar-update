@@ -37,11 +37,22 @@ public class ReservationCarController {
 		ReservationCar reservationCar = new ReservationCar();
 		BeanUtils.copyProperties(reservationCarForm, reservationCar);
 
+		// 日付をString型からLocalDateTime型に直してReservationCarFormドメインに登録
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		reservationCar.setStartDate(LocalDateTime.parse(reservationCarForm.getStartDate(), dtf));
 		reservationCar.setEndDate(LocalDateTime.parse(reservationCarForm.getEndDate(), dtf));
+
+		// userIdを格納
+		User user = (User)session.getAttribute("user");
+		reservationCar.setUserId(user.getId());
+
+		// totalPriceの計算
+
+
 		int reservationCarId = reservationCarService.addCar(reservationCar);
 
+		// ReservationCarFormドメインが持っている"option_id"と自動採番される"reservation_car_id"で
+		// reservaion_optionsテーブルに追加
 		for(int i = 0; i < reservationCar.getOptionList().size(); i++) {
 			reservationCarService.addOption(reservationCar.getOptionList().get(i), reservationCarId);
 		}
