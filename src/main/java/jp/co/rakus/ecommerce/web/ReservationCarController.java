@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.co.rakus.ecommerce.domain.ReservationCar;
+import jp.co.rakus.ecommerce.domain.User;
 import jp.co.rakus.ecommerce.service.CarService;
 import jp.co.rakus.ecommerce.service.ReservationCarService;
 
@@ -50,8 +51,8 @@ public class ReservationCarController {
 
 	//キープを表示
 	@RequestMapping(value="/show")
-	public String showCars(ReservationCarForm reservationCarForm) {
-		List<ReservationCar> reservationCarList = reservationCarService.findAll(1);
+	public String showCars(ReservationCarForm reservationCarForm, User user) {
+		List<ReservationCar> reservationCarList = reservationCarService.findAll(0);
 		session.setAttribute("reservationCarList", reservationCarList);
 		return "keep";
 	}
