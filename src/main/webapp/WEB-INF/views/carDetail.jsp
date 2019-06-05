@@ -92,9 +92,12 @@
 
 			// 合計金額
 			var totalPrice = gradePrice * diffHour + optionPrice;
-			$('#totalPrice').text('金額: ' + totalPrice + '円');
 			if (totalPrice > 0 == false) {
 				$('#totalPrice').text('金額: --- 円 ');
+				$('input:submit').prop('disabled', true);
+			} else {
+				$('#totalPrice').text('金額: ' + totalPrice + '円');
+				$('input:submit').prop('disabled', false);
 			}
 		}
 	</script>
