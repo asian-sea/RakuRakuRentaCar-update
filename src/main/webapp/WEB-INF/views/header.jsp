@@ -9,14 +9,17 @@
 	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" href="sample.css" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+	<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
 
 <style>
-* {
-	margin:0; padding:0;
-}
+/* * { */
+/* 	margin:0; padding:0; */
+/* } */
 header{
+	margin:0; padding:0;
 	width:100%;
 	top: 0;
 	left: 0;
@@ -55,7 +58,7 @@ li a{
 
 <header>
 	<div class="logo">
-		<p><a href="../car/">楽々レンタカー</a></p>
+		<p><a href="../car/">らくらくレンタカー</a></p>
 	</div>
 
 	<ul class="menu">

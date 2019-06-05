@@ -6,30 +6,31 @@
 <html>
 <head>
 <jsp:include page="header.jsp" flush="true" />
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>キープ内容</title>
 </head>
 <body>
-
-<h3 class="text-center">キープ内容確認</h3>
-	<table>
-		<tr>
-			<th>
-				車種
-			</th>
-			<th>
-				レンタル期間｜価格
-			</th>
-			<th>
-				オプション｜価格
-			</th>
-			<th>
-				合計
-			</th>
-			<th>
-				予約/削除
-			</th>
-		</tr>
+<h3>キープ内容確認</h3>
+	<table class="table table-striped">
+			<tr>
+				<th>
+					車種
+				</th>
+				<th>
+					レンタル期間｜価格
+				</th>
+				<th>
+					オプション｜価格
+				</th>
+				<th>
+					合計
+				</th>
+				<th>
+					予約/削除
+				</th>
+			</tr>
 	<c:forEach var="reservationCarList" items="${reservationCarList }">
 		<tr>
 			<td>
@@ -51,16 +52,16 @@
 			<td>
 				<form action="${pageContext.request.contextPath }/reservation/">
 					<input type="hidden" name="status" value="${reservationCarList.id }"/>
-					<input type="submit" value="予約"/>
+					<input type="submit" class="btn btn-primary btn-sm" value="予約"/>
 				</form>
+				<br>
 				<form action="${pageContext.request.contextPath }/keep/delete">
 					<input type="hidden" name="deleteId" value="${reservationCarList.id }"/>
-					<input type="submit" value="削除"/>
+					<input type="submit" class="btn btn-danger btn-sm" value="削除"/>
 				</form>
 			</td>
 		</tr>
 	</c:forEach>
 	</table>
-
 </body>
 </html>

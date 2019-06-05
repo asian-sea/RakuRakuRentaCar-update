@@ -6,13 +6,15 @@
 <html>
 <head>
 <jsp:include page="header.jsp" flush="true" />
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>予約履歴</title>
 </head>
 <body>
 
 <h3 class="text-center">予約履歴</h3>
-	<table>
+	<table class="table table-striped">
 		<tr>
 			<th>
 				車種
@@ -51,7 +53,7 @@
 			<td>
 				<form action="${pageContext.request.contextPath }/history/cancel">
 					<input type="hidden" name="cancelId" value="${reservationHistoryList.id }"/>
-					<input type="submit" value="予約キャンセル"/>
+					<input type="submit" class="btn btn-danger btn-sm" value="予約キャンセル"/>
 				</form>
 			</td>
 		</tr>
