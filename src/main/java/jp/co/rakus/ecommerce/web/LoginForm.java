@@ -14,6 +14,8 @@ public class LoginForm {
 	@NotBlank(message="パスワードの入力は必須です")
 	private String password;
 
+	private String name;
+	
 	public String getEmail() {
 		return email;
 	}
@@ -28,6 +30,14 @@ public class LoginForm {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

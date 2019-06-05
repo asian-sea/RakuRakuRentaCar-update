@@ -11,6 +11,7 @@
 <c:out value="${user.name }"/>さんようこそ
 <a href="/login/loginpage">ログインはこちら</a>
 <a href="/logout/logoutAccount">ログアウト</a>
+<a href="/mail/page">メールテストページ</a>
 <h1>車種一覧</h1>
 <c:forEach var="car" items="${carList}">
 		<c:out value="${car.id }" />
