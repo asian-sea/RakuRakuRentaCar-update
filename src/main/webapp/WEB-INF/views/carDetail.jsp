@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 	<h1>日付・オプション選択画面</h1>
@@ -17,22 +18,69 @@
 	<c:out value="${car.name}"/><br>
 	<c:out value="${car.grade.id}"/><br>
 	<c:out value="${car.grade.name}"/><br>
-	<fmt:formatNumber value="${car.grade.price}"/>円/3時間<br>
+	<div id="gradePrice">
+		<fmt:formatNumber value="${car.grade.price}"/>円<br>
+	</div>
 	<c:out value="${car.shop.id}"/><br>
 	<c:out value="${car.shop.name}"/><br>
 	<c:out value="${car.shop.address}"/><br>
 	<img src="/img/<c:out value="${car.imagePath}"/>" style="width:200px"><br>
 	<form:form modelAttribute="reservationCarForm" action="${pageContext.request.contextPath}/keep/add">
 		<input type="hidden" name="carId" value="${car.id}"/><br>
+
 		開始時間<form:input path="startDate" id="flatpickr"/><br>
 		返却時間<form:input path="endDate" id="flatpickr"/><br>
-		<form:checkboxes path="optionList" items="${optionList}" itemLabel="name" itemValue="id" delimiter="<br>"/><br>
+		<c:forEach var="option" items="${optionList}" varStatus="status">
+			<form:checkbox path="optionList" value="${option.id}"/>
+			<c:out value="${option.name} "/>
+			<div class="optionPrice">
+				<c:out value="${option.price}円"/><br>
+			</div>
+		</c:forEach>
 		<input type="submit" value="キープする"><br>
 	</form:form>
+	<div id="totalPrice"></div>
 	<script>
+		// カレンダー
 		flatpickr("#flatpickr", {
 			enableTime: true,
 		});
+
+		//===== 以下合計金額計算用ソース
+
+		// jspファイル読み込み時に計算させる
+		calc_price();
+
+		// チェックボックスにイベントリスナー追加
+		$('input:checkbox').on('change',function() {
+			calc_price();
+		});
+
+
+		// 値段の計算をして変更する関数
+		function calc_price() {
+
+			// 基本料金
+			var gradePriceStr = $('#gradePrice').text().replace(/[^0-9]/g, '');
+			var gradePrice = parseInt(gradePriceStr);
+
+			// オプションリスト料金
+			var checked = $('input:checkbox:checked');
+			var checkedListPrice = [];
+			$.each(checked, function(i, value) {
+				var checkedPriceStr = value.nextElementSibling.nextElementSibling.textContent.replace(/[^0-9]/g, '');
+				checkedListPrice.push(parseInt(checkedPriceStr));
+			})
+			var optionPrice = 0;
+			checkedListPrice.forEach(i => {
+				optionPrice += i;
+			});
+			console.log(optionPrice);
+
+			// 合計金額
+			var totalPrice = gradePrice + optionPrice;
+			$('#totalPrice').text('金額: ' + totalPrice + '円');
+		}
 	</script>
 </body>
 </html>
