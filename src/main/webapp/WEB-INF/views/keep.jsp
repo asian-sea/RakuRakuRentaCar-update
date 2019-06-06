@@ -44,11 +44,12 @@
 			</td>
 			<!-- オプション -->
 			<td>
-				<c:out value=" "/><br>
+				<c:out value="${reservationCarList.option.name }"/><br>
+				<c:out value="${reservationCarList.option.price }"/>円<br>
 			</td>
 			<!-- 合計価格 -->
 			<td>
-				<c:out value=" "/><br>
+				<c:out value="${reservationCarList.totalPrice }"/>円<br>
 			</td>
 			<td>
 				<form action="${pageContext.request.contextPath }/reservation/">

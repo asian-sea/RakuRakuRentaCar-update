@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import jp.co.rakus.ecommerce.domain.Option;
 import jp.co.rakus.ecommerce.domain.ReservationCar;
 
 @Repository
@@ -29,6 +30,11 @@ public class ReservationCarRepository {
 		reservationCar.setCarId(rs.getInt("car_id"));
 		reservationCar.setStartDate(rs.getTimestamp("start_date").toLocalDateTime());
 		reservationCar.setEndDate(rs.getTimestamp("end_date").toLocalDateTime());
+		reservationCar.setTotalPrice(rs.getInt("total_price"));
+		
+		Option option = new Option(rs.getInt("op_id"), rs.getString("op_name"), rs.getInt("op_price"));
+		reservationCar.setOption(option);
+		
 		return reservationCar;
 	};
 
@@ -65,9 +71,18 @@ public class ReservationCarRepository {
 	}
 	//キープを表示
 	public List<ReservationCar> findAll(int id){
-		String sql = "SELECT id, status, car_id, start_date, end_date FROM reservation_cars WHERE user_id = :id AND status = 1 ORDER BY id DESC";
+		String sql = "SELECT reservation_cars.id AS id, reservation_cars.status AS status, reservation_cars.car_id AS car_id,"
+				+ " reservation_cars.start_date AS start_date, reservation_cars.end_date AS end_date, reservation_cars.total_price AS total_price,"
+				+ " options.id AS op_id, options.name AS op_name, options.price AS op_price"
+				+ " FROM reservation_cars"
+				+ " JOIN reservation_options"
+				+ " ON reservation_cars.id = reservation_options.reservation_car_id"
+				+ " JOIN options"
+				+ " ON reservation_options.option_id = options.id"
+				+ " WHERE user_id = :userId AND status = 1"
+				+ " ORDER BY reservation_cars.id DESC";
 		SqlParameterSource param = new MapSqlParameterSource()
-				.addValue("id",id);
+				.addValue("userId",id);
 		List<ReservationCar> reservationCarList = template.query(sql, param, reservationCarRowMapper);
 		return reservationCarList;
 	}

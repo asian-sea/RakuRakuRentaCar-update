@@ -13,6 +13,7 @@ public class ReservationCar {
 	private int userId;
 	private int settlementId;
 	private int totalPrice;
+	private Option option;
 
 	public int getId() {
 		return id;
@@ -69,6 +70,13 @@ public class ReservationCar {
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+	public Option getOption() {
+		return option;
+	}
+	public void setOption(Option option) {
+		this.option = option;
+	}
+	
 
 
 }
