@@ -63,12 +63,18 @@
 				<br>
 				<form action="${pageContext.request.contextPath }/keep/delete">
 					<input type="hidden" name="deleteId" value="${reservationCarList.id }"/>
-					<input type="submit" class="btn btn-danger btn-sm" value="削除"/>
+					<input type="submit" class="btn btn-danger btn-sm" onClick="return check()" value="削除"/>
 				</form>
 			</td>
 		</tr>
 	</c:forEach>
 	</table>
 	</div>
+	<script>
+		function check() {
+			return  confirm('本当に削除しますか？');
+		}
+
+	</script>
 </body>
 </html>
