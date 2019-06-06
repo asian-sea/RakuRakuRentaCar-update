@@ -81,4 +81,10 @@ public class CarController {
 		model.addAttribute("optionList", optionList);
 		return "carDetail";
 	}
+	
+//	//500エラー画面を呼び出すメソッド
+//	@RequestMapping("/maintenance")
+//	public String maintenance() {
+//		return "errorPage";
+//	}
 }
