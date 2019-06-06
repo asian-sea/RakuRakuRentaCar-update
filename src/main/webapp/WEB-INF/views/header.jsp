@@ -9,8 +9,6 @@
 	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" href="sample.css" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
-	<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
 
@@ -53,18 +51,21 @@ li a{
 	color:white;
 	display: inline-block;
 }
+a, a:visited, a:focus, a:hover {
+	text-decoration: none;
+}
 
 </style>
 
 <header>
 	<div class="logo">
-		<p><a href="../car/">らくらくレンタカー</a></p>
+		<p><a href="${pageContext.request.contextPath}/car/">らくらくレンタカー</a></p>
 	</div>
 
 	<ul class="menu">
-		<li><a href="../keep/show">キープ</a></li>
-		<li><a href="../history/">注文履歴</a></li>
-		<li><a href="../login/loginpage">ログアウト</a></li>
+		<li><a href="${pageContext.request.contextPath}/keep/show">キープ</a></li>
+		<li><a href="${pageContext.request.contextPath}/history/">注文履歴</a></li>
+		<li><a href="${pageContext.request.contextPath}/login/loginpage">ログアウト</a></li>
 	</ul>
 </header>
 

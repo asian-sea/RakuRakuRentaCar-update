@@ -12,10 +12,12 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-
+<div class="container">
 <form:form modelAttribute="accountForm" action="${pageContext.request.contextPath}/account/accountCreate">
+	<div class="border col-12">
+	<div class="text-center">
 
- 		名前:<form:input path="name" placeholder="名前"/>
+ 		名前:<form:input path="name" placeholder="名前" class="mt-4"/>
 		<br><form:errors path="name" cssStyle="color:red"/>
 
 		<br>
@@ -48,9 +50,13 @@
 		<form:errors cssStyle="color:red"/><br>
 
 		<br>
-		<input class="btn btn-primary" type="submit" value="新規登録">
+		<input class="btn btn-primary" type="submit" value="新規登録"><br>
+		<br>
 		<a href="/login/loginpage">ログイン画面に戻る</a>
-
+		<div class="mb-4"></div>
+	</div>
+	</div>
 </form:form>
+</div>
 </body>
 </html>
