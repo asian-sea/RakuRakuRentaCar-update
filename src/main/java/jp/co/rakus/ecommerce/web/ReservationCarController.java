@@ -2,6 +2,7 @@ package jp.co.rakus.ecommerce.web;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,9 +10,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jp.co.rakus.ecommerce.domain.Option;
 import jp.co.rakus.ecommerce.domain.ReservationCar;
 import jp.co.rakus.ecommerce.domain.User;
 import jp.co.rakus.ecommerce.service.CarService;
@@ -69,10 +72,17 @@ public class ReservationCarController {
 
 	//キープを表示
 	@RequestMapping(value="/show")
-	public String showCars(ReservationCarForm reservationCarForm) {
+	public String showCars(Model model, ReservationCarForm reservationCarForm) {
 		User user = (User)session.getAttribute("user");
 		List<ReservationCar> reservationCarList = reservationCarService.findAll(user.getId());
-		session.setAttribute("reservationCarList", reservationCarList);
+		model.addAttribute("reservationCarList", reservationCarList);
+		List<List<Option>> optionManyList = new ArrayList<>();
+		for (int i = 0; i <reservationCarList.size(); i++) {
+			int id = reservationCarList.get(i).getId();
+			List<Option> optionList = reservationCarService.findAllOption(id);
+			optionManyList.add(optionList);
+		}
+		model.addAttribute("optionManyList", optionManyList);
 		return "keep";
 	}
 

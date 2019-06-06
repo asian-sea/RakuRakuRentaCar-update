@@ -32,7 +32,7 @@
 					予約/削除
 				</th>
 			</tr>
-	<c:forEach var="reservationCarList" items="${reservationCarList }">
+	<c:forEach var="reservationCarList" items="${reservationCarList }" varStatus="status">
 		<tr>
 			<td>
 				<c:out value="${reservationCarList.carId }"/><br>
@@ -44,8 +44,12 @@
 			</td>
 			<!-- オプション -->
 			<td>
-				<c:out value="${reservationCarList.option.name }"/><br>
-				<c:out value="${reservationCarList.option.price }"/>円<br>
+			<c:forEach var="optionList" items="${optionManyList}">
+				<c:forEach var="option" items="${optionList}">
+					<c:out value="${option.name}"/>
+					<c:out value="${option.price}"/>
+				</c:forEach>
+			</c:forEach>
 			</td>
 			<!-- 合計価格 -->
 			<td>
