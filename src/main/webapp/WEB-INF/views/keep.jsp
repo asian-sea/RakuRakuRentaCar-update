@@ -5,14 +5,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>キープ内容</title>
+<meta charset="UTF-8">
 <jsp:include page="header.jsp" flush="true" />
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<meta charset="UTF-8">
-<title>キープ内容</title>
 </head>
 <body>
 <h3>キープ内容確認</h3>
+<div class="container">
 	<table class="table table-striped">
 			<tr>
 				<th>
@@ -63,5 +64,6 @@
 		</tr>
 	</c:forEach>
 	</table>
+	</div>
 </body>
 </html>
