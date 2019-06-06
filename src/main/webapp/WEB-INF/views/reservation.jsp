@@ -23,6 +23,7 @@
 
 	<h2>お支払い方法</h2>
 	<form:form modelAttribute="reservationForm" action="${pageContext.request.contextPath}/reservation/fix">
+	
 		決済方法<form:radiobuttons path="settlement" items="${settlementMap}"/><br>
 		<input type="hidden" name="id" value="${reservationCar.id }" />
 		<input type="submit" value="予約"/>
