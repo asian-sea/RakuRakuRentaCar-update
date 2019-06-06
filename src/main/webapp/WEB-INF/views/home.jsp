@@ -10,6 +10,10 @@
 <jsp:include page="header.jsp" flush="true" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <style>
+body{
+	margin-top:80px;
+	margin-bottom:10px;
+}
 .jumbotron{
 	background-image: url("../img/top01.jpg");
  	background-size: cover;
@@ -46,18 +50,20 @@
 </div>
 <div class="container">
 	<h3>クラスから選ぶ</h3>
+	<div class="row">
 	<c:forEach var="grade" items="${gradeList}">
-<%-- 		<c:out value="${grade.id }" /> --%>
-<!-- 		<br> -->
-			<img src="/img/<c:out value="${grade.imagePath }"/>" style="width:200px"/>
-		<br>
-		<a
-			href="<c:url value='${pageContext.request.contextPath}/car/toCarList1/${grade.id }' />">
-			<c:out value="${grade.name }" /></a>
-		<br>
-<!-- 		<br> -->
-<%-- 		<c:out value="${grade.price }" /> --%>
+		<div class="col-6 col-sm-4">
+			<div class="text-center">
+				<img src="/img/<c:out value="${grade.imagePath }"/>" style="width:200px"/><br>
+				<br>
+				<c:out value="${grade.name }" />
+				<a href="<c:url value='${pageContext.request.contextPath}/car/toCarList1/${grade.id }' />">
+				<input type="submit" class="btn btn-warning" value="この車種で予約する"/></a>
+				<br>
+			</div>
+		</div>
 	</c:forEach>
+	</div>
 </div>
 </body>
 </html>

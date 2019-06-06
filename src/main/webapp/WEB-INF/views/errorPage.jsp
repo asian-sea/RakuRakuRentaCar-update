@@ -6,6 +6,12 @@
 <meta charset="UTF-8">
 <title>申し訳ございま浅草寺</title>
 <jsp:include page="header.jsp" flush="true" />
+<style>
+body{
+	margin-top:80px;
+	margin-bottom:10px;
+}
+</style>
 </head>
 <body>
 

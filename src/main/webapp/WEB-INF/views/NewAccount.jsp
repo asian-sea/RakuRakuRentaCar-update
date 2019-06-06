@@ -7,54 +7,64 @@
 <meta charset="UTF-8">
 <script type="text/javascript" src="https://ajaxzip3.github.io/ajaxzip3.js" charset="utf-8"></script>
 <title>新規登録</title>
-<jsp:include page="header-logout.jsp" flush="true" />
+<jsp:include page="header.jsp" flush="true" />
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<style>
+body{
+	margin-top:120px;
+	margin-bottom:10px;
+}
+</style>
 </head>
 <body>
 <div class="container">
 <form:form modelAttribute="accountForm" action="${pageContext.request.contextPath}/account/accountCreate">
-	<div class="border col-12">
-	<div class="text-center">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<div class="text-center">
+				<div class="card">
+  					<div class="card-header">新規ユーザー登録</div>
+  					<div class="card-body">
+ 					名前:<form:input path="name" placeholder="名前" class="mt-4"/>
+					<br><form:errors path="name" cssStyle="color:red"/>
 
- 		名前:<form:input path="name" placeholder="名前" class="mt-4"/>
-		<br><form:errors path="name" cssStyle="color:red"/>
+					<br>
+					郵便番号:<input type="text" name="zip" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');">
+					<br>
 
-		<br>
-		郵便番号(ハイフンはあってもなくても大丈夫です):<br>
-		<input type="text" name="zip" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');">
-		<br>
+					<br>
+					住所:<form:input path="address" placeholder="住所(自動入力)"/>
+					<br><form:errors path="address" cssStyle="color:red"/>
 
-		<br>
-		住所(途中まで自動入力されます):<br>
-		<form:input path="address" placeholder="住所"/>
-		<br><form:errors path="address" cssStyle="color:red"/>
+					<br>
+					電話番号:<form:input path="telephone" placeholder="電話番号"/>
+					<br><form:errors path="telephone" cssStyle="color:red"/>
 
-		<br>
-		電話番号:<form:input path="telephone" placeholder="電話番号"/>
-		<br><form:errors path="telephone" cssStyle="color:red"/>
+					<br>
+					メールアドレス:<form:input path="email" placeholder="メールアドレス"/>
+					<br><form:errors path="email" cssStyle="color:red"/>
 
-		<br>
-		メールアドレス:<form:input path="email" placeholder="メールアドレス"/>
-		<br><form:errors path="email" cssStyle="color:red"/>
+					<br>
+					パスワード:<form:password path="password" placeholder="パスワード"/>
+					<br><form:errors path="password" cssStyle="color:red"/>
 
-		<br>
-		パスワード:<form:password path="password" placeholder="パスワード"/>
-		<br><form:errors path="password" cssStyle="color:red"/>
+					<br>
+					確認用パスワード:<form:password path="checkpassword" placeholder="確認用パスワード"/>
+					<br><form:errors path="checkpassword" cssStyle="color:red"/>
 
-		<br>
-		確認用パスワード:<form:password path="checkpassword" placeholder="確認用パスワード"/>
-		<br><form:errors path="checkpassword" cssStyle="color:red"/>
+	    			<!-- オブジェクトエラー処理  -->
+					<form:errors cssStyle="color:red"/><br>
 
-	    <!-- オブジェクトエラー処理  -->
-		<form:errors cssStyle="color:red"/><br>
-
-		<br>
-		<input class="btn btn-primary" type="submit" value="新規登録"><br>
-		<br>
-		<a href="/login/loginpage">ログイン画面に戻る</a>
-		<div class="mb-4"></div>
-	</div>
+					<br>
+					<input class="btn btn-primary" type="submit" value="新規登録"><br>
+					<br>
+					<a href="/login/loginpage">ログイン画面に戻る</a>
+					<div class="mb-4"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </form:form>
 </div>

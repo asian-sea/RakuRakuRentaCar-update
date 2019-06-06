@@ -6,28 +6,41 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン画面</title>
-<jsp:include page="header-logout.jsp" flush="true" />
+<jsp:include page="header.jsp" flush="true" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<style>
+body{
+	margin-top:120px;
+	margin-bottom:10px;
+}
+</style>
 </head>
 <body>
 <div class="container">
 <form:form modelAttribute="loginForm" action="${pageContext.request.contextPath}/login/loginform">
-	<div class="border col-12">
-		<div class="text-center">
-		<label for="inputEmail" class="mt-4">メールアドレス:</label>
-		<form:input path="email" placeholder="Email"/>
-		<br><form:errors path="email" cssStyle="color:red"/><br>
-		<br>
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<div class="text-center">
+				<div class="card">
+					<div class="card-header">ログイン</div>
+					<div class="card-body">
+					<label for="inputEmail" class="mt-4">メールアドレス:</label>
+					<form:input path="email" placeholder="Email"/>
+					<br><form:errors path="email" cssStyle="color:red"/><br>
+					<br>
 
-		<label for="inputPassword">パスワード:</label>
-		<form:password path="password" placeholder="Password"/>
-		<br><form:errors path="password" cssStyle="color:red"/>
-		<br><form:errors cssStyle="color:red"/>
+					<label for="inputPassword">パスワード:</label>
+					<form:password path="password" placeholder="Password"/>
+					<br><form:errors path="password" cssStyle="color:red"/>
+					<br><form:errors cssStyle="color:red"/>
 
-		<br><input class="btn btn-primary" type="submit" value="ログイン">
-		<br>
-		<br><a href="/account/newAccount">新規ユーザ登録はこちら</a>
-		<div class="mb-4"></div>
+					<br><input class="btn btn-primary" type="submit" value="ログイン">
+					<br>
+					<br><a href="/account/newAccount">新規ユーザ登録はこちら</a>
+					<div class="mb-4"></div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </form:form>

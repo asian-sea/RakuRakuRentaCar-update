@@ -8,13 +8,27 @@
 <jsp:include page="header.jsp" flush="true" />
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<style>
+body{
+	margin-top:80px;
+	margin-bottom:10px;
+}
+</style>
 </head>
 <body>
-	<h1>決済が完了しました！</h1>
+<div class="container">
+	<div class="m-5"></div>
+	<div class="text-center">
+	<div class="h3"><i class="fas fa-check-circle"></i>決済が完了しました！</div>
+	<br>
 	<p>
 		この度はご注文ありがとうございます。<br>
 		ご登録されたEメールアドレスに確認メールを送信しました。<br>
 		メールが届かない場合は「注文履歴」からご確認ください。<br>
 	</p>
+	<br>
+	<a href="${pageContext.request.contextPath }/car/" class="btn btn">トップ画面へ戻る</a>
+	</div>
+</div>
 </body>
 </html>
