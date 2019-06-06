@@ -33,7 +33,7 @@ public class CarController {
 		List<Shop> shopList = new ArrayList<Shop>();
 		shopList = service.findAllShop();
 		model.addAttribute("shopList", shopList);
-		service.addRadioButton(model);
+		service.addPullDown(model);
 		return "home";//home画面を呼び出し
 	}
 

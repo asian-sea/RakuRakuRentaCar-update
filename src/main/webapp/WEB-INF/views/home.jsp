@@ -51,6 +51,8 @@
 	<c:forEach var="grade" items="${gradeList}">
 <%-- 		<c:out value="${grade.id }" /> --%>
 <!-- 		<br> -->
+			<img src="/img/<c:out value="${grade.imagePath }"/>" style="width:200px"/>
+		<br>
 		<a
 			href="<c:url value='${pageContext.request.contextPath}/car/toCarList1/${grade.id }' />">
 			<c:out value="${grade.name }" /></a>
