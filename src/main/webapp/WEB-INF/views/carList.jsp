@@ -12,22 +12,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <style>
-.container{
-	float:left;
-}
 </style>
 </head>
 <body>
-<h1>車種一覧</h1>
 <div class="container">
-	<c:forEach var="car" items="${carList}">
-		<img src="/img/<c:out value='${car.imagePath }' />" style="width:200px">
-		<br>
-		<div class="text-center">
-		<a href="<c:url value='${pageContext.request.contextPath}/car/detail/${car.id }' />">
-		<c:out value="${car.name }" /></a>
+<h3>車種一覧</h3>
+	<div class="row">
+		<div class="col-sm-6">
+			<table class="table table-striped">
+				<c:forEach var="car" items="${carList}">
+					<tr>
+						<th>
+							<a href="<c:url value='${pageContext.request.contextPath}/car/detail/${car.id }' />">
+							<img src="/img/<c:out value='${car.imagePath }' />" style="width:200px">
+							<br>
+							<a href="<c:url value='${pageContext.request.contextPath}/car/detail/${car.id }' />">
+							<c:out value="${car.name }" /></a>
+						</th>
+					</tr>
+				</c:forEach>
+			</table>
 		</div>
-	</c:forEach>
+	</div>
 </div>
 </body>
 </html>
