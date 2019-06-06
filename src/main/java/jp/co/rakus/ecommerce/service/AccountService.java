@@ -8,12 +8,12 @@ import jp.co.rakus.ecommerce.repository.AccountRepository;
 
 @Service
 public class AccountService {
-	@Autowired 
+	@Autowired
 	AccountRepository accountRepository;
-	
+
 	public Account save(Account account) {
 		return accountRepository.save(account);
 	}
-	
+
 
 }
