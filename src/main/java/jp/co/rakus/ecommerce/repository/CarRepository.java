@@ -55,7 +55,7 @@ public class CarRepository {
 		Car car = new Car();
 		car.setId(rs.getInt("id"));
 		car.setName(rs.getString("name"));
-		car.setImagePath(rs.getString("imagePath"));
+		car.setImagePath(rs.getString("imagepath"));
 
 		return car;
 	};
@@ -111,7 +111,7 @@ public class CarRepository {
 	}
 
 	public Car findOne(int id) {
-		String sql = "SELECT cars.id AS id, cars.name AS name, imagepath, grades.id AS g_id, grades.name AS g_name, price, shops.id AS s_id, shops.name AS s_name, address"
+		String sql = "SELECT cars.id AS id, cars.name AS name, cars.imagepath AS imagepath, grades.id AS g_id, grades.name AS g_name, price, shops.id AS s_id, shops.name AS s_name, address"
 				+ " FROM cars"
 				+ " JOIN grades"
 				+ " ON cars.grade_id = grades.id"
