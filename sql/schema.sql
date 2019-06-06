@@ -1,3 +1,11 @@
+drop table users;
+drop table cars;
+drop table grades;
+drop table shops;
+drop table options;
+drop table reservation_cars;
+drop table reservation_options;
+
 create table users (
   id serial primary key
   , name text not null
@@ -40,6 +48,7 @@ create table reservation_cars (
     , car_id integer not null
     , start_date timestamp not null
     , end_date timestamp not null
+    , total_price integer not null
     , user_id integer not null
     , settlement_id integer not null
 );
