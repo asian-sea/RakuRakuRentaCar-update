@@ -33,7 +33,6 @@ public class CarController {
 		List<Shop> shopList = new ArrayList<Shop>();
 		shopList = service.findAllShop();
 		model.addAttribute("shopList", shopList);
-		service.addPullDown(model);
 		return "home";//home画面を呼び出し
 	}
 
@@ -54,7 +53,7 @@ public class CarController {
 		model.addAttribute("carList", carList);
 		return "carList";//車種一覧画面を呼び出し
 	}
-	
+
 	//home画面で選択された営業所とグレードのidの値を取得
 	@RequestMapping(value="/toCarList2")
 	public String toCarList2(@Validated CarForm form, Model model) {
@@ -66,7 +65,7 @@ public class CarController {
 		} else if (gradeId == 0) {
 			carList = service.findByShopId(shopId);
 		} else {
-			carList = service.findByShopIdAndGradeId(shopId,gradeId);			
+			carList = service.findByShopIdAndGradeId(shopId,gradeId);
 		}
 		model.addAttribute("carList", carList);
 		return "carList";//車種一覧画面を呼び出し
@@ -81,7 +80,7 @@ public class CarController {
 		model.addAttribute("optionList", optionList);
 		return "carDetail";
 	}
-	
+
 //	//500エラー画面を呼び出すメソッド
 //	@RequestMapping("/maintenance")
 //	public String maintenance() {

@@ -34,11 +34,9 @@
 	<div id="search-box" class="pl-10 col-sm-3">
 	<div class="pt-4"><h3>検索</h3></div>
 	<form:form modelAttribute="carForm" action="${pageContext.request.contextPath}/car/toCarList2">
-		営業所から選ぶ<br>
-		<form:select path="shopId" items="${shopMap}"/><br>
+		営業所<br><form:select path="shopId" items="${shopList}" itemValue="id" itemLabel="name"/><br>
 		<br>
-		クラスから選ぶ<br>
-		<form:select path="gradeId" items="${gradeMap}"/><br>
+		クラス<br><form:select path="gradeId" items="${gradeList}" itemValue="id" itemLabel="name"/><br>
 		<br>
 		<input type="submit" value="検索" class="btn btn-primary">
 	</form:form>
