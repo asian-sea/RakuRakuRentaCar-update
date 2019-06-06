@@ -15,6 +15,9 @@
  	background-size: cover;
  	background-position: center 60%;
 }
+.pb-10{
+	color:white;
+}
 #search-box{
 	margin-top:10px;
 	background-color:rgb(255,165,0,0.9);
@@ -25,7 +28,10 @@
 <body>
 <div class="jumbotron">
 <div class="container-fluid">
-	<div id="search-box" class="pl-10 col-5">
+<div class="pb-10">
+<c:out value="${user.name }"/>さん、ようこそ！
+</div>
+	<div id="search-box" class="pl-10 col-sm-3">
 	<div class="pt-4"><h3>検索</h3></div>
 	<form:form modelAttribute="carForm" action="${pageContext.request.contextPath}/car/toCarList2">
 		営業所から選ぶ<br>

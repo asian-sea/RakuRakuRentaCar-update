@@ -22,13 +22,13 @@ header{
 	top: 0;
 	left: 0;
 	background-color:orange;
-	height:50px;
+	height:80px;
 	color:white;
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 .logo{
 	position:absolute;
-	line-height:50px;
+	line-height:80px;
 	font-size:30px;
 	padding-left:20px;
 }
@@ -39,7 +39,7 @@ header{
 }
 ul{
 	text-align:right;
-	line-height:50px;
+	line-height:80px;
 	color:white;
 }
 li{
