@@ -44,7 +44,7 @@
 			</td>
 			<!-- オプション -->
 			<td>
-			<c:forEach var="optionList" items="${optionManyList}">
+			<c:forEach var="optionList" items="${optionManyList}" begin="${status.index}" end="${status.index}">
 				<c:forEach var="option" items="${optionList}">
 					<c:out value="${option.name}"/>
 					<c:out value="${option.price}"/>
