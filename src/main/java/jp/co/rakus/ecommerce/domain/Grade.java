@@ -5,6 +5,7 @@ public class Grade {
 	private int id;
 	private String name;
 	private int price;
+	private String imagePath;
 
 	public Grade() {}
 
@@ -32,4 +33,13 @@ public class Grade {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+	
 }

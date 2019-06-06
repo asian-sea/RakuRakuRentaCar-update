@@ -11,9 +11,9 @@ insert into cars values(7, 'ロードスター', '3', '1', 'roadster.jpg');
 insert into cars values(8, 'BRZ', '3', '2', 'brz.jpg');
 insert into cars values(9, '86', '3', '3', '86.jpg');
 
-insert into grades values(1, 'コンパクトカー', '1000');
-insert into grades values(2, 'セダン', '3000');
-insert into grades values(3, 'スポーツカー', '4000');
+insert into grades values(1, 'コンパクトカー', '1000', 'vitz.jpg');
+insert into grades values(2, 'セダン', '1200', 'atenza.jpg');
+insert into grades values(3, 'スポーツカー', '1500',  'roadster.jpg');
 
 insert into shops values(1, '新宿店', '東京都新宿区新宿4丁目');
 insert into shops values(2, '渋谷店', '東京都渋谷区渋谷');

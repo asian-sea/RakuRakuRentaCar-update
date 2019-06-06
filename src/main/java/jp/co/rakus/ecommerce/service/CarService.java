@@ -46,7 +46,7 @@ public class CarService {
 		return carList;
 	}
 	
-	public void addRadioButton(Model model) {
+	public void addPullDown(Model model) {
 		Map<Integer, String> shopMap = new LinkedHashMap<>();
 		shopMap.put(0, "選択してください");
 		shopMap.put(1, "新宿店");

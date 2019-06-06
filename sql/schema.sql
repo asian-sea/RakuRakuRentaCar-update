@@ -20,6 +20,7 @@ create table grades (
   id integer primary key
   , name text not null
   , price integer
+  , imagePath text not null
 ) ;
 
 create table shops (

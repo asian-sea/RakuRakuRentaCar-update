@@ -36,6 +36,7 @@ public class CarRepository {
 		grade.setId(rs.getInt("id"));
 		grade.setName(rs.getString("name"));
 		grade.setPrice(rs.getInt("price"));
+		grade.setImagePath(rs.getString("imagePath"));
 
 		return grade;
 
@@ -73,7 +74,7 @@ public class CarRepository {
 	private NamedParameterJdbcTemplate jdbc;
 
 	public List<Grade> findAllGrade(){
-		String sql = "SELECT id, name, price from grades";
+		String sql = "SELECT id, name, price, imagePath from grades";
 		List<Grade> gradeList = jdbc.query(sql, gradeRowMapper);
 		return gradeList;
 	}
