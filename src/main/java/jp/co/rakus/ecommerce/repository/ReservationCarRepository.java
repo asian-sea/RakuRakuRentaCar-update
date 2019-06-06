@@ -57,6 +57,12 @@ public class ReservationCarRepository {
 		template.update(optionSql, param);
 	}
 
+	public int findOneOption(int optionId) {
+		String sql = "SELECT price FROM options WHERE id = :optionId";
+		SqlParameterSource param = new MapSqlParameterSource()
+				.addValue("optionId", optionId);
+		return template.queryForObject(sql, param, Integer.class);
+	}
 	//キープを表示
 	public List<ReservationCar> findAll(int id){
 		String sql = "SELECT id, status, car_id, start_date, end_date FROM reservation_cars WHERE user_id = :id AND status = 1 ORDER BY id DESC";
