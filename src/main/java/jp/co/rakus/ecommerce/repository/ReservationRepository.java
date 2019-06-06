@@ -18,6 +18,8 @@ public class ReservationRepository {
 		car.setCarId(rs.getInt("car_id"));
 		car.setStartDate(rs.getTimestamp("start_date").toLocalDateTime());
 		car.setEndDate(rs.getTimestamp("end_date").toLocalDateTime());
+		car.setTotalPrice(rs.getInt("total_price"));
+		
 		return car;
 	};
 
@@ -25,7 +27,17 @@ public class ReservationRepository {
 	private NamedParameterJdbcTemplate jdbc;
 
 	public ReservationCar findOne(int id) {
-		String sql = "SELECT id, car_id, start_date, end_date" + " FROM reservation_cars WHERE id = :id";
+		String sql = 
+//				"SELECT reservation_cars.id AS id, reservation_cars.car_id AS car_id,"
+//				+ " reservation_cars.start_date AS start_date, reservation_cars.end_date AS end_date, reservation_cars.total_price AS total_price,"
+//				+ " options.id AS op_id, options.name AS op_name, options.price AS op_price"
+//				+ " FROM reservation_cars"
+//				+ " JOIN reservation_options"
+//				+ " ON reservation_cars.id = reservation_options.reservation_car_id"
+//				+ " JOIN options"
+//				+ " ON reservation_options.option_id = options.id"
+//				+ " WHERE reservation_cars.id = :id";
+				"SELECT id, car_id, start_date, end_date, total_price FROM reservation_cars WHERE id = :id";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		ReservationCar reservationCar = jdbc.queryForObject(sql, param, rowMapper);
 		return reservationCar;

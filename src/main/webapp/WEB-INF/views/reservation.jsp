@@ -19,7 +19,7 @@
 	予約ID:<c:out value="${reservationCar.status}"/><br>
 	利用開始日時:<c:out value="${reservationCar.startDate}"/><br>
 	返却日時:<c:out value="${reservationCar.endDate}"/><br>
-	オプション:<br>
+	オプション:<c:out value="${reservationCar.option.name }"/><br>
 
 	<h2>お支払い方法</h2>
 	<form:form modelAttribute="reservationForm" action="${pageContext.request.contextPath}/reservation/fix">

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.co.rakus.ecommerce.domain.Car;
+import jp.co.rakus.ecommerce.domain.Option;
 import jp.co.rakus.ecommerce.domain.ReservationCar;
 import jp.co.rakus.ecommerce.repository.ReservationCarRepository;
 
@@ -33,6 +34,11 @@ public class ReservationCarService {
 	//キープを表示
 	public List<ReservationCar> findAll(int id){
 		return reservationCarRepository.findAll(id);
+	}
+	
+	//キープを表示
+	public List<Option> findAllOption(int id){
+		return reservationCarRepository.findAllOption(id);
 	}
 
 	//キープを削除
