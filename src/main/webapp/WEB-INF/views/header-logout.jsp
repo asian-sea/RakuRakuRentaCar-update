@@ -63,9 +63,7 @@ a, a:visited, a:focus, a:hover {
 	</div>
 
 	<ul class="menu">
-		<li><a href="${pageContext.request.contextPath}/keep/show">キープ</a></li>
-		<li><a href="${pageContext.request.contextPath}/history/">注文履歴</a></li>
-		<li><a href="${pageContext.request.contextPath}/login/loginpage">ログアウト</a></li>
+		<li><a href="${pageContext.request.contextPath}/login/loginpage">ログイン</a></li>
 	</ul>
 </header>
 
