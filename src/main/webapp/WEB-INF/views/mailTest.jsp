@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form modelAttribute="mailForm" action="${pageContext.request.contextPath}/mail/send">
+<form:form modelAttribute="user" action="${pageContext.request.contextPath}/mail/send">
 
 <br><input class="btn btn-primary" type="submit" value="予約確定">
 

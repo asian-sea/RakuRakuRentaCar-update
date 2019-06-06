@@ -17,9 +17,6 @@ public class UserService {
 		return userrepository.findByEmailAndPassword(email, password);
 	}
 	
-	public User findOneByNameAndEmail(String name, String email){
-		return userrepository.findByEmailAndPassword(name,email);
-	}
 	
 	public User save(User user) {
 		return userrepository.save(user);
