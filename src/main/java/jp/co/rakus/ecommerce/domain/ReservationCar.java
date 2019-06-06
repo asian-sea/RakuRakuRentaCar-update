@@ -12,6 +12,7 @@ public class ReservationCar {
 	private List<Integer> optionList;
 	private int userId;
 	private int settlementId;
+	private int totalPrice;
 
 	public int getId() {
 		return id;
@@ -62,6 +63,12 @@ public class ReservationCar {
 	public void setSettlementId(int settlementId) {
 		this.settlementId = settlementId;
 	}
-	
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
 
 }

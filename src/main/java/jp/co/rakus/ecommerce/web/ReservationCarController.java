@@ -46,8 +46,8 @@ public class ReservationCarController {
 		User user = (User)session.getAttribute("user");
 		reservationCar.setUserId(user.getId());
 
-		// totalPriceの計算
-
+		// totalPriceを計算して格納
+		reservationCar.setTotalPrice(reservationCarService.calcTotalPrice(reservationCar));
 
 		int reservationCarId = reservationCarService.addCar(reservationCar);
 
