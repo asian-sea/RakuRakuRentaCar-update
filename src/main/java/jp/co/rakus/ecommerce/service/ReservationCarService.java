@@ -35,7 +35,7 @@ public class ReservationCarService {
 	public List<ReservationCar> findAll(int id){
 		return reservationCarRepository.findAll(id);
 	}
-	
+
 	//キープを表示
 	public List<Option> findAllOption(int id){
 		return reservationCarRepository.findAllOption(id);
@@ -44,6 +44,10 @@ public class ReservationCarService {
 	//キープを削除
 	public void delete(int id) {
 		reservationCarRepository.delete(id);
+	}
+
+	public void updateUserId(int id, int dummyId) {
+		reservationCarRepository.updateUserId(id, dummyId);
 	}
 
 	// 必要なもの

@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
@@ -39,16 +40,19 @@ public class ReservationCarController {
 
 		User user = (User)session.getAttribute("user");
 
-		// ログインしていない場合ログイン画面に遷移
-		if (user == null) {
-			return "redirect:/login/loginpage";
-		}
-
 		ReservationCar reservationCar = new ReservationCar();
 		BeanUtils.copyProperties(reservationCarForm, reservationCar);
 
 		//userIdを格納
-		reservationCar.setUserId(user.getId());
+		if (user == null) {
+			Random rand = new Random();
+			int randomNumber = rand.nextInt(1000000000);
+			reservationCar.setUserId(randomNumber);
+			session.setAttribute("dummyId", randomNumber);
+		} else {
+			reservationCar.setUserId(user.getId());
+		}
+
 
 		// 日付をString型からLocalDateTime型に直してReservationCarFormドメインに登録
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -65,6 +69,10 @@ public class ReservationCarController {
 		// reservaion_optionsテーブルに追加
 		for(int i = 0; i < reservationCar.getOptionList().size(); i++) {
 			reservationCarService.addOption(reservationCar.getOptionList().get(i), reservationCarId);
+		}
+
+		if (session.getAttribute("dummyId") != null) {
+			return "redirect:/login/loginpage";
 		}
 
 		return "redirect:/keep/show";

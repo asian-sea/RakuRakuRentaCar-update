@@ -31,23 +31,23 @@ public class ReservationCarRepository {
 		reservationCar.setStartDate(rs.getTimestamp("start_date").toLocalDateTime());
 		reservationCar.setEndDate(rs.getTimestamp("end_date").toLocalDateTime());
 		reservationCar.setTotalPrice(rs.getInt("total_price"));
-		
+
 //		Option option = new Option(rs.getInt("op_id"), rs.getString("op_name"), rs.getInt("op_price"));
 //		reservationCar.setOption(option);
-		
+
 		return reservationCar;
 	};
-	
+
 	private static final RowMapper<Option> optionRowMapper = (rs, i) -> {
 		Option option = new Option();
 		option.setId(rs.getInt("id"));
 		option.setName(rs.getString("name"));
 		option.setPrice(rs.getInt("price"));
-		
+
 		return option;
 	};
-	
-	
+
+
 	//キープを追加
 	public int save(ReservationCar reservationCar) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(reservationCar);
@@ -96,7 +96,7 @@ public class ReservationCarRepository {
 		List<ReservationCar> reservationCarList = template.query(sql, param, reservationCarRowMapper);
 		return reservationCarList;
 	}
-	
+
 	//キープを表示
 	public List<Option> findAllOption(int id){
 		String sql = "SELECT id, name, price FROM options "
@@ -106,7 +106,7 @@ public class ReservationCarRepository {
 		List<Option> optionList = template.query(sql, param, optionRowMapper);
 		return optionList;
 	}
-	
+
 	public List<ReservationCar> findById(int id){
 		String sql = "SELECT id, option_id, reservation_car_id WHERE reservation_car_id = :id";
 		SqlParameterSource param = new MapSqlParameterSource()
@@ -120,6 +120,15 @@ public class ReservationCarRepository {
 		String deleteSql = "DELETE FROM reservation_cars WHERE id=:id";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id",id);
 		template.update(deleteSql, param);
+	}
+
+	// キープのuserIdを変更
+	public void updateUserId(int id, int dummyId) {
+		String sql = "UPDATE reservation_cars SET user_id = :id WHERE user_id = :dummyId";
+		SqlParameterSource param = new MapSqlParameterSource()
+				.addValue("id",id).addValue("dummyId", dummyId);
+		template.update(sql, param);
+
 	}
 
 }
