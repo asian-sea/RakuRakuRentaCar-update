@@ -38,8 +38,8 @@ public class ReservationCarRepository {
 	public int save(ReservationCar reservationCar) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(reservationCar);
 
-		String insertSql = "INSERT INTO reservation_cars(status, car_id, start_date, end_date, user_id, settlement_id)"
-				+ "VALUES(1, :carId, :startDate, :endDate, :userId, -1)"
+		String insertSql = "INSERT INTO reservation_cars(status, car_id, start_date, end_date, total_price, user_id, settlement_id)"
+				+ "VALUES(1, :carId, :startDate, :endDate, :totalPrice, :userId, -1)"
 				+ "RETURNING id";
 
 		return template.queryForObject(insertSql, param, Integer.class);
