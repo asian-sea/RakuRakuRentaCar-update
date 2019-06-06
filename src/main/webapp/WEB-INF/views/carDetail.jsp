@@ -16,15 +16,13 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
-	<h1>日付・オプション選択画面</h1>
-	<c:out value="${car.id}"/><br>
+<div class="container">
+	<h3>日付・オプション選択画面</h3>
 	<c:out value="${car.name}"/><br>
-	<c:out value="${car.grade.id}"/><br>
 	<c:out value="${car.grade.name}"/><br>
 	<div id="gradePrice">
 		<fmt:formatNumber value="${car.grade.price}"/>円<br>
 	</div>
-	<c:out value="${car.shop.id}"/><br>
 	<c:out value="${car.shop.name}"/><br>
 	<c:out value="${car.shop.address}"/><br>
 	<img src="/img/<c:out value="${car.imagePath}"/>" style="width:200px"><br>
@@ -40,9 +38,15 @@
 				<c:out value="${option.price}円"/><br>
 			</div>
 		</c:forEach>
-		<input type="submit" value="キープする"><br>
+		<div class="card my-4">
+  			<h5 class="card-header">合計金額</h5>
+  			<div class="card-body">
+				<div id="totalPrice"></div>
+			</div>
+			</div>
+		<input type="submit" class="btn btn-primary" value="キープする"><br>
 	</form:form>
-	<div id="totalPrice"></div>
+	<div class="mb-5"></div>
 	<script>
 		// カレンダー
 		flatpickr(".flatpickr", {
@@ -95,13 +99,14 @@
 			// 合計金額
 			var totalPrice = gradePrice * diffHour + optionPrice;
 			if (totalPrice > 0 == false) {
-				$('#totalPrice').text('金額: --- 円 ');
+				$('#totalPrice').text(' --- 円 ');
 				$('input:submit').prop('disabled', true);
 			} else {
-				$('#totalPrice').text('金額: ' + totalPrice + '円');
+				$('#totalPrice').text(' ' + totalPrice + '円');
 				$('input:submit').prop('disabled', false);
 			}
 		}
 	</script>
+</div>
 </body>
 </html>

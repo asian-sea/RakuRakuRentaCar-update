@@ -14,6 +14,7 @@
 <body>
 
 <h3 class="text-center">予約履歴</h3>
+<div class="container">
 	<table class="table table-striped">
 		<tr>
 			<th>
@@ -60,5 +61,6 @@
 	</c:forEach>
 	</table>
 
+</div>
 </body>
 </html>
