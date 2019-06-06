@@ -51,7 +51,7 @@ public class AccountController {
 			BeanUtils.copyProperties(form, account);
 			accountService.save(account);
 			
-		return "redirect:/login/loginpage";
+		return "accountConpletion";
 		
 	}catch(DuplicateKeyException e){
 		ObjectError error = new ObjectError("email", "メールアドレスは既に登録されています。");
