@@ -21,6 +21,7 @@ public class AccountForm {
 
 		@Email(message="Eメールの形式で入力してください")
 		@NotBlank(message="Eメールの入力は必須です")
+
 		private String email;
 
 		@NotBlank(message="パスワードの入力は必須です")
