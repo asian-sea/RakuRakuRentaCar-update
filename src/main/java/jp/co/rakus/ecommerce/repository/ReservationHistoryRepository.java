@@ -39,7 +39,7 @@ public class ReservationHistoryRepository {
 
 	//予約キャンセル
 	public void cancel(int id) {
-		String cancelSql = "DELETE FROM reservation_cars WHERE id=:id";
+		String cancelSql = "UPDATE reservation_cars SET status = 3 WHERE id=:id";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		template.update(cancelSql, param);
 	}
