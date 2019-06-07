@@ -55,8 +55,8 @@ body{
 		<div class="col-6 col-sm-4">
 			<div class="text-center">
 				<img src="/img/<c:out value="${grade.imagePath }"/>" style="width:200px"/><br>
+				<c:out value="${grade.name }" /><br>
 				<br>
-				<c:out value="${grade.name }" />
 				<a href="<c:url value='${pageContext.request.contextPath}/car/toCarList1/${grade.id }' />">
 				<input type="submit" class="btn btn-warning" value="この車種で予約する"/></a>
 				<br>

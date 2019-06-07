@@ -21,15 +21,15 @@ body{
 	<div class="row">
 		<div class="col-md-6 offset-md-3">
 			<div class="text-center">
-				<div class="card">
+				<div class="card form-group">
 					<div class="card-header">ログイン</div>
 					<div class="card-body">
-					<label for="inputEmail" class="mt-4">メールアドレス:</label>
+					<label for="inputEmail" class="mt-4">メールアドレス</label><br>
 					<form:input path="email" placeholder="Email"/>
 					<br><form:errors path="email" cssStyle="color:red"/><br>
 					<br>
 
-					<label for="inputPassword">パスワード:</label>
+					<label for="inputPassword">パスワード</label><br>
 					<form:password path="password" placeholder="Password"/>
 					<br><form:errors path="password" cssStyle="color:red"/>
 					<br><form:errors cssStyle="color:red"/>

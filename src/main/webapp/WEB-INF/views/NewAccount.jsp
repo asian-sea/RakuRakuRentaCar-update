@@ -20,37 +20,49 @@ body{
 <body>
 <div class="container">
 <form:form modelAttribute="accountForm" action="${pageContext.request.contextPath}/account/accountCreate">
-	<div class="row">
+	<div class="form-group row">
 		<div class="col-md-6 offset-md-3">
 			<div class="text-center">
 				<div class="card">
   					<div class="card-header">新規ユーザー登録</div>
   					<div class="card-body">
- 					名前:<form:input path="name" placeholder="名前" class="mt-4"/>
+ 					名前<br>
+ 					<form:input path="name" placeholder="名前"/><br>
+ 					<small class="text-muted">例）山田太郎</small>
 					<br><form:errors path="name" cssStyle="color:red"/>
 
 					<br>
-					郵便番号:<input type="text" name="zip" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');">
+					郵便番号<br>
+					<input type="text" name="zip" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');" placeholder="郵便番号"><br>
+					<small class="text-muted">※半角数字</small>
 					<br>
 
 					<br>
-					住所:<form:input path="address" placeholder="住所(自動入力)"/>
+					住所<br>
+					<form:input path="address" placeholder=""/>
 					<br><form:errors path="address" cssStyle="color:red"/>
 
 					<br>
-					電話番号:<form:input path="telephone" placeholder="電話番号"/>
+					電話番号<br>
+					<form:input path="telephone" placeholder=""/><br>
+					<small class="text-muted">※半角数字（ハイフン不要）</small>
 					<br><form:errors path="telephone" cssStyle="color:red"/>
 
 					<br>
-					メールアドレス:<form:input path="email" placeholder="メールアドレス"/>
+					メールアドレス<br>
+					<form:input path="email" placeholder="メールアドレス"/><br>
+					<small class="text-muted">※半角英数字</small>
 					<br><form:errors path="email" cssStyle="color:red"/>
 
 					<br>
-					パスワード:<form:password path="password" placeholder="パスワード"/>
+					パスワード<br>
+					<form:password path="password" placeholder="パスワード"/><br>
+					<small class="text-muted">※半角英数字</small>
 					<br><form:errors path="password" cssStyle="color:red"/>
 
 					<br>
-					確認用パスワード:<form:password path="checkpassword" placeholder="確認用パスワード"/>
+					確認用パスワード<br>
+					<form:password path="checkpassword" placeholder="確認用パスワード"/>
 					<br><form:errors path="checkpassword" cssStyle="color:red"/>
 
 	    			<!-- オブジェクトエラー処理  -->
