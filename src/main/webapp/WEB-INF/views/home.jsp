@@ -53,7 +53,7 @@ body{
 <div class="container">
 	<h3>クラスから選ぶ</h3>
 	<div class="row">
-	<c:forEach var="grade" items="${gradeList}">
+	<c:forEach var="grade" items="${gradeList}" begin="1">
 		<div class="col-6 col-sm-4">
 			<div class="text-center">
 				<img src="/img/<c:out value="${grade.imagePath }"/>" style="width:200px"/><br>

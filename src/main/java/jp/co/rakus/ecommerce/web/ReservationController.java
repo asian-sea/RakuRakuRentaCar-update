@@ -1,5 +1,7 @@
 package jp.co.rakus.ecommerce.web;
 
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +28,11 @@ public class ReservationController {
 
 	@Autowired
 	private CarService carService;
-	
+
 	@Autowired
 	private MailSender sender;
 
-	
+
 	@Autowired
 	HttpSession session;
 
@@ -38,13 +40,16 @@ public class ReservationController {
 	@RequestMapping("/")
 	public String reservation(Model model, @ModelAttribute ReservationForm form, @RequestParam("status") int id) {
 		ReservationCar reservationCar = service.findOne(id);
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年MM月dd日 H時mm分");
+		reservationCar.setStartDateStr(dtf.format(reservationCar.getStartDate()));
+		reservationCar.setEndDateStr(dtf.format(reservationCar.getEndDate()));
 		Car car = carService.findOne(reservationCar.getCarId());
 		model.addAttribute("car", car);
 		model.addAttribute("reservationCar", reservationCar);
 		service.addRadioButton(model);
 		return "reservation";
 	}
-	
+
 	@RequestMapping("/fix")
 	public String fix(@RequestParam("id") int id, ReservationForm form) {
 		int settlementId = form.getSettlement();
@@ -55,8 +60,8 @@ public class ReservationController {
 	@RequestMapping("/fix2")
 	public String sendMail() {
 		User user = (User)session.getAttribute("user"); //＊セッションでユーザ情報を保持
-		
-		
+
+
 		SimpleMailMessage msg = new SimpleMailMessage();
 
 		msg.setFrom("m01133870c@gmail.com"); // 送信元
@@ -65,7 +70,7 @@ public class ReservationController {
 		msg.setText(user.getName()+"さんの予約が完了しました"); // メッセージ内容
 
 		this.sender.send(msg);
-		
+
 		return "redirect:/reservation/completion";
 	}
 

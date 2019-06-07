@@ -45,9 +45,9 @@ body{
 				<c:out value="${reservationHistoryList.carId }"/><br>
 			</td>
 			<td>
-				<c:out value="${reservationHistoryList.startDate }"/><br>
+				<c:out value="${reservationHistoryList.startDateStr }"/><br>
 				〜<br>
-				<c:out value="${reservationHistoryList.endDate }"/><br>
+				<c:out value="${reservationHistoryList.endDateStr }"/><br>
 			</td>
 			<!-- オプション -->
 			<td>

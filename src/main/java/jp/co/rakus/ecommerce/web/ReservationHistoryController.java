@@ -1,5 +1,6 @@
 package jp.co.rakus.ecommerce.web;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -29,6 +30,12 @@ public class ReservationHistoryController {
 	public String showHistory(ReservationCarForm reservationCarForm) {
 		User user = (User)session.getAttribute("user");
 		List<ReservationCar> reservationHistoryList = reservationHistoryService.findHistory(user.getId());
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年MM月dd日 H時mm分");
+
+		reservationHistoryList.forEach(reservationCar -> {
+			reservationCar.setStartDateStr(dtf.format(reservationCar.getStartDate()));
+			reservationCar.setEndDateStr(dtf.format(reservationCar.getEndDate()));
+		});
 		session.setAttribute("reservationHistoryList", reservationHistoryList);
 		return "history";
 	}
