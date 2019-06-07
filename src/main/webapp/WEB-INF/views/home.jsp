@@ -33,7 +33,9 @@ body{
 <div class="jumbotron">
 <div class="container-fluid">
 <div class="pb-10">
-<c:out value="${user.name }"/>さん、ようこそ！
+<c:if test ="${user!=null }">
+	<c:out value="${user.name }"/>さん、ようこそ！
+</c:if>
 </div>
 	<div id="search-box" class="pl-10 col-sm-3">
 	<div class="pt-4"><h3>検索</h3></div>
@@ -51,7 +53,7 @@ body{
 <div class="container">
 	<h3>クラスから選ぶ</h3>
 	<div class="row">
-	<c:forEach var="grade" items="${gradeList}">
+	<c:forEach var="grade" items="${gradeList}" begin="1">
 		<div class="col-6 col-sm-4">
 			<div class="text-center">
 				<img src="/img/<c:out value="${grade.imagePath }"/>" style="width:200px"/><br>

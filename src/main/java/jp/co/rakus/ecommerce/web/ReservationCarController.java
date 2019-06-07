@@ -84,6 +84,12 @@ public class ReservationCarController {
 		User user = (User)session.getAttribute("user");
 		List<ReservationCar> reservationCarList = reservationCarService.findAll(user.getId());
 		model.addAttribute("reservationCarList", reservationCarList);
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年MM月dd日 H時mm分");
+
+		reservationCarList.forEach(reservationCar -> {
+			reservationCar.setStartDateStr(dtf.format(reservationCar.getStartDate()));
+			reservationCar.setEndDateStr(dtf.format(reservationCar.getEndDate()));
+		});
 		List<List<Option>> optionManyList = new ArrayList<>();
 		for (int i = 0; i <reservationCarList.size(); i++) {
 			int id = reservationCarList.get(i).getId();
@@ -94,12 +100,6 @@ public class ReservationCarController {
 		return "keep";
 	}
 
-
-	//キープを予約
-	@RequestMapping(value="/reservation")
-	public void save() {
-
-	}
 
 	//キープを削除
 	@RequestMapping(value="/delete")

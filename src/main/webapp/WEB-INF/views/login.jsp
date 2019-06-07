@@ -19,22 +19,23 @@ body{
 <div class="container">
 <form:form modelAttribute="loginForm" action="${pageContext.request.contextPath}/login/loginform">
 	<div class="row">
-		<div class="col-md-6 offset-md-3">
-			<div class="text-center">
-				<div class="card form-group">
+		<div class="col-md-8 offset-md-2">
+				<div class="card">
 					<div class="card-header">ログイン</div>
 					<div class="card-body">
-					<label for="inputEmail" class="mt-4">メールアドレス</label><br>
-					<form:input path="email" placeholder="Email"/>
+					<div class="form-group">
+					<label for="inputEmail">メールアドレス</label><br>
+					<form:input path="email" id="inputEmail" class="form-control" placeholder="Email"/>
 					<br><form:errors path="email" cssStyle="color:red"/><br>
 					<br>
 
 					<label for="inputPassword">パスワード</label><br>
-					<form:password path="password" placeholder="Password"/>
+					<form:password path="password" id="inputPasword" class="form-control" placeholder="Password"/>
 					<br><form:errors path="password" cssStyle="color:red"/>
 					<br><form:errors cssStyle="color:red"/>
 
-					<br><input class="btn btn-primary" type="submit" value="ログイン">
+					<div class="text-center">
+					<input class="btn btn-primary" type="submit" value="ログイン">
 					<br>
 					<br><a href="/account/newAccount">新規ユーザ登録はこちら</a>
 					<div class="mb-4"></div>
@@ -42,6 +43,7 @@ body{
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </form:form>
 </div>
