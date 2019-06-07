@@ -29,8 +29,8 @@
 			<div class="card-header">レンタル期間</div>
 				<div class="card-body border-bottom">
 					<div class="card-text">
-					開始日：<c:out value="${reservationCar.startDate}"/><br>
-					返却日：<c:out value="${reservationCar.endDate}"/>
+					開始日：<c:out value="${reservationCar.startDateStr}"/><br>
+					返却日：<c:out value="${reservationCar.endDateStr}"/>
 					</div>
 				</div>
 
