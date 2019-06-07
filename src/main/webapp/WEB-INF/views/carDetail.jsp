@@ -23,29 +23,15 @@ body{
 </head>
 <body>
 <div class="container">
-<div class="m-5"></div>
-	<div class="text-center mt-5 mb-3"><h3>日付・オプション選択画面</h3></div>
-	<div class="card text-center">
-	<div class="card-header">車種</div>
-	<div class="card-body border-bottom">
-	<img src="/img/<c:out value="${car.imagePath}"/>" style="width:200px">
-	<div class="card-text"><c:out value="${car.name}"/><br></div>
-	</div>
-
-	<div class="card-header">クラス</div>
-	<div class="card-body border-bottom">
-	<div class="card-text"><c:out value="${car.grade.name}"/><br></div>
+	<h3>日付・オプション選択画面</h3>
+	<c:out value="${car.name}"/><br>
+	<c:out value="${car.grade.name}"/><br>
 	<div id="gradePrice">
-		<fmt:formatNumber value="${car.grade.price}"/>円<br></div>
+		<fmt:formatNumber value="${car.grade.price}"/>円<br>
 	</div>
-
-	<div class="card-header">営業所</div>
-	<div class="card-body border-bottom">
-	<div class="card-body border-bottom"><c:out value="${car.shop.name}"/><br>
+	<c:out value="${car.shop.name}"/><br>
 	<c:out value="${car.shop.address}"/><br>
-	</div>
-
-	<div class="card-header">日付・オプション選択</div>
+	<img src="/img/<c:out value="${car.imagePath}"/>" style="width:200px"><br>
 	<form:form modelAttribute="reservationCarForm" action="${pageContext.request.contextPath}/keep/add">
 		<input type="hidden" name="carId" value="${car.id}"/><br>
 
@@ -67,7 +53,6 @@ body{
 		<input type="submit" class="btn btn-primary" value="キープする"><br>
 	</form:form>
 	<div class="mb-5"></div>
-	</div>
 	<script>
 		// カレンダー
 		flatpickr(".flatpickr", {
@@ -128,7 +113,6 @@ body{
 			}
 		}
 	</script>
-</div>
 </div>
 </body>
 </html>
