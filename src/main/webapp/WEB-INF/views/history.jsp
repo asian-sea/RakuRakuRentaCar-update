@@ -10,6 +10,12 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <meta charset="UTF-8">
 <title>予約履歴</title>
+<style>
+body{
+	margin-top:80px;
+	margin-bottom:10px;
+}
+</style>
 </head>
 <body>
 

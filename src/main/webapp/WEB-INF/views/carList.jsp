@@ -13,23 +13,30 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <style>
+body{
+	margin-top:80px;
+	margin-bottom:10px;
+}
 </style>
 </head>
 <body>
 <div class="container">
-	<div class="text-center mt-5 mb-3"><h3>車種一覧</h3></div>
+	<div class="p-4"></div>
+	<div class="h3 text-center">車種一覧</div>
+	<br>
+		<div class="row">
 		<c:forEach var="car" items="${carList}">
-		<div class="float-left">
-			<img src="/img/<c:out value='${car.imagePath }' />" style="width:200px;"><br>
-			<div class="text-center"><c:out value="${car.name }"/></div>
-			<br>
+		<div class="col-6 col-sm-4">
 			<div class="text-center">
+			<img src="/img/<c:out value='${car.imagePath }' />" style="width:200px;"><br>
+			<c:out value="${car.name }"/><br>
+			<br>
 			<a href="<c:url value='${pageContext.request.contextPath}/car/detail/${car.id }' />">
 			<input type="submit" class="btn btn-warning" value="この車種で予約する"/></a>
 			</div>
-			<br>
 		</div>
 		</c:forEach>
+		</div>
 </div>
 </body>
 </html>

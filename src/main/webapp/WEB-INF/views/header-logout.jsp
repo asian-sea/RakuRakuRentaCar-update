@@ -17,6 +17,7 @@
 /* 	margin:0; padding:0; */
 /* } */
 header{
+	position: fixed;
 	margin:0; padding:0;
 	width:100%;
 	top: 0;
@@ -59,11 +60,11 @@ a, a:visited, a:focus, a:hover {
 
 <header>
 	<div class="logo">
-		<p><a href="${pageContext.request.contextPath}/car/">らくらくレンタカー</a></p>
+		<p><a href="${pageContext.request.contextPath}/car/" class="btn btn-lg">らくらくレンタカー</a></p>
 	</div>
 
 	<ul class="menu">
-		<li><a href="${pageContext.request.contextPath}/login/loginpage">ログイン</a></li>
+		<li><a href="${pageContext.request.contextPath}/login/loginpage" class="btn btn">ログイン</a></li>
 	</ul>
 </header>
 
