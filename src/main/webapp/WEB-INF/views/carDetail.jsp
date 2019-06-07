@@ -23,20 +23,39 @@ body{
 </head>
 <body>
 <div class="container">
-	<h3>日付・オプション選択画面</h3>
-	<c:out value="${car.name}"/><br>
-	<c:out value="${car.grade.name}"/><br>
-	<div id="gradePrice">
-		<fmt:formatNumber value="${car.grade.price}"/>円<br>
-	</div>
-	<c:out value="${car.shop.name}"/><br>
-	<c:out value="${car.shop.address}"/><br>
-	<img src="/img/<c:out value="${car.imagePath}"/>" style="width:200px"><br>
-	<form:form modelAttribute="reservationCarForm" action="${pageContext.request.contextPath}/keep/add">
-		<input type="hidden" name="carId" value="${car.id}"/><br>
+	<div class="text-center mt-5 mb-3"><h3>日付・オプション選択画面</h3></div>
+	<div class="card text-center">
 
+	<div class="card-header">車種</div>
+	<div class="card-body border-bottom">
+	<div class="card-text"><img src="/img/<c:out value="${car.imagePath}"/>" style="width:200px"><br>
+	<c:out value="${car.name}"/><br></div>
+	</div>
+
+	<div class="card-header">クラス</div>
+	<div class="card-body border-bottom">
+	<div class="card-text"><c:out value="${car.grade.name}"/><br>
+	<div id="gradePrice">
+		<fmt:formatNumber value="${car.grade.price}"/>円<br></div>
+	</div>
+	</div>
+
+	<div class="card-header">営業所</div>
+	<div class="card-body border-bottom">
+	<div class="card-text"><c:out value="${car.shop.name}"/><br>
+	住所：<c:out value="${car.shop.address}"/><br></div>
+	</div>
+
+	<div class="card-header">日付・オプション選択</div>
+	<div class="card-body"><div class="card-text">
+	<form:form modelAttribute="reservationCarForm" action="${pageContext.request.contextPath}/keep/add">
+		<input type="hidden" name="carId" value="${car.id}"/>
+
+		<div class="card-title">レンタル期間</div>
 		開始時間<form:input path="startDate" class="flatpickr"/><br>
 		返却時間<form:input path="endDate" class="flatpickr"/><br>
+		<br>
+		<div class="card-title">オプション</div>
 		<c:forEach var="option" items="${optionList}" varStatus="status">
 			<form:checkbox path="optionList" value="${option.id}"/>
 			<c:out value="${option.name} "/>
@@ -44,14 +63,13 @@ body{
 				<c:out value="${option.price}円"/><br>
 			</div>
 		</c:forEach>
-		<div class="card my-4">
-  			<h5 class="card-header">合計金額</h5>
-  			<div class="card-body">
-				<div id="totalPrice"></div>
-			</div>
-			</div>
-		<input type="submit" class="btn btn-primary" value="キープする"><br>
+		<br>
+  			<div class="card-header border-top">合計金額</div><br>
+				<div id="totalPrice" class="h5"></div>
+				<br>
+		<input type="submit" class="btn btn-primary" value="キープする"></div>
 	</form:form>
+	</div>
 	<div class="mb-5"></div>
 	<script>
 		// カレンダー
@@ -113,6 +131,7 @@ body{
 			}
 		}
 	</script>
+</div>
 </div>
 </body>
 </html>
