@@ -72,7 +72,7 @@
 		<c:if test="${!check}">
 			<ul class="menu">
 				<li><a href="${pageContext.request.contextPath}/keep/show" class="btn btn">キープ</a></li>
-				<li><a href="${pageContext.request.contextPath}/history/" class="btn btn">注文履歴</a></li>
+				<li><a href="${pageContext.request.contextPath}/history/" class="btn btn">予約履歴</a></li>
 				<li><a href="${pageContext.request.contextPath}/logout/logoutAccount" class="btn btn">ログアウト</a></li>
 			</ul>
 		</c:if>

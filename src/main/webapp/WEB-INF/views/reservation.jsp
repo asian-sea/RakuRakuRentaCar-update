@@ -33,7 +33,7 @@ body{
 				</div>
 
 			<div class="card-header">レンタル期間</div>
-				<div class="card-body border-bottom">
+				<div class="card-body">
 					<div class="card-text">
 					開始日：<c:out value="${reservationCar.startDateStr}"/><br>
 					返却日：<c:out value="${reservationCar.endDateStr}"/>
