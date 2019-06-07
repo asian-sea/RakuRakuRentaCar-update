@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,22 +45,21 @@ body{
 				<c:out value="${reservationCarList.carId }"/><br>
 			</td>
 			<td>
-				<c:out value="${reservationCarList.startDate }"/><br>
+				<c:out value="${reservationCarList.startDateStr }"/><br>
 				〜<br>
-				<c:out value="${reservationCarList.endDate }"/><br>
+				<c:out value="${reservationCarList.endDateStr }"/><br>
 			</td>
 			<!-- オプション -->
 			<td>
 			<c:forEach var="optionList" items="${optionManyList}" begin="${status.index}" end="${status.index}">
 				<c:forEach var="option" items="${optionList}">
-					<c:out value="${option.name}"/>
-					<c:out value="${option.price}"/>
+					・<c:out value="${option.name} "/>
 				</c:forEach>
 			</c:forEach>
 			</td>
 			<!-- 合計価格 -->
 			<td>
-				<c:out value="${reservationCarList.totalPrice }"/>円<br>
+				<fmt:formatNumber value="${reservationCarList.totalPrice }"/>円<br>
 			</td>
 			<td>
 				<form action="${pageContext.request.contextPath }/reservation/">

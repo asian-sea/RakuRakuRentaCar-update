@@ -81,9 +81,9 @@ public class CarController {
 		return "carDetail";
 	}
 
-//	//500エラー画面を呼び出すメソッド
-//	@RequestMapping("/maintenance")
-//	public String maintenance() {
-//		return "errorPage";
-//	}
+	//500エラー画面を呼び出すメソッド
+	@RequestMapping("/maintenance")
+	public String maintenance() {
+		return "errorPage";
+	}
 }

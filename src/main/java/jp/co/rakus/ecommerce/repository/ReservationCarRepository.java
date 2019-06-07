@@ -80,7 +80,7 @@ public class ReservationCarRepository {
 	}
 	//キープを表示
 	public List<ReservationCar> findAll(int id){
-		String sql = "SELECT id, status, car_id, start_date, end_date, total_price FROM reservation_cars WHERE user_id = :id ORDER BY id DESC";
+		String sql = "SELECT id, status, car_id, start_date, end_date, total_price FROM reservation_cars WHERE user_id = :id ORDER BY start_date";
 //				"SELECT reservation_cars.id AS id, reservation_cars.status AS status, reservation_cars.car_id AS car_id,"
 //				+ " reservation_cars.start_date AS start_date, reservation_cars.end_date AS end_date, reservation_cars.total_price AS total_price,"
 //				+ " options.id AS op_id, options.name AS op_name, options.price AS op_price"

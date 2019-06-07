@@ -14,6 +14,8 @@ public class ReservationCar {
 	private int settlementId;
 	private int totalPrice;
 	private Option option;
+	private String startDateStr;
+	private String endDateStr;
 
 	public int getId() {
 		return id;
@@ -76,7 +78,19 @@ public class ReservationCar {
 	public void setOption(Option option) {
 		this.option = option;
 	}
-	
+	public String getStartDateStr() {
+		return startDateStr;
+	}
+	public void setStartDateStr(String startDateStr) {
+		this.startDateStr = startDateStr;
+	}
+	public String getEndDateStr() {
+		return endDateStr;
+	}
+	public void setEndDateStr(String endDateStr) {
+		this.endDateStr = endDateStr;
+	}
+
 
 
 }
