@@ -19,8 +19,11 @@ body{
 </style>
 </head>
 <body>
-<h3>キープ内容確認</h3>
+
 <div class="container">
+<div class="p-4"></div>
+<div class="h3 text-center">キープ内容確認</div>
+<br>
 	<table class="table table-striped">
 			<tr>
 				<th>

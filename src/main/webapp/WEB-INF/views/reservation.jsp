@@ -20,7 +20,9 @@ body{
 </head>
 <body>
 <div class="container">
-	<div class="text-center mt-5 mb-3"><h3>予約内容確認</h3></div>
+<div class="p-4"></div>
+	<div class="h3 text-center">予約内容確認</div>
+	<br>
 		<div class="card text-center">
 			<div class="card-header">予約ID</div>
 				<div class="card-body border-bottom">

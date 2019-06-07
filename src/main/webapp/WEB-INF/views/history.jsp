@@ -20,8 +20,10 @@ body{
 </head>
 <body>
 
-<h3 class="text-center">予約履歴</h3>
 <div class="container">
+<div class="p-4"></div>
+<div class="h3 text-center">予約履歴</div>
+<br>
 	<table class="table table-striped">
 		<tr>
 			<th>

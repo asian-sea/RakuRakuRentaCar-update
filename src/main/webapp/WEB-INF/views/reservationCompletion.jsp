@@ -17,7 +17,7 @@ body{
 </head>
 <body>
 <div class="container">
-	<div class="m-5"></div>
+	<div class="p-4"></div>
 	<div class="text-center">
 	<div class="h3"><i class="fas fa-check-circle"></i>決済が完了しました！</div>
 	<br>

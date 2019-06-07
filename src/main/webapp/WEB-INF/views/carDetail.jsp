@@ -23,9 +23,10 @@ body{
 </head>
 <body>
 <div class="container">
-	<div class="text-center mt-5 mb-3"><h3>日付・オプション選択画面</h3></div>
+	<div class="p-4"></div>
+	<div class="text-center h3">日付・オプション選択画面</div>
+	<br>
 	<div class="card text-center">
-
 	<div class="card-header">車種</div>
 	<div class="card-body border-bottom">
 	<div class="card-text"><img src="/img/<c:out value="${car.imagePath}"/>" style="width:200px"><br>
