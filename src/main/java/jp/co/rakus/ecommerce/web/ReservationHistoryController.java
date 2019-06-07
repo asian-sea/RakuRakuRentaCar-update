@@ -1,17 +1,21 @@
 package jp.co.rakus.ecommerce.web;
 
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jp.co.rakus.ecommerce.domain.Option;
 import jp.co.rakus.ecommerce.domain.ReservationCar;
 import jp.co.rakus.ecommerce.domain.User;
+import jp.co.rakus.ecommerce.service.ReservationCarService;
 import jp.co.rakus.ecommerce.service.ReservationHistoryService;
 
 @Controller
@@ -23,11 +27,14 @@ public class ReservationHistoryController {
 	ReservationHistoryService reservationHistoryService;
 
 	@Autowired
+	ReservationCarService reservationCarService;
+
+	@Autowired
 	HttpSession session;
 
 	//予約履歴を表示
 	@RequestMapping(value="/")
-	public String showHistory(ReservationCarForm reservationCarForm) {
+	public String showHistory(Model model, ReservationCarForm reservationCarForm) {
 		User user = (User)session.getAttribute("user");
 		List<ReservationCar> reservationHistoryList = reservationHistoryService.findHistory(user.getId());
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年MM月dd日 H時mm分");
@@ -36,7 +43,14 @@ public class ReservationHistoryController {
 			reservationCar.setStartDateStr(dtf.format(reservationCar.getStartDate()));
 			reservationCar.setEndDateStr(dtf.format(reservationCar.getEndDate()));
 		});
-		session.setAttribute("reservationHistoryList", reservationHistoryList);
+		List<List<Option>> optionManyList = new ArrayList<>();
+		for (int i = 0; i <reservationHistoryList.size(); i++) {
+			int id = reservationHistoryList.get(i).getId();
+			List<Option> optionList = reservationCarService.findAllOption(id);
+			optionManyList.add(optionList);
+		}
+		model.addAttribute("optionManyList", optionManyList);
+		model.addAttribute("reservationHistoryList", reservationHistoryList);
 		return "history";
 	}
 

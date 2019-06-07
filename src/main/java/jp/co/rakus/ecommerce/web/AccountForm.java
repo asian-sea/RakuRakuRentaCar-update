@@ -6,37 +6,36 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class AccountForm {
-	
+
 		private Integer id;
-		
+
 		@NotBlank(message="名前の入力は必須です")
 		private String name;
-		
+
 		@NotBlank(message="住所の入力は必須です")
 		private String address;
-		
+
 		@NotBlank(message="電話番号の入力は必須です")
 		@Pattern(regexp = "^[0-9]*$",message="半角数字で入力してください")
 		private String telephone;
-		
+
 		@Email(message="Eメールの形式で入力してください")
 		@NotBlank(message="Eメールの入力は必須です")
-		@Pattern(regexp = "^[a-zA-Z0-9]*$",message="メールアドレスは半角英数字で入力してください")
 		private String email;
-		
+
 		@NotBlank(message="パスワードの入力は必須です")
 		@Size(min=4,max=12,message="パスワードは4文字以上12文字以内で入力してください")
 		@Pattern(regexp = "^[a-zA-Z0-9]*$",message="パスワードは半角英数字で入力してください")
 		private String password;
-		
+
 		@NotBlank(message="確認用パスワードの入力は必須です")
 		@Size(min=4,max=12,message="確認用パスワードは4文字以上12文字以内で入力してください")
 		@Pattern(regexp = "^[a-zA-Z0-9]*$",message="パスワードは半角英数字で入力してください")
 		private String checkpassword;
-		
-		
 
-		
+
+
+
 		public String getTelephone() {
 			return telephone;
 		}
@@ -79,8 +78,8 @@ public class AccountForm {
 		public void setCheckpassword(String checkpassword) {
 			this.checkpassword = checkpassword;
 		}
-		
-		
+
+
 	}
 
 

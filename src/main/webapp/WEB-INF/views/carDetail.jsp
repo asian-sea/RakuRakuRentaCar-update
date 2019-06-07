@@ -108,7 +108,7 @@ body{
 				$('#totalPrice').text(' --- 円 ');
 				$('input:submit').prop('disabled', true);
 			} else {
-				$('#totalPrice').text(' ' + totalPrice + '円');
+				$('#totalPrice').text(' ' + totalPrice.toLocaleString() + '円');
 				$('input:submit').prop('disabled', false);
 			}
 		}

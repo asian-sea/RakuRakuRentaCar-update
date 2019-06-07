@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,7 @@ body{
 				予約キャンセル
 			</th>
 		</tr>
-	<c:forEach var="reservationHistoryList" items="${reservationHistoryList }">
+	<c:forEach var="reservationHistoryList" items="${reservationHistoryList }" varStatus="status">
 		<tr>
 			<td>
 				<c:out value="${reservationHistoryList.carId }"/><br>
@@ -51,16 +52,20 @@ body{
 			</td>
 			<!-- オプション -->
 			<td>
-				<c:out value=" "/><br>
+			<c:forEach var="optionList" items="${optionManyList}" begin="${status.index}" end="${status.index}">
+				<c:forEach var="option" items="${optionList}">
+					・<c:out value="${option.name} "/>
+				</c:forEach>
+			</c:forEach>
 			</td>
 			<!-- 合計価格 -->
 			<td>
-				<c:out value=" "/><br>
+				<fmt:formatNumber value="${reservationHistoryList.totalPrice }"/>円<br>
 			</td>
 			<td>
 				<form action="${pageContext.request.contextPath }/history/cancel">
 					<input type="hidden" name="cancelId" value="${reservationHistoryList.id }"/>
-					<input type="submit" class="btn btn-danger btn-sm" value="予約キャンセル"/>
+					<input type="submit" class="btn btn-danger btn-sm" value="予約キャンセル" onClick="return check()"/>
 				</form>
 			</td>
 		</tr>
@@ -68,5 +73,11 @@ body{
 	</table>
 
 </div>
+<script>
+
+	function check() {
+		return  confirm('本当に予約をキャンセルしますか？');
+	}
+</script>
 </body>
 </html>
