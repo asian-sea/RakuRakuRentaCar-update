@@ -46,7 +46,7 @@
 </div>
 <div class="container">
 	<h3>クラスから選ぶ</h3>
-	<c:forEach var="grade" items="${gradeList}">
+	<c:forEach var="grade" items="${gradeList}" begin="1">
 <%-- 		<c:out value="${grade.id }" /> --%>
 <!-- 		<br> -->
 			<img src="/img/<c:out value="${grade.imagePath }"/>" style="width:200px"/>
