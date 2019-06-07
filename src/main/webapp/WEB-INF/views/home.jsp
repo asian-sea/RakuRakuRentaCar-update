@@ -33,7 +33,9 @@ body{
 <div class="jumbotron">
 <div class="container-fluid">
 <div class="pb-10">
-<c:out value="${user.name }"/>さん、ようこそ！
+<c:if test ="${user!=null }">
+	<c:out value="${user.name }"/>さん、ようこそ！
+</c:if>
 </div>
 	<div id="search-box" class="pl-10 col-sm-3">
 	<div class="pt-4"><h3>検索</h3></div>
