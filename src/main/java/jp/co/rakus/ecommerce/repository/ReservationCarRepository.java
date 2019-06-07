@@ -100,7 +100,7 @@ public class ReservationCarRepository {
 	//キープを表示
 	public List<Option> findAllOption(int id){
 		String sql = "SELECT id, name, price FROM options "
-				+ " WHERE id IN(SELECT option_id FROM reservation_options WHERE status=1 AND reservation_car_id = :reservationCarId);";
+				+ " WHERE id IN(SELECT option_id FROM reservation_options WHERE reservation_car_id = :reservationCarId);";
 		SqlParameterSource param = new MapSqlParameterSource()
 				.addValue("reservationCarId",id);
 		List<Option> optionList = template.query(sql, param, optionRowMapper);
