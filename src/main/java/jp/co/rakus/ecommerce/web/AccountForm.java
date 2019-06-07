@@ -21,7 +21,8 @@ public class AccountForm {
 		
 		@Email(message="Eメールの形式で入力してください")
 		@NotBlank(message="Eメールの入力は必須です")
-		@Pattern(regexp = "^[a-zA-Z0-9]*$",message="メールアドレスは半角英数字で入力してください")
+
+
 		private String email;
 		
 		@NotBlank(message="パスワードの入力は必須です")
