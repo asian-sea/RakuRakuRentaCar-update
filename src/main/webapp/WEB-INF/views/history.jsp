@@ -25,46 +25,39 @@ body{
 <div class="h3 text-center">予約履歴</div>
 <br>
 	<table class="table table-striped">
-		<tr>
-			<th>
-				車種
-			</th>
-			<th>
-				レンタル期間
-			</th>
-			<th>
-				オプション
-			</th>
-			<th>
-				合計価格
-			</th>
-			<th>
-				予約キャンセル
-			</th>
-		</tr>
 	<c:forEach var="reservationHistoryList" items="${reservationHistoryList }" varStatus="status">
+		<tr><td colspan="3" class="text-right">予約番号：<c:out value="${reservationHistroyList.reservationId }"/></td></tr>
 		<tr>
-			<td>
-				<c:out value="${reservationHistoryList.carId }"/><br>
+			<td rowspan="3">
+			<c:out value="${car.imagePath }"/><br>
+			<c:out value="${car.name }"/>
 			</td>
+			<td>レンタル期間</td>
 			<td>
-				<c:out value="${reservationHistoryList.startDateStr }"/><br>
-				〜<br>
-				<c:out value="${reservationHistoryList.endDateStr }"/><br>
+				開始日時：<c:out value="${reservationHistoryList.startDateStr }"/><br>
+				返却日時：<c:out value="${reservationHistoryList.endDateStr }"/><br>
 			</td>
-			<!-- オプション -->
+		</tr>
+		<!-- オプション -->
+		<tr>
+			<td>オプション</td>
 			<td>
-			<c:forEach var="optionList" items="${optionManyList}" begin="${status.index}" end="${status.index}">
-				<c:forEach var="option" items="${optionList}">
-					・<c:out value="${option.name} "/>
+				<c:forEach var="optionList" items="${optionManyList}" begin="${status.index}" end="${status.index}">
+					<c:forEach var="option" items="${optionList}">
+						・<c:out value="${option.name} "/>
+					</c:forEach>
 				</c:forEach>
-			</c:forEach>
 			</td>
-			<!-- 合計価格 -->
+		</tr>
+		<!-- 合計金額 -->
+		<tr>
+			<td>合計金額</td>
 			<td>
 				<fmt:formatNumber value="${reservationHistoryList.totalPrice }"/>円<br>
 			</td>
-			<td>
+		</tr>
+		<tr>
+			<td colspan="3" class="text-right">
 				<form action="${pageContext.request.contextPath }/history/cancel">
 					<input type="hidden" name="cancelId" value="${reservationHistoryList.id }"/>
 					<input type="submit" class="btn btn-danger btn-sm" value="予約キャンセル" onClick="return check()"/>

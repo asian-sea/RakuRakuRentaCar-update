@@ -24,12 +24,7 @@ body{
 <div class="p-4"></div>
 <div class="h3 text-center">キープ内容確認</div>
 <br>
-	<c:if test="${reservationCarList == null }" var="check">
-		<c:if test="${check }">
-			<div class="h4 text-center">キープはありません</div>
-		</c:if>
-		<c:if test="${!check }">
-			<table class="table table-striped">
+		<table class="table table-striped">
 				<tr>
 					<th>
 						車種
@@ -78,19 +73,16 @@ body{
 					<form action="${pageContext.request.contextPath }/keep/delete">
 						<input type="hidden" name="deleteId" value="${reservationCarList.id }"/>
 						<input type="submit" class="btn btn-danger btn-sm" onClick="return check()" value="削除"/>
+							<script>
+								function check() {
+								return  confirm('本当に削除しますか？');
+								}
+							</script>
 					</form>
 				</td>
 				</tr>
 			</c:forEach>
-			</table>
-		</c:if>
-	</c:if>
+		</table>
 	</div>
-	<script>
-		function check() {
-			return  confirm('本当に削除しますか？');
-		}
-
-	</script>
 </body>
 </html>

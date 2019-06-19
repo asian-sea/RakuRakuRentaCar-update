@@ -49,8 +49,13 @@ public class ReservationHistoryController {
 			List<Option> optionList = reservationCarService.findAllOption(id);
 			optionManyList.add(optionList);
 		}
+
+//		ReservationCar reservationCar = (ReservationCar)session.getAttribute("reservationCar");
+//		Car car = reservationHistoryService.findCar(reservationCar.getId());
+
 		model.addAttribute("optionManyList", optionManyList);
 		model.addAttribute("reservationHistoryList", reservationHistoryList);
+//		model.addAttribute("car",car);
 		return "history";
 	}
 

@@ -71,7 +71,7 @@ public class ReservationCarRepository {
 		template.update(optionSql, param);
 	}
 
-
+	//オプション内容を表示
 	public int findOneOption(int optionId) {
 		String sql = "SELECT price FROM options WHERE id = :optionId";
 		SqlParameterSource param = new MapSqlParameterSource()
