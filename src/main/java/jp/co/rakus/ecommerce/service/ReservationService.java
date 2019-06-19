@@ -26,8 +26,12 @@ public class ReservationService {
 		settlementMap.put(1, "クレジットカード決済");
 		model.addAttribute("settlementMap", settlementMap);
 	}
-	
+
 	public void save(int id, int settlementId) {
 		repository.save(id,settlementId);
+	}
+
+	public int setReservationId(ReservationCar reservationCar) {
+		return repository.setReservationId(reservationCar);
 	}
 }

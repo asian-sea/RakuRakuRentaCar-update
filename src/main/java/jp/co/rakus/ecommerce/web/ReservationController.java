@@ -43,6 +43,10 @@ public class ReservationController {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年MM月dd日 H時mm分");
 		reservationCar.setStartDateStr(dtf.format(reservationCar.getStartDate()));
 		reservationCar.setEndDateStr(dtf.format(reservationCar.getEndDate()));
+
+		//予約番号発行
+		service.setReservationId(reservationCar);
+
 		Car car = carService.findOne(reservationCar.getCarId());
 		model.addAttribute("car", car);
 		model.addAttribute("reservationCar", reservationCar);
@@ -64,7 +68,7 @@ public class ReservationController {
 
 		SimpleMailMessage msg = new SimpleMailMessage();
 
-		msg.setFrom("m01133870c@gmail.com"); // 送信元
+		msg.setFrom("asiansea0504@gmail.com"); // 送信元
 		msg.setTo(user.getEmail()); // 送信先
 		msg.setSubject("楽々レンタカーでの予約確定"); // 件名
 		msg.setText(user.getName()+"さんの予約が完了しました"); // メッセージ内容

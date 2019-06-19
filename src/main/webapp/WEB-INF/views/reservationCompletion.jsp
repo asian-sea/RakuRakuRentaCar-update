@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +21,8 @@ body{
 	<div class="p-4"></div>
 	<div class="text-center">
 	<div class="h3"><i class="fas fa-check-circle"></i>決済が完了しました！</div>
+	<br>
+	<div class="h4">予約番号：<c:out value="${reservationCar.reservationId }"/></div>
 	<br>
 	<p>
 		この度はご注文ありがとうございます。<br>

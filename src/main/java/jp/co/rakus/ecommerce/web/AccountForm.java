@@ -25,7 +25,7 @@ public class AccountForm {
 		private String email;
 
 		@NotBlank(message="パスワードの入力は必須です")
-		@Size(min=4,max=12,message="パスワードは4文字以上12文字以内で入力してください")
+		@Size(min=8,max=32,message="パスワードは8文字以上32文字以内で入力してください")
 		@Pattern(regexp = "^[a-zA-Z0-9]*$",message="パスワードは半角英数字で入力してください")
 		private String password;
 

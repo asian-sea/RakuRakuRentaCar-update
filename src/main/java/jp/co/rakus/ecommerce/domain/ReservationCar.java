@@ -16,6 +16,8 @@ public class ReservationCar {
 	private Option option;
 	private String startDateStr;
 	private String endDateStr;
+	private LocalDateTime reservationDate;
+	private String reservationId;
 
 	public int getId() {
 		return id;
@@ -89,6 +91,18 @@ public class ReservationCar {
 	}
 	public void setEndDateStr(String endDateStr) {
 		this.endDateStr = endDateStr;
+	}
+	public LocalDateTime getReservationDate() {
+		return reservationDate;
+	}
+	public void setReservationDate(LocalDateTime reservationDate) {
+		this.reservationDate = reservationDate;
+	}
+	public String getReservationId() {
+		return reservationId;
+	}
+	public void setReservationId(String reservationId) {
+		this.reservationId = reservationId;
 	}
 
 

@@ -46,8 +46,44 @@ body{
 				<div class="card-body">
 					<div class="card-text">
 					<form:form modelAttribute="reservationForm" action="${pageContext.request.contextPath}/reservation/fix">
-						<form:radiobuttons path="settlement" items="${settlementMap}"/>
-						<br>
+						<form:radiobuttons path="settlement" items="${settlementMap}"/>　
+
+<%-- 						クレジットカード番号：<form:input type="text" path="cardnum" placeHolder="カード番号"/> --%>
+<!-- 						<small class="text-muted">※半角数字、ハイフンなし、14桁または16桁</small> -->
+
+<%-- 						有効期限：<form:select name="month"> --%>
+<!-- 						<option value="">-</option> -->
+<!-- 						<option value="1">1</option> -->
+<!-- 						<option value="2">2</option> -->
+<!-- 						<option value="3">3</option> -->
+<!-- 						<option value="4">4</option> -->
+<!-- 						<option value="5">5</option> -->
+<!-- 						<option value="6">6</option> -->
+<!-- 						<option value="7">7</option> -->
+<!-- 						<option value="8">8</option> -->
+<!-- 						<option value="9">9</option> -->
+<!-- 						<option value="10">10</option> -->
+<!-- 						<option value="11">11</option> -->
+<!-- 						<option value="12">12</option> -->
+<%-- 						</form:select> --%>
+<%-- 						<form:select name="year"> --%>
+<!-- 						<option value="">-</option> -->
+<!-- 						<option value="2019">2019</option> -->
+<!-- 						<option value="2020">2020</option> -->
+<!-- 						<option value="2021">2021</option> -->
+<!-- 						<option value="2022">2022</option> -->
+<!-- 						<option value="2023">2023</option> -->
+<!-- 						<option value="2024">2024</option> -->
+<!-- 						<option value="2025">2025</option> -->
+<!-- 						<option value="2026">2026</option> -->
+<!-- 						<option value="2027">2027</option> -->
+<!-- 						<option value="2028">2028</option> -->
+<!-- 						<option value="2029">2029</option> -->
+<!-- 						<option value="2030">2030</option> -->
+<%-- 						</form:select> --%>
+<!-- 						カード名義人：<input type="text" name="cardname"/> -->
+<!-- 						セキュリティーコード：<input type="text" name="security"/> -->
+<!-- 						<br> -->
 						<div class="mt-3">
 						<input type="hidden" name="id" value="${reservationCar.id }" />
 						<input type="submit" class="btn btn-primary" value="予約"/>
