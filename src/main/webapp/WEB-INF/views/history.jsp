@@ -24,9 +24,9 @@ body{
 <div class="p-4"></div>
 <div class="h3 text-center">予約履歴</div>
 <br>
-	<table class="table table-striped">
 	<c:forEach var="reservationHistoryList" items="${reservationHistoryList }" varStatus="status">
-		<tr><td colspan="3" class="text-right">予約番号：<c:out value="${reservationHistroyList.reservationId }"/></td></tr>
+	<table class="table table-striped">
+		<tr><td colspan="3" class="text-right">予約番号：<c:out value="${reservationHistoryList.reservationId }"/></td></tr>
 		<tr>
 			<td rowspan="3">
 			<c:out value="${car.imagePath }"/><br>
@@ -64,8 +64,9 @@ body{
 				</form>
 			</td>
 		</tr>
-	</c:forEach>
 	</table>
+	<br>
+	</c:forEach>
 
 </div>
 <script>

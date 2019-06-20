@@ -28,6 +28,7 @@ public class ReservationHistoryRepository {
 		car.setStartDate(rs.getTimestamp("start_date").toLocalDateTime());
 		car.setEndDate(rs.getTimestamp("end_date").toLocalDateTime());
 		car.setTotalPrice(rs.getInt("total_price"));
+		car.setReservationId(rs.getString("reservation_id"));
 		return car;
 	};
 
@@ -41,7 +42,7 @@ public class ReservationHistoryRepository {
 
 	//予約履歴を表示
 	public List<ReservationCar> findHistory(int id){
-		String sql = "SELECT id, status, car_id, start_date, end_date, user_id, total_price FROM reservation_cars WHERE user_id = :id AND status = 2 ORDER BY id DESC";
+		String sql = "SELECT id, status, car_id, start_date, end_date, user_id, total_price, reservation_id FROM reservation_cars WHERE user_id = :id AND status = 2 ORDER BY id DESC";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		List<ReservationCar> reservationHistoryList = template.query(sql, param, reservationHistoryRowMapper);
 		return reservationHistoryList;

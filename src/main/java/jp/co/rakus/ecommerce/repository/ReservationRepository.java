@@ -20,7 +20,7 @@ public class ReservationRepository {
 		car.setStartDate(rs.getTimestamp("start_date").toLocalDateTime());
 		car.setEndDate(rs.getTimestamp("end_date").toLocalDateTime());
 		car.setTotalPrice(rs.getInt("total_price"));
-
+		car.setReservationId(rs.getString("reservation_id"));
 
 		return car;
 	};
@@ -39,7 +39,7 @@ public class ReservationRepository {
 //				+ " JOIN options"
 //				+ " ON reservation_options.option_id = options.id"
 //				+ " WHERE reservation_cars.id = :id";
-				"SELECT id, car_id, start_date, end_date, total_price FROM reservation_cars WHERE id =:id";
+				"SELECT id, car_id, start_date, end_date, total_price, reservation_id FROM reservation_cars WHERE id =:id";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		ReservationCar reservationCar = jdbc.queryForObject(sql, param, rowMapper);
 		return reservationCar;
@@ -60,4 +60,5 @@ public class ReservationRepository {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(reservationCar);
 		return jdbc.update(sql, param);
 	}
+
 }

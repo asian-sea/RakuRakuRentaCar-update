@@ -78,7 +78,7 @@ public class ReservationController {
 		return "redirect:/reservation/completion";
 	}
 
-
+	//登録完了画面
 	@RequestMapping("/completion")
 	public String completion() {
 		return "reservationCompletion";

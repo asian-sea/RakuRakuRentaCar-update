@@ -22,8 +22,8 @@ body{
 	<div class="text-center">
 	<div class="h3"><i class="fas fa-check-circle"></i>決済が完了しました！</div>
 	<br>
-	<div class="h4">予約番号：<c:out value="${reservationCar.reservationId }"/></div>
-	<br>
+<%-- 	<div class="h4">予約番号：<c:out value="${reservationCar.reservationId }"/></div> --%>
+<!-- 	<br> -->
 	<p>
 		この度はご注文ありがとうございます。<br>
 		ご登録されたEメールアドレスに確認メールを送信しました。<br>

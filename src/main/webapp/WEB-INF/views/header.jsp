@@ -60,7 +60,7 @@
 
 <header>
 	<div class="logo">
-		<p><a href="${pageContext.request.contextPath}/car/" class="btn btn-lg">らくらくレンタカー</a></p>
+		<p><a href="${pageContext.request.contextPath}/car/"><img src="${pageContext.request.contextPath }/img/rakuraku_logo.png" width="300"/></a></p>
 	</div>
 
 	<c:if test="${user == null}" var="check"/>

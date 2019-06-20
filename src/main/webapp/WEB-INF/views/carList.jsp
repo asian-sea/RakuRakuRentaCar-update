@@ -33,6 +33,7 @@ body{
 			<br>
 			<a href="<c:url value='${pageContext.request.contextPath}/car/detail/${car.id }' />">
 			<input type="submit" class="btn btn-warning" value="この車種で予約する"/></a>
+			<br><br>
 			</div>
 		</div>
 		</c:forEach>

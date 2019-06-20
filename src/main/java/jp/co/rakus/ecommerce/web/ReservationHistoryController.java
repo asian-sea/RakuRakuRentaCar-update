@@ -34,7 +34,7 @@ public class ReservationHistoryController {
 
 	//予約履歴を表示
 	@RequestMapping(value="/")
-	public String showHistory(Model model, ReservationCarForm reservationCarForm) {
+	public String showHistory(Model model) {
 		User user = (User)session.getAttribute("user");
 		List<ReservationCar> reservationHistoryList = reservationHistoryService.findHistory(user.getId());
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年MM月dd日 H時mm分");
