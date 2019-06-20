@@ -24,6 +24,8 @@ body{
 <div class="p-4"></div>
 <div class="h3 text-center">キープ内容確認</div>
 <br>
+	<div class="text-center"><c:if test="${empty reservationCarList }">キープしている内容はありません</c:if></div>
+	<c:if test="${!empty reservationCarList }">
 		<table class="table table-striped">
 				<tr>
 					<th>
@@ -83,6 +85,7 @@ body{
 				</tr>
 			</c:forEach>
 		</table>
+		</c:if>
 	</div>
 </body>
 </html>

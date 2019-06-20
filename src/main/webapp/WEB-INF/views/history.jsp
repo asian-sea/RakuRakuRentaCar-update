@@ -24,6 +24,8 @@ body{
 <div class="p-4"></div>
 <div class="h3 text-center">予約履歴</div>
 <br>
+	<div class="text-center"><c:if test="${empty reservationHistoryList }">予約している内容はありません</c:if></div>
+	<c:if test="${!empty reservationHistoryList }">
 	<c:forEach var="reservationHistoryList" items="${reservationHistoryList }" varStatus="status">
 	<table class="table table-striped">
 		<tr><td colspan="3" class="text-right">予約番号：<c:out value="${reservationHistoryList.reservationId }"/></td></tr>
@@ -67,6 +69,7 @@ body{
 	</table>
 	<br>
 	</c:forEach>
+	</c:if>
 
 </div>
 <script>
