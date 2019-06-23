@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jp.co.rakus.ecommerce.domain.Option;
 import jp.co.rakus.ecommerce.domain.ReservationCar;
 import jp.co.rakus.ecommerce.domain.User;
+import jp.co.rakus.ecommerce.service.CarService;
 import jp.co.rakus.ecommerce.service.ReservationCarService;
 import jp.co.rakus.ecommerce.service.ReservationHistoryService;
 
@@ -28,6 +29,9 @@ public class ReservationHistoryController {
 
 	@Autowired
 	ReservationCarService reservationCarService;
+
+	@Autowired
+	CarService carService;
 
 	@Autowired
 	HttpSession session;
@@ -50,12 +54,8 @@ public class ReservationHistoryController {
 			optionManyList.add(optionList);
 		}
 
-//		ReservationCar reservationCar = (ReservationCar)session.getAttribute("reservationCar");
-//		Car car = reservationHistoryService.findCar(reservationCar.getId());
-
 		model.addAttribute("optionManyList", optionManyList);
 		model.addAttribute("reservationHistoryList", reservationHistoryList);
-//		model.addAttribute("car",car);
 		return "history";
 	}
 

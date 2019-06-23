@@ -9,49 +9,77 @@
 <title>HOME画面</title>
 <jsp:include page="header.jsp" flush="true" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="jquery.bgswitcher.js"></script>
 <style>
 body{
 	margin-top:80px;
 	margin-bottom:10px;
+	font-family: 'Yu Gothic', sans-serif;
+	letter-spacing:-.01em;
 }
 .jumbotron{
-	background-image: url("../img/top01.jpg");
- 	background-size: cover;
- 	background-position: center 60%;
-}
+	background:url('../img/home1.jpg');
+    background-size: cover;
+    background-position: center 60%;
+    height:500px;
+ }
+/* /* slider */ */
+/* .bg-slider { */
+/* 	background-img: url(../img/home1.jpg); */
+/* 	width: 100vw; */
+/* 	height: 500px; */
+/* 	background-position:center 60%; */
+/* 	background-size: cover; */
+/* 	display: flex; */
+/* 	align-items: center; */
+/* 	justify-content: center; */
+/* } */
 .pb-10{
 	color:white;
 }
 #search-box{
+	margin-left:0;
 	margin-top:10px;
 	background-color:rgb(255,165,0,0.9);
 	color:white;
 }
 </style>
+<!-- <script> -->
+<!--  jQuery(function($) { -->
+<!--      $('.bg-slider').bgSwitcher({ -->
+<!--          images: ['/img/home1.jpg','/img/home2.jpg','/img/home3.jpg'], -->
+<!--      }); -->
+<!--  }); -->
+<!-- </script> -->
 </head>
 <body>
 <div class="jumbotron">
-<div class="container-fluid">
-<div class="pb-10">
-<c:if test ="${user!=null }">
-	<c:out value="${user.name }"/>さん、ようこそ！
-</c:if>
-</div>
-	<div id="search-box" class="pl-10 col-sm-3">
-	<div class="pt-4"><h3>検索</h3></div>
-	<form:form modelAttribute="carForm" action="${pageContext.request.contextPath}/car/toCarList2">
-		営業所<br><form:select path="shopId" items="${shopList}" itemValue="id" itemLabel="name"/><br>
-		<br>
-		クラス<br><form:select path="gradeId" items="${gradeList}" itemValue="id" itemLabel="name"/><br>
-		<br>
-		<input type="submit" value="検索" class="btn btn-primary">
-	</form:form>
-	<div class="pb-4"></div>
+	<div class="container-fluid">
+		<div class="pb-10">
+			<div style="color:white;">
+				<c:if test ="${user == null }">ゲストさん、ようこそ！</c:if>
+				<c:if test ="${user!=null }">
+					<c:out value="${user.name }"/>さん、ようこそ！
+				</c:if>
+			</div>
+		</div>
+		<div id="search-box" class="pl-5 col-sm-4">
+			<div class="pt-4 pb-2"><h3>検索</h3></div>
+			<form:form modelAttribute="carForm" action="${pageContext.request.contextPath}/car/toCarList2">
+				営業所<br><form:select path="shopId" items="${shopList}" itemValue="id" itemLabel="name"/><br>
+				<br>
+				クラス<br><form:select path="gradeId" items="${gradeList}" itemValue="id" itemLabel="name"/><br>
+				<br>
+				<input type="submit" value="検索" class="btn btn-primary">
+			</form:form>
+			<div class="pb-4"></div>
+		</div>
 	</div>
 </div>
-</div>
+<br>
 <div class="container">
-	<h3>クラスから選ぶ</h3>
+	<div class="border-bottom h3 pb-2">クラスから選ぶ</div>
 	<div class="row">
 	<c:forEach var="grade" items="${gradeList}" begin="1">
 		<div class="col-6 col-sm-4">

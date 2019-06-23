@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jp.co.rakus.ecommerce.domain.Car;
 import jp.co.rakus.ecommerce.domain.ReservationCar;
 import jp.co.rakus.ecommerce.repository.ReservationHistoryRepository;
 
@@ -21,7 +20,8 @@ public class ReservationHistoryService {
 		return reservationHistoryRepository.findHistory(id);
 	}
 
-	public Car findCar(int id) {
+	//車種名、画像を表示
+	public List<ReservationCar> findCar(int id) {
 		return reservationHistoryRepository.findCar(id);
 	}
 

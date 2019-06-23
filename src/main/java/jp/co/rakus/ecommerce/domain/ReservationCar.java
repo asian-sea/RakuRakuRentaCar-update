@@ -18,6 +18,8 @@ public class ReservationCar {
 	private String endDateStr;
 	private LocalDateTime reservationDate;
 	private String reservationId;
+	private String carName;
+	private String imagePath;
 
 	public int getId() {
 		return id;
@@ -104,7 +106,18 @@ public class ReservationCar {
 	public void setReservationId(String reservationId) {
 		this.reservationId = reservationId;
 	}
-
+	public String getCarName() {
+		return carName;
+	}
+	public void setCarName(String carName) {
+		this.carName = carName;
+	}
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
 
 
 }

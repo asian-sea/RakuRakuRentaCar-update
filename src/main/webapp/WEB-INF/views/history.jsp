@@ -28,12 +28,12 @@ body{
 	<c:if test="${!empty reservationHistoryList }">
 	<c:forEach var="reservationHistoryList" items="${reservationHistoryList }" varStatus="status">
 	<table class="table table-striped">
-		<tr><td colspan="3" class="text-right">予約番号：<c:out value="${reservationHistoryList.reservationId }"/></td></tr>
 		<tr>
-			<td rowspan="3">
-			<c:out value="${car.imagePath }"/><br>
-			<c:out value="${car.name }"/>
+			<td rowspan="4">
+			<img src="${pageContext.request.contextPath }/img/<c:out value="${reservationHistoryList.imagePath }"/>" style="width:200px"><br>
+			<c:out value="${reservationHistoryList.carName }"/>
 			</td>
+			<td colspan="2" class="text-right">予約番号：<c:out value="${reservationHistoryList.reservationId }"/></td>
 			<td>レンタル期間</td>
 			<td>
 				開始日時：<c:out value="${reservationHistoryList.startDateStr }"/><br>
