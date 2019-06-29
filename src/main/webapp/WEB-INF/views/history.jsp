@@ -24,16 +24,18 @@ body{
 <div class="p-4"></div>
 <div class="h3 text-center">予約履歴</div>
 <br>
-	<div class="text-center"><c:if test="${empty reservationHistoryList }">予約している内容はありません</c:if></div>
+	<div class="text-center border rounded"><c:if test="${empty reservationHistoryList }">予約している内容はありません</c:if></div>
 	<c:if test="${!empty reservationHistoryList }">
 	<c:forEach var="reservationHistoryList" items="${reservationHistoryList }" varStatus="status">
-	<table class="table table-striped">
+	<table class="table table-striped border rouded border-top-0">
 		<tr>
-			<td rowspan="4">
-			<img src="${pageContext.request.contextPath }/img/<c:out value="${reservationHistoryList.imagePath }"/>" style="width:200px"><br>
-			<c:out value="${reservationHistoryList.carName }"/>
+			<td colspan="3" class="text-right">予約番号：<c:out value="${reservationHistoryList.reservationId }"/></td>
+		</tr>
+		<tr>
+			<td rowspan="3" class="text-center">
+				<img src="${pageContext.request.contextPath }/img/<c:out value="${reservationHistoryList.imagePath }"/>" style="width:200px"><br>
+				<c:out value="${reservationHistoryList.carName }"/>
 			</td>
-			<td colspan="2" class="text-right">予約番号：<c:out value="${reservationHistoryList.reservationId }"/></td>
 			<td>レンタル期間</td>
 			<td>
 				開始日時：<c:out value="${reservationHistoryList.startDateStr }"/><br>

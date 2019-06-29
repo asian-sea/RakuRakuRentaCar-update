@@ -85,10 +85,12 @@ public class ReservationCarController {
 		List<ReservationCar> reservationCarList = reservationCarService.findAll(user.getId());
 		model.addAttribute("reservationCarList", reservationCarList);
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年MM月dd日 H時mm分");
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy年MM日dd日");
 
 		reservationCarList.forEach(reservationCar -> {
 			reservationCar.setStartDateStr(dtf.format(reservationCar.getStartDate()));
 			reservationCar.setEndDateStr(dtf.format(reservationCar.getEndDate()));
+			reservationCar.setReservationDateStr(df.format(reservationCar.getReservationDate()));
 		});
 		List<List<Option>> optionManyList = new ArrayList<>();
 		for (int i = 0; i <reservationCarList.size(); i++) {

@@ -16,6 +16,7 @@ public class ReservationCar {
 	private Option option;
 	private String startDateStr;
 	private String endDateStr;
+	private String reservationDateStr;
 	private LocalDateTime reservationDate;
 	private String reservationId;
 	private String carName;
@@ -117,6 +118,12 @@ public class ReservationCar {
 	}
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
+	}
+	public String getReservationDateStr() {
+		return reservationDateStr;
+	}
+	public void setReservationDateStr(String reservationDateStr) {
+		this.reservationDateStr = reservationDateStr;
 	}
 
 

@@ -31,6 +31,9 @@ public class ReservationCarRepository {
 		reservationCar.setStartDate(rs.getTimestamp("start_date").toLocalDateTime());
 		reservationCar.setEndDate(rs.getTimestamp("end_date").toLocalDateTime());
 		reservationCar.setTotalPrice(rs.getInt("total_price"));
+		reservationCar.setReservationDate(rs.getTimestamp("reservation_date").toLocalDateTime());
+		reservationCar.setCarName(rs.getString("name"));
+		reservationCar.setImagePath(rs.getString("imagepath"));
 
 //		Option option = new Option(rs.getInt("op_id"), rs.getString("op_name"), rs.getInt("op_price"));
 //		reservationCar.setOption(option);
@@ -80,7 +83,8 @@ public class ReservationCarRepository {
 	}
 	//キープを表示
 	public List<ReservationCar> findAll(int id){
-		String sql = "SELECT id, status, car_id, start_date, end_date, total_price FROM reservation_cars WHERE status = 1 AND user_id = :id ORDER BY id DESC";
+		String sql = "SELECT r.id, status, car_id, start_date, end_date, total_price , reservation_date, name, imagepath "
+				+ "FROM reservation_cars AS r JOIN cars AS c  ON car_id = c.id WHERE status = 1 AND user_id = :id ORDER BY r.id DESC";
 //				"SELECT reservation_cars.id AS id, reservation_cars.status AS status, reservation_cars.car_id AS car_id,"
 //				+ " reservation_cars.start_date AS start_date, reservation_cars.end_date AS end_date, reservation_cars.total_price AS total_price,"
 //				+ " options.id AS op_id, options.name AS op_name, options.price AS op_price"

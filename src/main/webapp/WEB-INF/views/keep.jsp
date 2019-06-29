@@ -24,67 +24,63 @@ body{
 <div class="p-4"></div>
 <div class="h3 text-center">キープ内容確認</div>
 <br>
-	<div class="text-center"><c:if test="${empty reservationCarList }">キープしている内容はありません</c:if></div>
+	<div class="text-center border rouded"><c:if test="${empty reservationCarList }">キープしている内容はありません</c:if></div>
 	<c:if test="${!empty reservationCarList }">
-		<table class="table table-striped">
-				<tr>
-					<th>
-						車種
-					</th>
-					<th>
-						レンタル期間｜価格
-					</th>
-					<th>
-						オプション｜価格
-					</th>
-					<th>
-						合計
-					</th>
-					<th>
-						予約/削除
-					</th>
-				</tr>
 		<c:forEach var="reservationCarList" items="${reservationCarList }" varStatus="status">
-			<tr>
-				<td>
-					<c:out value="${reservationCarList.carId }"/><br>
-				</td>
-				<td>
-					<c:out value="${reservationCarList.startDateStr }"/><br>
-					〜<br>
-					<c:out value="${reservationCarList.endDateStr }"/><br>
-				</td>
-				<!-- オプション -->
-				<td>
-				<c:forEach var="optionList" items="${optionManyList}" begin="${status.index}" end="${status.index}">
-					<c:forEach var="option" items="${optionList}">
-						・<c:out value="${option.name} "/>
-					</c:forEach>
-				</c:forEach>
-				</td>
-				<!-- 合計価格 -->
-				<td>
-					<fmt:formatNumber value="${reservationCarList.totalPrice }"/>円<br>
-				</td>
-				<td>
-					<form action="${pageContext.request.contextPath }/reservation/">
-						<input type="hidden" name="status" value="${reservationCarList.id }"/>
-						<input type="submit" class="btn btn-primary btn-sm" value="予約"/>
-					</form>
-					<br>
-					<form action="${pageContext.request.contextPath }/keep/delete">
-						<input type="hidden" name="deleteId" value="${reservationCarList.id }"/>
-						<input type="submit" class="btn btn-danger btn-sm" onClick="return check()" value="削除"/>
-							<script>
-								function check() {
-								return  confirm('本当に削除しますか？');
-								}
-							</script>
-					</form>
-				</td>
+			<table class="table table-striped border rouded">
+				<tr>
+					<td colspan="3">
+						キープ日：<c:out value="${reservationCarList.reservationDateStr }"/><br>
+					</td>
 				</tr>
-			</c:forEach>
-		</table>
+				<tr>
+					<td rowspan="3" class="text-center">
+						<img src="${pageContext.request.contextPath }/img/<c:out value="${reservationCarList.imagePath }"/>" style="width:200px"><br>
+						<c:out value="${reservationCarList.carName }"/>
+					</td>
+					<td>レンタル期間</td>
+					<td>
+						開始日時：<c:out value="${reservationCarList.startDateStr }"/><br>
+						返却日時：<c:out value="${reservationCarList.endDateStr }"/><br>
+					</td>
+				</tr>
+				<!-- オプション -->
+				<tr>
+					<td>オプション</td>
+					<td>
+						<c:forEach var="optionList" items="${optionManyList}" begin="${status.index}" end="${status.index}">
+							<c:forEach var="option" items="${optionList}">
+								・<c:out value="${option.name} "/>
+							</c:forEach>
+						</c:forEach>
+					</td>
+				</tr>
+					<!-- 合計価格 -->
+				<tr>
+					<td>合計金額</td>
+					<td>
+						<fmt:formatNumber value="${reservationCarList.totalPrice }"/>円<br>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<div class="form-inline"><form action="${pageContext.request.contextPath }/reservation/">
+							<input type="hidden" name="status" value="${reservationCarList.id }"/>
+							<input type="submit" class="btn btn-primary btn-sm" value="予約"/>
+						</form>
+						<form action="${pageContext.request.contextPath }/keep/delete">
+							<input type="hidden" name="deleteId" value="${reservationCarList.id }"/>
+							　<input type="submit" class="btn btn-danger btn-sm" onClick="return check()" value="削除"/>
+								<script>
+									function check() {
+									return  confirm('本当に削除しますか？');
+									}
+								</script>
+						</form></div>
+					</td>
+				</tr>
+			</table>
+		</c:forEach>
 		</c:if>
 	</div>
 </body>
