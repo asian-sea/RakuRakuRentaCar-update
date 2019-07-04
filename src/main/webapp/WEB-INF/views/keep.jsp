@@ -24,10 +24,10 @@ body{
 <div class="p-4"></div>
 <div class="h3 text-center">キープ内容確認</div>
 <br>
-	<div class="text-center border rouded"><c:if test="${empty reservationCarList }">キープしている内容はありません</c:if></div>
+	<c:if test="${empty reservationCarList }" class="text-center border rouded">キープしている内容はありません</c:if></div>
 	<c:if test="${!empty reservationCarList }">
 		<c:forEach var="reservationCarList" items="${reservationCarList }" varStatus="status">
-			<table class="table table-striped border rouded">
+			<table class="table table-striped border-top-0">
 				<tr>
 					<td colspan="3">
 						キープ日：<c:out value="${reservationCarList.reservationDateStr }"/><br>

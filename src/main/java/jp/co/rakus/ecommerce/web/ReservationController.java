@@ -50,7 +50,7 @@ public class ReservationController {
 		Car car = carService.findOne(reservationCar.getCarId());
 		model.addAttribute("car", car);
 		model.addAttribute("reservationCar", reservationCar);
-		service.addRadioButton(model);
+//		service.addRadioButton(model);
 		return "reservation";
 	}
 
