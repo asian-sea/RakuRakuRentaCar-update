@@ -84,8 +84,8 @@ public class ReservationCarController {
 		User user = (User)session.getAttribute("user");
 		List<ReservationCar> reservationCarList = reservationCarService.findAll(user.getId());
 		model.addAttribute("reservationCarList", reservationCarList);
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年MM月dd日 H時mm分");
-		DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy年MM日dd日");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年M月d日 H:mm");
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy年M月d日");
 
 		reservationCarList.forEach(reservationCar -> {
 			reservationCar.setStartDateStr(dtf.format(reservationCar.getStartDate()));

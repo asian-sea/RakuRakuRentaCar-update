@@ -40,24 +40,23 @@ public class ReservationController {
 	@RequestMapping("/")
 	public String reservation(Model model, @ModelAttribute ReservationForm form, @RequestParam("status") int id) {
 		ReservationCar reservationCar = service.findOne(id);
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年MM月dd日 H時mm分");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年M月d日 H:mm");
 		reservationCar.setStartDateStr(dtf.format(reservationCar.getStartDate()));
 		reservationCar.setEndDateStr(dtf.format(reservationCar.getEndDate()));
-
-		//予約番号発行
-		service.setReservationId(reservationCar);
-
 		Car car = carService.findOne(reservationCar.getCarId());
 		model.addAttribute("car", car);
 		model.addAttribute("reservationCar", reservationCar);
+
 //		service.addRadioButton(model);
 		return "reservation";
 	}
 
 	@RequestMapping("/fix")
-	public String fix(@RequestParam("id") int id, ReservationForm form) {
+	public String fix(@RequestParam("id") int id, ReservationForm form, ReservationCar reservationCar) {
 		int settlementId = form.getSettlement();
 		service.save(id, settlementId);
+		//予約番号発行
+		service.setReservationId(reservationCar);
 		return "redirect:/reservation/fix2";
 	}
 

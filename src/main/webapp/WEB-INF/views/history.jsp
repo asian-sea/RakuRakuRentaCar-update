@@ -24,7 +24,7 @@ body{
 <div class="p-4"></div>
 <div class="h3 text-center">予約履歴</div>
 <br>
-	<div class="text-center border rounded"><c:if test="${empty reservationHistoryList }">予約している内容はありません</c:if></div>
+	<c:if test="${empty reservationHistoryList }"><div class="text-center border rounded">予約している内容はありません</div></c:if>
 	<c:if test="${!empty reservationHistoryList }">
 	<c:forEach var="reservationHistoryList" items="${reservationHistoryList }" varStatus="status">
 	<table class="table table-striped border rouded border-top-0">
