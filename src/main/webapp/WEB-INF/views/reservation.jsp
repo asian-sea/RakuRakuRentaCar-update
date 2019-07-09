@@ -59,7 +59,7 @@ body{
 					<div class="card-text">
 					<c:forEach var="optionList" items="${optionManyList}" begin="${status.index}" end="${status.index}">
 							<c:forEach var="option" items="${optionList}">
-								・<c:out value="${option.name} "/>　
+								<span class="badge badge-secondary p-2"><c:out value="${option.name} "/></span>
 							</c:forEach>
 					</c:forEach>
 					</div>

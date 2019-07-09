@@ -48,7 +48,7 @@ body{
 			<td>
 				<c:forEach var="optionList" items="${optionManyList}" begin="${status.index}" end="${status.index}">
 					<c:forEach var="option" items="${optionList}">
-						・<c:out value="${option.name} "/>
+						<span class="badge badge-light p-2"><c:out value="${option.name} "/></span>
 					</c:forEach>
 				</c:forEach>
 			</td>
