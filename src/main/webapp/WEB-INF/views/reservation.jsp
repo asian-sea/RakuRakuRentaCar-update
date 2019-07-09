@@ -57,18 +57,19 @@ body{
 			<div class="card-header border-top">オプション</div>
 				<div class="card-body">
 					<div class="card-text">
-<%-- 					<c:forEach var="optionList" items="${optionManyList}" begin="${status.index}" end="${status.index}"> --%>
-							<c:forEach var="option" items="${optionManyList}">
-								・<c:out value="${option.name} "/>
+					<c:forEach var="optionList" items="${optionManyList}" begin="${status.index}" end="${status.index}">
+							<c:forEach var="option" items="${optionList}">
+								・<c:out value="${option.name} "/>　
 							</c:forEach>
-<%-- 					</c:forEach> --%>
+					</c:forEach>
 					</div>
 				</div>
 
 			<div class="card-header border-top">合計金額</div>
 				<div class="card-body">
 					<div class="card-text">
-						<fmt:formatNumber value="${reservationCarList.totalPrice }"/>円<br>
+						<h3><fmt:formatNumber value="${reservationCar.totalPrice }"/>円</h3>
+					</div>
 				</div>
 
 			<div class="card-header border-top">お支払い方法を選択</div>
@@ -134,7 +135,6 @@ body{
 		</div>
 
 	</div>
-</div>
 	<script>
 		$.post('http://172.16.0.13:8080/web-api-sample/credit-card/payment',
 				'user_id="" & order_number="" & amount="" & card_number=""')

@@ -80,7 +80,7 @@ public class ReservationCarController {
 
 	//キープを表示
 	@RequestMapping(value="/show")
-	public String showCars(Model model, ReservationCarForm reservationCarForm) {
+	public String showCars(Model model) {
 		User user = (User)session.getAttribute("user");
 		List<ReservationCar> reservationCarList = reservationCarService.findAll(user.getId());
 		model.addAttribute("reservationCarList", reservationCarList);
@@ -92,6 +92,7 @@ public class ReservationCarController {
 			reservationCar.setEndDateStr(dtf.format(reservationCar.getEndDate()));
 			reservationCar.setReservationDateStr(df.format(reservationCar.getReservationDate()));
 		});
+
 		List<List<Option>> optionManyList = new ArrayList<>();
 		for (int i = 0; i <reservationCarList.size(); i++) {
 			int id = reservationCarList.get(i).getId();

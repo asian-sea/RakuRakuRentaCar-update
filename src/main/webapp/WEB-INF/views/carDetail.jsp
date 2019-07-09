@@ -68,8 +68,9 @@ body{
   			<div class="card-header border-top">合計金額</div><br>
 				<div id="totalPrice" class="h5"></div>
 				<br>
-		<input type="submit" class="btn btn-primary" value="キープする"></div>
+		<input type="submit" class="btn btn-primary" value="キープする">
 	</form:form>
+	</div>
 	</div>
 	<div class="mb-5"></div>
 	<script>
