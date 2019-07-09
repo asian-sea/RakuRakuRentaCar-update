@@ -16,6 +16,12 @@ body{
 	margin-top:80px;
 	margin-bottom:10px;
 }
+.parent{
+	text-align:center;
+}
+.child{
+	display:inline-block;
+}
 </style>
 </head>
 <body>
@@ -64,11 +70,12 @@ body{
 				</tr>
 				<tr>
 					<td colspan="3">
-						<div class="form-inline"><form action="${pageContext.request.contextPath }/reservation/">
+					<div class="parent">
+						<div class="child"><form action="${pageContext.request.contextPath }/reservation/">
 							<input type="hidden" name="status" value="${reservationCarList.id }"/>
 							<input type="submit" class="btn btn-primary btn-sm" value="予約"/>
-						</form>
-						<form action="${pageContext.request.contextPath }/keep/delete">
+						</form></div>
+						<div class="child"><form action="${pageContext.request.contextPath }/keep/delete">
 							<input type="hidden" name="deleteId" value="${reservationCarList.id }"/>
 							　<input type="submit" class="btn btn-danger btn-sm" onClick="return check()" value="削除"/>
 								<script>
@@ -76,7 +83,7 @@ body{
 									return  confirm('本当に削除しますか？');
 									}
 								</script>
-						</form></div>
+						</form></div></div>
 					</td>
 				</tr>
 			</table>
