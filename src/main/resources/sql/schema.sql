@@ -52,6 +52,8 @@ create table reservation_cars (
     , total_price integer not null
     , user_id integer not null
     , settlement_id integer not null
+    , reservation_date timestamp not null
+    , reservation_id text
 );
 
 create table reservation_options (
