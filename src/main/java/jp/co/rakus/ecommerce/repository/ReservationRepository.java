@@ -56,7 +56,7 @@ public class ReservationRepository {
 	//予約ID発行
 	public int setReservationId(ReservationCar reservationCar) {
 		String sql = "UPDATE reservation_cars SET reservation_id = "
-				+ " TO_CHAR(reservation_date, 'yyyymmdd')|| to_char(nextval('reservationID_seq'),'FM00000') WHERE id=:id";
+				+ " TO_CHAR(reservation_date, 'yyyymmdd')|| to_char(nextval('reservationID_seq'),'FM000000') WHERE id=:id";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(reservationCar);
 		return jdbc.update(sql, param);
 	}

@@ -9,8 +9,6 @@
 <title>HOME画面</title>
 <jsp:include page="header.jsp" flush="true" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="jquery.bgswitcher.js"></script>
 <style>
 body{
 	margin-top:80px;
@@ -19,22 +17,12 @@ body{
 	letter-spacing:-.01em;
 }
 .jumbotron{
-	background:url('../img/home1.jpg');
+	background:url('../img/home1.jpg') center no-repeat;
     background-size: cover;
-    background-position: center 60%;
     height:500px;
+    border-radius:0%;
  }
-/* /* slider */ */
-/* .bg-slider { */
-/* 	background-img: url(../img/home1.jpg); */
-/* 	width: 100vw; */
-/* 	height: 500px; */
-/* 	background-position:center 60%; */
-/* 	background-size: cover; */
-/* 	display: flex; */
-/* 	align-items: center; */
-/* 	justify-content: center; */
-/* } */
+
 .pb-10{
 	color:white;
 }

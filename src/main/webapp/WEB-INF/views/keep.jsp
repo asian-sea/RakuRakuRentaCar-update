@@ -80,6 +80,7 @@ body{
 					</td>
 				</tr>
 			</table>
+			<br>
 		</c:forEach>
 		</c:if>
 	</div>

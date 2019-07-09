@@ -65,34 +65,40 @@ body{
 					</div>
 				</div>
 
+			<div class="card-header border-top">合計金額</div>
+				<div class="card-body">
+					<div class="card-text">
+						<fmt:formatNumber value="${reservationCarList.totalPrice }"/>円<br>
+				</div>
+
 			<div class="card-header border-top">お支払い方法を選択</div>
 				<div class="card-body">
 					<div class="card-text">
 					<form:form modelAttribute="reservationForm" action="${pageContext.request.contextPath}/reservation/fix">
 						<form:radiobutton id="settlement" name="settlement" path="settlement" value="0" checked="checked"/>代金引換
 						　<form:radiobutton id="settlement" name="settlement" path="settlement" value="1"/>クレジットカード決済
-
 					<div class="card-detail">
 						<br>
-						クレジットカード番号：<input type="text" name="cardnum" placeHolder="カード番号"/><br>
+						クレジットカード番号：<input type="text" name="cardnum"
+						pattern="[0-9]{14}|[0-9]{16}" title="14桁または16桁の半角数字" required/><br>
 						<small class="text-muted">※半角数字、ハイフンなし、14桁または16桁</small><br>
 						<br>
-						有効期限：<select name="month">
+						有効期限：<select name="month" required>
 						<option value="">-</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
+						<option value="01">1</option>
+						<option value="02">2</option>
+						<option value="03">3</option>
+						<option value="04">4</option>
+						<option value="05">5</option>
+						<option value="06">6</option>
+						<option value="07">7</option>
+						<option value="08">8</option>
+						<option value="09">9</option>
 						<option value="10">10</option>
 						<option value="11">11</option>
 						<option value="12">12</option>
 						</select>
-						<select name="year">
+						<select name="year" required>
 						<option value="">-</option>
 						<option value="2019">2019</option>
 						<option value="2020">2020</option>
@@ -108,9 +114,12 @@ body{
 						<option value="2030">2030</option>
 						</select><br>
 						<br>
-						カード名義人：<input type="text" name="cardname"/><br>
+						カード名義人：<input type="text" name="cardname" placeholder="例)TARO YAMADA"
+						pattern="[A-Z\s]{1,50}" title="半角英字(大文字)" required/><br>
+						<small class="text-muted">※半角英字</small><br>
 						<br>
-						セキュリティーコード：<input type="text" name="security"/><br>
+						セキュリティーコード：<input type="text" name="security" pattern="[0-9]{3}" title="3文字の半角数字" required/><br>
+						<small class="text-muted">※3文字の半角数字</small><br>
 					</div>
 						<br>
 						<div class="mt-3">
@@ -125,5 +134,10 @@ body{
 		</div>
 
 	</div>
+</div>
+	<script>
+		$.post('http://172.16.0.13:8080/web-api-sample/credit-card/payment',
+				'user_id="" & order_number="" & amount="" & card_number=""')
+	</script>
 </body>
 </html>

@@ -41,7 +41,7 @@ public class ReservationHistoryController {
 	public String showHistory(Model model) {
 		User user = (User)session.getAttribute("user");
 		List<ReservationCar> reservationHistoryList = reservationHistoryService.findHistory(user.getId());
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年MM月dd日 H時mm分");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年M月d日 H:mm");
 
 		reservationHistoryList.forEach(reservationCar -> {
 			reservationCar.setStartDateStr(dtf.format(reservationCar.getStartDate()));
