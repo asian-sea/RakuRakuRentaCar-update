@@ -77,6 +77,7 @@ body{
 		// カレンダー
 		flatpickr(".flatpickr", {
 			enableTime: true,
+			minDate:new Date().fp_incr(1)
 		});
 
 		//===== 以下合計金額計算用ソース
